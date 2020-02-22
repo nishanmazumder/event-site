@@ -1,0 +1,15 @@
+{
+    "autoload":{
+        "files":[
+            "config/config.php",
+            "lib/Database.php",
+            "lib/Session.php",
+            "helpers/formate.php"
+        ],
+        "classmap":[]
+    },
+    "require": {
+        "fzaninotto/faker": "^1.9",
+        "stripe/stripe-php": "^7.14"
+    }
+}
