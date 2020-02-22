@@ -5,6 +5,10 @@
 <ul>
   <li>1. Events management.</li>
   <li>2. Pament method.</li>
-  <li>3. Google location base.</li>
+  <li>3. Google location.</li>
   <li>4. Contact support.</li>
+  <li>5. Subscription</li>
+  <li>6. Ticket selling</li>
+  <li>7. Gallery management</li>
+  <li>8. Social</li>
 </ul>
