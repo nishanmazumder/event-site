@@ -3,14 +3,14 @@
 
 <h3>Features:</h3>
 <ul>
-  <li>1. Events management.</li>
-  <li>2. Pament method.</li>
-  <li>3. Google location.</li>
-  <li>4. Contact support.</li>
-  <li>5. Subscription</li>
-  <li>6. Ticket selling</li>
-  <li>7. Gallery management</li>
-  <li>8. Social</li>
+  <li>Events management.</li>
+  <li>Pament method.</li>
+  <li>Google location.</li>
+  <li>Contact support.</li>
+  <li>Subscription</li>
+  <li>Ticket selling</li>
+  <li>Gallery management</li>
+  <li>Social</li>
 </ul>
 
 <p>Copyright © 2020 by <a href="https://www.bdsoftcreation.com/" target="_blank">BDSOFT</a>. All Rights Reserved.</p>
