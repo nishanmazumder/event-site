@@ -1,0 +1,34 @@
+<!--Jquery Version-->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<!--Popper-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+<!--Bootstrap Js-->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<!--Select2 Js-->
+<script src="js/select2.min.js"></script>
+<!--Multiselect Js-->
+<script src="js/bootstrap-multiselect.js"></script>
+<!--Table Js-->
+<script src="js/jquery.stickytable.min.js"></script>
+<!--Menu Js-->
+<script src="js/jquery.ssd-vertical-navigation.min.js"></script> 
+<script src="js/app.js"></script> 
+
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote.min.js"></script>
+<script type="text/javascript">
+    $('#summernote').summernote({
+        placeholder: 'Page Conten here',
+        tabsize: 2,
+        height: 300
+    });
+</script>
+
+
+
+
+<!--Custom Js-->
+<script src="js/main.js"></script>
