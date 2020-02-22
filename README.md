@@ -1,5 +1,5 @@
 <h1>Event site.</h1>
-<p>User can upload Events & earn by selling ticket.</p>
+<p>User can upload Events & earn by selling. Please visit https://www.bdsoftcreation.com/ for more details.</p>
 
 <h3>Features:</h3>
 <ul>
@@ -12,3 +12,4 @@
   <li>7. Gallery management</li>
   <li>8. Social</li>
 </ul>
+
