@@ -1,0 +1,133 @@
+/* Small devices (landscape phones, 576px and up)*/
+@media (max-width: 650px) {
+    .single-block {
+        padding: 5px 8px !important;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (max-width: 780px) {
+    .header-logo {
+        margin: 3%;
+        width: 12%;
+    }
+    .nm-events-count{}
+
+    .nm-events-count h1 {
+        font-size: 30px;
+    }
+
+    .nm-events-count p {
+        font-size: 14px;
+    }
+
+    .nm-events-count .flipper{
+        font-size: 24px !important;
+        left: 27% !important;
+    }
+
+    .nm-nav-item li a:hover{
+        transform: none;
+    }
+    .nm-about-img {
+        min-height: 65vh;
+    }
+    .nm-about-img-border{
+        left: 0px;
+    }
+    .nm-about-details {
+        width: 100%;
+        margin-top: 5%;
+        padding: 60px 50px;
+        color: #fff;
+        right: 0px;
+    }
+
+    .nm-eve-hoster img {
+        width: 25%;
+        margin-top: 3%;
+    }
+    .nm-eve-hoster ul{
+        margin-bottom: 0px;
+    }
+    .nm-eve-hoster ul li{
+        font-size: 12px !important;
+    }
+    .nm-eve-hoster .nm-btn{
+        font-size: 14px;
+        padding: 2px 12px;
+        width: 75%;
+        float: right;
+    }
+
+    .nm-eve-slider li img{
+        width: 100%;
+    }
+
+    .nm-ticket-list {
+        width: 70%;
+    }
+
+    .nm-eve-price{
+        margin: 10px 15px !important;
+    }
+
+    .nm-accordion {
+        padding: 0px;
+    }
+    .nm-contact-details{
+        width: 48%;
+        margin-top: 6%;
+    }
+    .nm-mailchimp {
+        width: 100%;
+    }
+    footer{
+        height: 100%;
+    }
+    .nm-brand {
+        width: 100%;
+    }
+    .nm-single-block-ticket {
+        padding: 14px;
+        margin-right: 0px;
+    }
+    .single-block {
+        padding: 10px 20px;
+    }
+    .single-block-title {
+        font-size: 22px;
+    }
+    .single-block-data ul li i {
+        font-size: 24px;
+        margin-right: 5px;
+    }
+    footer .nm-nav-item {
+        width: 100%;
+        margin: 0px auto;
+        margin-top: 5%;
+        text-align: center;
+        position: relative;
+        display: block;
+    }
+    footer .nm-nav-item li {
+        padding: 0px;
+        margin: 0px 10px;
+        display: inline-block;
+    }
+    .nm-copy-text {
+        margin-top: 1%;
+    }
+    footer .nm-header-icon {
+        margin: 20px auto;
+    }
+    .nm-back-2-top {
+        margin-top: 5%;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {}

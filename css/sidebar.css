@@ -1,0 +1,99 @@
+/**Sidebar**/
+.nm-sidebar{
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+/**Social**/
+.nm-sidebar-social{
+	width: 100%;
+}
+.nm-side-icon{
+	width: 30%;
+	margin: 1%;
+	float: left;
+}
+.nm-side-icon i{
+	padding: 20% 40%;
+	color: #fff;
+}
+
+.nm-side-icon:nth-child(1){
+	background: #F26522;
+}
+.nm-side-icon:nth-child(2){
+	background: #4064AD;
+}
+.nm-side-icon:nth-child(3){
+	background: #BD081C;
+}
+.nm-side-icon:nth-child(4){
+	background: #35BACE;
+}
+.nm-side-icon:nth-child(5){
+	background: #FF0000;
+}
+.nm-side-icon:nth-child(6){
+	background: #1DA1F2;
+}
+
+
+/**Category Counter**/
+.nm-cat-counter{
+	color: #fff;
+	list-style-type: none;
+}
+.nm-cat-counter li{
+	
+}
+.nm-cat-counter li a{
+	width: 100%;
+	padding: 20px;
+	text-decoration: none;
+}
+
+/**Tags**/
+.nm-tags{
+	list-style-type: none;
+	padding: 0px;
+}
+
+.nm-tags li{
+	float: left;
+	margin: 5px;
+}
+
+.nm-tags li a{
+	color: #fff;
+	background: green;
+	padding: 2px 10px;
+}
+
+.nm-tags{}
+
+/**Author**/
+.nm-auth-area{}
+
+.nm-auth-area ul{
+	list-style-type: none;
+}
+.nm-social-auth{}
+.nm-social-auth li{
+	float: left;
+}
+.nm-auth-leader{}
+.nm-auth-leader-list li{
+	float: left;
+}
+
+
+
+
+
+
+
+
+
+
+
