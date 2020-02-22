@@ -1,5 +1,5 @@
 <h1>Event site.</h1>
-<p>User can upload Events & earn by selling. Please visit https://www.bdsoftcreation.com/ for more details.</p>
+<p>User can upload Events & earn by selling. Please visit <a href="https://www.bdsoftcreation.com/" target="_blank">BDSOFT</a> for more details.</p>
 
 <h3>Features:</h3>
 <ul>
@@ -13,3 +13,4 @@
   <li>8. Social</li>
 </ul>
 
+<p>Copyright © 2020 by <a href="https://www.bdsoftcreation.com/" target="_blank">BDSOFT</a>. All Rights Reserved.</p>
