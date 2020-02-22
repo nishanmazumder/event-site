@@ -1,6 +1,8 @@
 <h1>Event site.</h1>
 <p>User can upload Events & earn by selling. Please visit <a href="https://www.bdsoftcreation.com/" target="_blank">BDSOFT</a> for more details.</p>
 
+see <a href="http://events.bdsoftcreation.com/" target="_blank">demo</a>
+
 <h3>Features:</h3>
 <ul>
   <li>Events management.</li>
