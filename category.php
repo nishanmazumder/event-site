@@ -39,8 +39,10 @@
                 while ($data = mysqli_fetch_assoc($result)) {
                     ?>
                     <div class="row no-gutters align-items-center nm-upcoming-eve">
-                        <div class="col-3 nm-eve-img" style="background-image: url('admin/<?php echo $data['eve_img']; ?>');"></div>
-                        <div class="col-6 nm-eve-details">
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 ">
+                            <div class="nm-eve-img" style="background-image: url('admin/<?php echo $data['eve_img']; ?>');"></div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 nm-eve-details">
                             <div class="nm-eve-title">
                                 <h2><?php echo $data['title']; ?></h2>
                             </div>
@@ -52,7 +54,8 @@
                                 <span><?php echo $data['location']; ?></span>
                             </div>
                         </div>
-                        <div class="col-3">
+
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 ">
                             <div class="nm-eve-hoster">
                                 <img src="admin/<?php echo $data['host_img']; ?>" alt="" />
                                 <ul>
@@ -60,9 +63,10 @@
                                     <li class="nm-text-pink"><?php echo $data['host_name']; ?></li>
                                 </ul>
                                 <div class="clearfix"></div>
-                                <a href="single.php?eventId=<?php echo $data['id']; ?>" class="nm-btn nm-btn-color-block">View Details</a>
+                                <a href="single.php?eventId=<?php echo $data['id']; ?>" class="nm-btn nm-btn-color-block">Join Now</a>
                             </div>
                         </div>
+
                     </div>
                     <?php
                 }
