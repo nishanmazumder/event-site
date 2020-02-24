@@ -35,7 +35,7 @@ if (isset($_GET['eventId'])) {
                                     </h3>
                                     <span class="single-block-data"><?php echo $fm->timeFormatDay($data['eve_time']); ?></span>
                                 </div>
-                                <div class="single-block">
+                                <div class="single-block nm-border-none">
                                     <h3 class="single-block-title">
                                         Duration
                                     </h3>
@@ -43,7 +43,7 @@ if (isset($_GET['eventId'])) {
                                     <span class="single-block-data"><?php echo $data['eve_dur']; ?> days</span>
 
                                 </div>
-                                <div class="single-block">
+                                <div class="single-block nm-border-top">
                                     <h3 class="single-block-title">
                                         Activity
                                     </h3>
@@ -56,7 +56,7 @@ if (isset($_GET['eventId'])) {
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="single-block">
+                                <div class="single-block nm-border-top">
                                     <h3 class="single-block-title">
                                         $<?php
                                         $eveprice = $data['eve_price'] / 100;
@@ -71,7 +71,7 @@ if (isset($_GET['eventId'])) {
                         </div>
 
                         <div class="row no-gutters align-items-center nm-single-info wow slideInLeft">
-                            <div class="col-md-3">
+                            <div class="col-md-3 col-sm-3 col-xs-3">
                                 <div class="nm-eve-hoster">
                                     <img src="admin/<?php echo $data['host_img']; ?>" alt="Event Organizer Image" />
                                     <ul>
@@ -81,7 +81,7 @@ if (isset($_GET['eventId'])) {
                                     <div class="clearfix"></div>
                                 </div>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-3 col-sm-3 col-xs-3">
                                 <div class="nm-eve-location">
                                     <i class="fas fa-eye"></i>
                                     <span>Enrolled:</span>
@@ -102,13 +102,13 @@ if (isset($_GET['eventId'])) {
 
                                 </div>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-3 col-sm-3 col-xs-3">
                                 <div class="nm-eve-location">
                                     <i class="fas fa-map-marker-alt"></i>
                                     <span><?php echo $data['location']; ?></span>
                                 </div>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-3 col-sm-3 col-xs-3">
                                 <div class="nm-single-eve-category">
                                     <i class="fas fa-stream"></i>
                                     <a href="category.php?categoryId=<?php echo $data['cat_id']; ?>"><?php echo $data['category']; ?></a>
@@ -117,7 +117,7 @@ if (isset($_GET['eventId'])) {
                         </div>
 
                         <div class="row no-gutters align-items-center wow slideInLeft">
-                            <div class="col-md-12 nm-single-block-description">
+                            <div class="col-md-12 col-sm-12 col-xs-12 nm-single-block-description">
                                 <p>
                                     <?php echo $data['eve_des']; ?>
                                 </p>
@@ -125,11 +125,11 @@ if (isset($_GET['eventId'])) {
                         </div>
 
                         <div class="row no-gutters align-items-center nm-single-block-gallery wow slideInLeft">
-                            <div class="col-md-12">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
                                 <h3>Gallery</h3>
                                 <div class="nm-line-des"></div>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
                                 <ul id="nmSingleEvents" class="nm-eve-slider">
 
                                     <?php
@@ -148,11 +148,11 @@ if (isset($_GET['eventId'])) {
                         </div>
 
                         <div class="row no-gutters nm-single-loc wow fadeIn">
-                            <div class="col-md-12">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
                                 <h3>Location</h3>
                                 <div class="nm-line-des"></div>
                             </div>
-                            <div class="col-md-12 wow fadeIn">
+                            <div class="col-md-12 col-sm-12 col-xs-12 wow fadeIn">
                                 <?php
                                 $iframe = str_replace(array('600', '450'), array('100%', '250'), $data['map_loc']);
                                 echo $iframe;
