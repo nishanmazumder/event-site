@@ -1,20 +1,65 @@
-/* Small devices (landscape phones, 576px and up)*/
-@media (max-width: 650px) {
-    .single-block {
-        padding: 5px 8px !important;
+/* Extra large devices (large desktops, 1200px and up) */
+@media (max-width: 1200px) {}
+
+/* Large devices (desktops, 992px and up) */
+@media (max-width: 1030px) {
+    .nm-about-img-border {
+        left: 60px;
+    }
+    .nm-about-details {
+        width: 100%;
+    }
+    .nm-contact-details {
+        width: 32%;
+    }
+    .nm-brand {
+        width: 100%;
+    }
+    .nm-mailchimp {
+        width: 50%;
+    }
+    footer .nm-nav-item {
+        width: 45%;
+    }
+    .nm-accordion {
+        padding: 0px 130px;
+    }
+    .nm-check-form-section {
+        padding: 10px 0px !important;
     }
 }
 
 /* Medium devices (tablets, 768px and up) */
 @media (max-width: 780px) {
+    .nm-nav {
+        padding: 7px 16px;
+    }
+    .nm-nav-item li a{
+        text-align: center; 
+        font-size: 20px;
+    }
+    .nm-header-icon {
+        text-align: center;
+    }
     .header-logo {
         margin: 3%;
         width: 12%;
     }
-    .nm-events-count{}
 
-    .nm-events-count h1 {
+    .nm-logo {
+        width: 120px;
+    }
+
+    .navbar-toggler-icon {
         font-size: 30px;
+        position: relative;
+        top: 8px;
+    }
+    .nm-events-count {
+
+        width: 70% !important;}
+    .nm-events-count h1 {
+        font-size: 45px;
     }
 
     .nm-events-count p {
@@ -22,19 +67,22 @@
     }
 
     .nm-events-count .flipper{
-        font-size: 24px !important;
-        left: 27% !important;
+        font-size: 30px !important;
+        left: 24% !important;
     }
 
     .nm-nav-item li a:hover{
         transform: none;
     }
     .nm-about-img {
-        min-height: 65vh;
+        min-height: 80vh;
     }
     .nm-about-img-border{
         left: 0px;
     }
+    .nm-about-img i {
+        left: 50%;
+        top: 45%;}
     .nm-about-details {
         width: 100%;
         margin-top: 5%;
@@ -42,7 +90,9 @@
         color: #fff;
         right: 0px;
     }
-
+    .nm-eve-img {
+        min-height: 24vh;
+    }
     .nm-eve-hoster img {
         width: 25%;
         margin-top: 3%;
@@ -51,11 +101,11 @@
         margin-bottom: 0px;
     }
     .nm-eve-hoster ul li{
-        font-size: 12px !important;
+        font-size: 16px !important;
     }
     .nm-eve-hoster .nm-btn{
-        font-size: 14px;
-        padding: 2px 12px;
+        font-size: 20px;
+        padding: 2px;
         width: 75%;
         float: right;
     }
@@ -65,11 +115,11 @@
     }
 
     .nm-ticket-list {
-        width: 70%;
+        width: 50%;
     }
 
     .nm-eve-price{
-        margin: 10px 15px !important;
+        margin: 20px 15px !important;
     }
 
     .nm-accordion {
@@ -77,7 +127,13 @@
     }
     .nm-contact-details{
         width: 48%;
-        margin-top: 6%;
+        margin-top: -5%;
+        margin-right: 25%;
+        display: block;
+    }
+    .nm-map{
+        position: relative;
+        margin-top: 55%;
     }
     .nm-mailchimp {
         width: 100%;
@@ -88,20 +144,7 @@
     .nm-brand {
         width: 100%;
     }
-    .nm-single-block-ticket {
-        padding: 14px;
-        margin-right: 0px;
-    }
-    .single-block {
-        padding: 10px 20px;
-    }
-    .single-block-title {
-        font-size: 22px;
-    }
-    .single-block-data ul li i {
-        font-size: 24px;
-        margin-right: 5px;
-    }
+
     footer .nm-nav-item {
         width: 100%;
         margin: 0px auto;
@@ -124,10 +167,227 @@
     .nm-back-2-top {
         margin-top: 5%;
     }
+
+    /**Single**/
+    .nm-single-block-ticket {
+        padding: 5px;
+        margin-right: 0px;
+    }
+    .single-block {
+        padding: 10px 20px;
+    }
+    .single-block-title {
+        font-size: 22px;
+    }
+    .single-block-data ul li i {
+        font-size: 24px;
+        margin-right: 5px;
+    }
+    .nm-mostsell-event {
+        height: 150px;
+    }
 }
 
-/* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) {}
+/* Small devices (landscape phones, 576px and up)*/
+@media (max-width: 650px) {
+    .nm-events-count{
+        width: 95% !important;
+    }
+    .nm-events-count .flipper {
+        margin-left: 10px !important;
+    }
+    .nm-up-events {
+        padding-bottom: 50px;
+    }
+    .nm-eve-hoster ul li{
+        font-size: 14px !important;
+    }
+    .nm-eve-hoster .nm-btn{
+        font-size: 18px;
+        padding: 2px 12px;
+        width: 75%;
+        float: right;
+    }
+    .single-block {
+        padding: 10px 8px !important;
+        width: 50%;
+        float: left;
+        border-right: 0px solid transparent !important;
+    }
+    .single-block-title {
+        font-size: 26px;
+        margin-bottom: 14px;
+    }
+    .nm-single-block-ticket {
+        margin-top: -105px;
+        margin-bottom: 30px;
+    }
+    .nm-border-none{
+        border: none !important;
+        border-right: 0px solid transparent !important;
+    }
 
-/* Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {}
+    .nm-border-top{
+        border-top: 1px solid #ffffff9c;
+    }
+    .single-block-data ul li i {
+        font-size: 40px;
+    }
+    .single-block-btn .nm-btn {
+        font-size: 24px;
+    }
+    .nm-ticket-list {
+        width: 65%;
+    }
+
+    .nm-contact-details {
+        width: 53%;
+        margin-right: 22%;
+    }
+
+    .nm-map {
+        margin-top: 67%;
+    }
+    .nm-brand li {
+        width: 30%;
+        float: left;
+    }
+    .nm-brand img {
+        width: 100%;
+    }
+    footer .nm-nav-item a {
+        font-size: 18px;
+    }
+    .nm-copy-text {
+        margin-top: 5%;
+    }
+
+    footer .nm-header-icon i {
+        font-size: 35px;
+    }
+}
+
+@media (max-width: 500px) {
+    .nm-events-count .flipper {
+        font-size: 26px !important;
+        left: 10% !important;
+    }
+    .nm-about-img {
+        min-height: 50vh;
+    }
+    .nm-about-img i {
+        left: 38%;
+        top: 36%;
+    }
+    .nm-about-details {
+        padding: 60px 20px;
+    }
+    .nm-about-details a {
+        font-size: 20px;
+    }
+    .nm-upcoming-eve {
+        margin: 20px 0px 20px 0px;
+        padding: 0px;
+    }
+    .nm-events-count h1 {
+        font-size: 30px;
+    }
+    .nm-title-left h1 {
+        font-size: 35px;
+    } 
+    .nm-eve-img {
+        min-height: 45vh;
+        margin-bottom: 20px;
+    }
+    .nm-eve-hoster {
+        margin-top: 20px;
+    }
+    .nm-eve-hoster img {
+        width: 15%;
+        margin-top: 0%;
+        margin-left: 3%;
+    }
+    .nm-eve-hoster ul li {
+        font-size: 15px !important;
+    }
+    .nm-eve-hoster .nm-btn {
+        font-size: 20px;
+        padding: 2px 12px;
+        width: 75%;
+        float: none;
+        margin: 40px auto 20px;
+    }
+    #nmRecentEvents .lslide img {
+        height: 325px !important;
+    }
+    .lSPager .lSGallery{
+        margin-top: -30px;
+    }
+    .nm-ticket-list {
+        width: 100%;
+    }
+    .nm-ticket-list .nm-btn {
+        font-size: 18px;
+    }
+    .nm-contact-details {
+        width: 94%;
+        margin: 0px 10px;
+    }
+    .nm-contact .nm-btn {
+        font-size: 18px;
+    }
+    .nm-map {
+        margin-top: 470px;
+    }
+    /***single***/
+    .nm-hero-text {
+        left: 0;
+        margin-left: 0px;
+        transform: translate(0%, -50%);
+        padding: 10px;
+    }
+    .nm-hero-text h1 {
+        font-size: 35px;
+    }
+    .nm-single-block-ticket {
+        margin-top: -135px;
+    }
+    .single-block-btn .nm-btn {
+        font-size: 18px;
+        padding: 5px 8px;
+    }
+    .nm-single-block-ticket {
+        margin-bottom: 0px;
+    }
+    .nm-single-info{
+        margin-bottom: 20px;
+    }
+    .nm-single-info .nm-eve-hoster img {
+        margin-left: 0%;
+        width: 18%;
+    }
+
+    .nm-single-info .nm-eve-location{
+        margin-top: 10px;
+    }
+    .nm-single-info .nm-single-eve-category{
+        margin-top: 10px;
+    }
+
+    .nm-mostsell-event{
+        width: 99%;
+    }
+
+    .nm-m-block{
+        float: left;
+        width: 50%;
+    }
+
+    .nm-check-form-section {
+        padding: 20px !important;
+    }
+
+
+}
+
+@media (max-width: 330px) {}

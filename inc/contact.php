@@ -104,7 +104,7 @@ while ($data = mysqli_fetch_assoc($result)) {
                 </div>
             </div>
 
-            <div class="col-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 nm-map">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nm-map">
                 <?php
                 $iframe = str_replace(array('600', '450'), array('100%', '250'), $data['map_loc']);
                 echo $iframe;

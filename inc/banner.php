@@ -27,8 +27,8 @@
                     while ($data_v = $result_video->fetch_assoc()) {
                         ?>
                         <div class="overlay"></div>
-                        <video playsinline="playsinline" muted="muted" loop="loop" utoplay>
-                            <source src="../events/admin/<?php echo $data_v['nm_header_video']; ?>" type="video/mp4">
+                        <video playsinline="playsinline" muted="muted" loop="loop" autoplay>
+                            <source src="admin/<?php echo $data_v['nm_header_video']; ?>" type="video/mp4">
                         </video>
                         <?php
                     }
@@ -37,9 +37,6 @@
                 <div class="container-fluid nm-header-content h-100 wow bounceIn">
                     <div class="d-flex h-100 text-center align-items-center">
                         <div class="w-100 text-white nm-events-count">
-                            <h3>
-
-                            </h3>
                             <h1 class="display-3"><?php echo $fm->textLimit($data['title'], 50); ?></h1>
                             <p><?php echo $fm->textLimit($data['subtitle'], 50); ?></p>
                             <div class="flipper" data-reverse="true" data-datetime="<?php echo $data['eve_time']; ?>" data-template="ddd|HH|ii|ss" data-labels="Days|Hours|Minutes|Seconds" id="myFlipper"></div>

@@ -4,7 +4,7 @@
     <div class="row no-gutters nm-sidebar-block wow slideInRight">
         <div class="col-md-12"> 
             <div class="nm-advert">
-                <img src="img/ad1.png" style="width: 100%;" alt="" />
+                <img src="admin/uploads/ad1.png" style="width: 100%;" alt="" />
             </div>
         </div>
     </div>
@@ -24,8 +24,8 @@
         if ($result_sell) {
             while ($data = $result_sell->fetch_assoc()) {
                 ?>
-        <div class="col-md-6"> 
-            <a href="../events/single.php?eventId=<?php echo $data['id']; ?>">
+        <div class="col-md-6 col-sm-4 col-xs-6 nm-m-block"> 
+            <a href="single.php?eventId=<?php echo $data['id']; ?>">
                 <div class="nm-mostsell-event" style="background-image: url('./admin/<?php echo $data['eve_img']; ?>');"></div>
             </a>
         </div>
@@ -54,7 +54,7 @@
                     if ($result_eve) {
                         while ($data = $result_eve->fetch_assoc()) {
                             ?>
-                            <li><a href="../events/single.php?eventId=<?php echo $data['id']; ?>"><?php echo $data['title']; ?></a></li>
+                            <li><a href="single.php?eventId=<?php echo $data['id']; ?>"><?php echo $data['title']; ?></a></li>
                             <?php
                         }
                     } else {
@@ -82,7 +82,7 @@
                         while ($data = $result_cat->fetch_assoc()) {
                             ?>
 
-                            <li><a href="../events/category.php?categoryId=<?php echo $data['cat_id']; ?>"><?php echo $data['category']; ?></a></li>
+                            <li><a href="category.php?categoryId=<?php echo $data['cat_id']; ?>"><?php echo $data['category']; ?></a></li>
 
                             <?php
                         }

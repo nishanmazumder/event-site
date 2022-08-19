@@ -200,7 +200,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-12 no-gutters">
                         <label for="" class="col-form-label">Events Description</label>
-                        <textarea class="form-control" name="nm_eve_des" id="summernote" cols="" rows=""></textarea>
+                        <textarea class="form-control tinymce" name="nm_eve_des" id="summernote" cols="" rows=""></textarea>
                     </div>
                     <div class="form-group col-md-12 no-gutters">
                         <label for="" class="col-form-label">Events Gallery</label>

@@ -1,19 +1,29 @@
-<!doctype html>
 <?php
-include '../vendor/autoload.php';
+//session_start();
 
-Session::checkSession();
-?>
-<?php
+require '../vendor/autoload.php';
+require '../lib/login.php';
 
+if (!isset($_SESSION['user_id'])) {
+     //header('Location: index.php');
+    echo "<script>window.location='index.php';</script>";
+}
+
+if (isset($_GET['action']) && $_GET['action'] == 'logout') {
+    $login = new UserLogin();
+    $login->user_logout();
+}
 
 $db = new Database();
 $fm = new Format();
 
-$userName = Session::get('user');
-$userId = Session::get('userId');
-$userRole = Session::get('userRole');
+$userId = $_SESSION['user_id'];
+$userName = $_SESSION['user_name'];
+$userRole = $_SESSION['user_role'];
 ?>
+
+
+<!doctype html>
 <html lang="en">
     <head>
         <!--META-->
@@ -33,23 +43,17 @@ $userRole = Session::get('userRole');
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <?php
-                if (isset($_GET['action']) && $_GET['action'] == 'logout') {
-                    Session::destroy();
-                }
-                ?>
-
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item dropdown nm_display_none_mob">
                             <a class="nav-link dropdown-toggle nm_spc_border_both" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <?php echo "Hello" . " " . $userName; ?>
+                                <?php echo "Hello" . " " .$userName; ?> 
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="#">Activity log</a>
                                 <a class="dropdown-item" href="#">Settings</a>
                                 <a class="dropdown-item" href="#">Swich user</a>
-                                <a class="dropdown-item" href="?action=logout">Logout</a>
+                                <a class="dropdown-item" href="inc/header.php?action=logout">Logout</a>
                             </div>
                         </li>
                         <li class="nav-item nm_display_none_mob nm_notification_li">
@@ -57,10 +61,9 @@ $userRole = Session::get('userRole');
                             <?php
                             $query = "SELECT id FROM nm_contact WHERE status = 0";
                             $result = $db->select($query);
-                           
                             ?>
 
-                            <a class="nav-link" href="../mail-list.php">
+                            <a class="nav-link" href="mail-list.php">
                                 <i class="fa fa-bell fa-2x text-warning"></i>
                                 <span class="badge badge-warning align-top">
                                     <?php

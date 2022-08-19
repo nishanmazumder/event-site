@@ -13,7 +13,7 @@
                     while ($data = mysqli_fetch_assoc($result)) {
                         ?>
 
-                    <li><img src="../events/admin/<?php echo $data['img']; ?>" alt="" /></li>
+                    <li><img class="nm-m-block" src="admin/<?php echo $data['img']; ?>" alt="" /></li>
 
                     <?php } ?>
                 </ul>
@@ -41,7 +41,7 @@
                         while ($data_f_nav = $result_f_nav->fetch_assoc()) {
                             ?>
                             <li class="nav-item">
-                                <a class="nav-link active" href="../events/page.php?id=<?php echo $data_f_nav['id']; ?>"><?php echo $data_f_nav['page_title']; ?></a>
+                                <a class="nav-link active" href="page.php?id=<?php echo $data_f_nav['id']; ?>"><?php echo $data_f_nav['page_title']; ?></a>
                             </li>
                             <?php
                         }

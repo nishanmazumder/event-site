@@ -15,7 +15,7 @@
             while ($data = $result->fetch_assoc()) {
                 ?>
 
-                <div class="col-4 col-lg-4 col-md-6 col-sm-12 col-xs-12 wow bounceIn">
+                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 wow bounceIn">
                    
                         <div class="nm-eve-price">
                             <h3><?php echo $data['plan_title']; ?></h3>
@@ -30,7 +30,7 @@
                                 <?php } ?>
 
                             </ul>
-                            <a href="../events/checkout.php?planId=<?php echo $data['id']; ?>" class="nm-btn">Buy Now</a>
+                            <a href="checkout.php?planId=<?php echo $data['id']; ?>" class="nm-btn">Buy Now</a>
                         </div> 
                     
                 </div>

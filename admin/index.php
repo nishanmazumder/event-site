@@ -1,37 +1,76 @@
-<!--Header section start-->
-<?php include("inc/header.php"); ?>
-<!--Header section end-->
+<?php
+//session_start();
+require_once '../lib/login.php';
+require_once '../helpers/formate.php';
+$fm = new Format();
 
-<div class="clearfix"></div>
+$login_error = '';
 
-<!--Left navigation-->
-<?php include("inc/navigation.php"); ?>
-<!--Left navigation-->
+if (isset($_POST['btnLogin'])) {
+    $user_mail = $fm->validation($_POST['usermail']);
+    $user_password = $fm->validation(md5($_POST['userpass']));
 
-<!--Main section start-->
-<div class="col-lg-10 col-md-10 col-sm-10 nm_content_bg">
-    <nav aria-label="breadcrumb nm-breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Library</li>
-        </ol>
-    </nav>
-    <!--Content main area-->
-    <div class="nm_main_content_area">
-        <div class="nm_main_content">
-            <!--Content-->
-            <h1>Welcome</h1>
-            <!--Content-->
+    if ($user_mail == "") {
+        $login_error = 'Mail field is required!';
+    } else if ($user_password == "") {
+        $login_error = 'Password field is required!';
+    } else if (!filter_var($user_mail, FILTER_VALIDATE_EMAIL)) {
+        $login_error = 'Invalid email address!';
+    } else {
+        $login = new UserLogin();
+        $login->user_login($user_mail, $user_password);
+    }
+}
+?>
+
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <title>Admin Login</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!--Bootstrap min css-->
+        <link  href="css/login/asset/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
+        <link rel="stylesheet" href="css/login/style.css" />
+    </head>
+    <body class="body-bg-black">
+        <div class="container-fluid">
+            <div class="row wapper">
+                <div class="col-md-6">
+                    <div class="big-title">
+                        <h1>Do you wanna <br /> 
+                            <span class="red-text">try</span> anything<span class="red-text">?</span></h1>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="user-form-area">
+                        <form class="test-form" action="" method="post">
+                            <?php
+                            if ($login_error != "") {
+                                echo '<div class="alert alert-danger text-danger"><strong>Error: </strong> ' . $login_error . '</div>';
+                            } elseif (isset($_GET['login_error'])){
+                                $_GET['login_error'] = 'Invalid Login';
+                                echo '<div class="alert alert-danger text-danger"><strong>Error: </strong> ' . $_GET['login_error'] . '</div>';
+                            }
+                            
+                            ?>
+                            <div class="form-group">
+                                <input name="usermail" type="email" class="form-control" id="" placeholder="Email">
+                            </div>
+                            <div class="form-group">
+                                <input name="userpass" type="password" class="form-control" id="" placeholder="Password">
+                            </div>
+                            <a href="login-forget.php" class="nm-admin-login-for">Forget Password</a>
+                            <button name="btnLogin" type="submit" id="" class="btn submit-button">Submit</button><br />
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-</div><!-----end------>
 
-</div>
-</div>
-</section>
-<!--Main section end-->
-
-<div class="clearfix"></div>
-
-<!--Footer section strat-->
-<?php include("inc/footer.php"); ?>
+        <!--Bootstrap Js-->
+        <script src="css/login/asset/js/bootstrap.min.js"></script>
+    </body>
+</html>

@@ -354,7 +354,7 @@ button, a{
     position: relative !important;
     display: block !important;
     margin: 0px auto !important;
-    left: 30% !important;
+    left: 25% !important;
 }
 
 .nm-events-count .nm-btn{
@@ -774,7 +774,7 @@ button, a{
 .single-block{
     width: 24%;
     display: inline-table;
-    border-right: 1px solid #fff;
+    border-right: 1px solid #ffffff9c;
     padding: 10px;
     text-align: center;
 }
@@ -1003,6 +1003,7 @@ footer{
     margin: 0px auto;
     text-align: center;
     margin-top: 5%;
+    padding: 0px;
 }
 
 .nm-brand li{

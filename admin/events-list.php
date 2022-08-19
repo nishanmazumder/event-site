@@ -44,9 +44,9 @@
                         $DelResult = $db->delete($eveDelQuery);
 
                         if ($DelResult) {
-                            echo '<span class="text-success">Events Deleted Successfully !</span>';
+                            echo '<span class="text-success" style="display:block; margin-bottom:10px;">Events Deleted Successfully !</span>';
                         } else {
-                            echo '<span class="text-success">Problem !</span>';
+                            echo '<span class="text-success" style="display:block; margin-bottom:10px;">Problem !</span>';
                         }
                     }
                     ?>

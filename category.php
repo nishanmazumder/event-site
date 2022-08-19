@@ -87,7 +87,7 @@
                 <nav aria-label="Page navigation example">
                     <ul class="pagination justify-content-center">
                         <li class="page-item">
-                            <a class="page-link" href="http://localhost/events/" aria-label="">
+                            <a class="page-link" href="<?php echo $base_url;?>" aria-label="">
                                 <span aria-hidden="true">No more events. Back to Home</span>
                             </a>
                         </li>

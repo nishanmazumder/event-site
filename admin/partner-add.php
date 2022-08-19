@@ -20,7 +20,7 @@
     <div class="nm_main_content_area">
         <div class="nm_main_content">
             <?php
-            if (isset($_GET['nm_submit'])) {
+            if (isset($_POST['nm_submit'])) {
                 $title = mysqli_real_escape_string($db->link, $_POST['nm_brand_title']);
 
                 $permited = array('jpg', 'jpeg', 'png', 'gif');

@@ -1,0 +1,162 @@
+body{
+/*    background: #999999 !important;*/
+    font-family: monospace;
+/*     font-family: 'AdorshoLipi', Arial, sans-serif !important;*/
+}
+.body-bg-black{
+    background: #000;
+}
+
+.body-bg-dgray{
+    background: #999999;
+}
+.nm_display_none{
+    display: none;
+}
+.wapper{
+    margin-top: 150px;
+}
+.big-title{
+   float: left;
+}
+
+.big-title h1{
+    font-size: 100px;
+    color: #fff;
+    font-weight: 900;
+    float: right;
+    text-align: center;
+}
+
+.big-title h1::first-letter{
+    color: #ff0000;
+}
+.red-text{
+    color: #ff0000;
+}
+.text-white{
+    color: #fff;
+}
+/*.user-form-area{
+    float: right;
+}*/
+
+.nm-mar-top-5{
+    margin-top: 5px;
+}
+
+.user-form-area{
+   
+}
+.test-form{
+    display: block;
+    background: #ff0000;
+    padding: 70px;
+    border: 3px solid #fff;
+    border-radius: 40% 0% 40% 0%;
+    margin: 20px;
+}
+.test-form tr{
+    line-height: 1px !important;
+}
+.test-form td{}
+
+.table td, .table th {
+    padding: .75rem;
+    vertical-align: middle;
+    border-top: none;
+}
+.test-form p{
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.test-form input{
+    width: 100%;
+    height: auto;
+    font-weight: bold;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    padding-left: 10px;
+    background: #fff;
+    color: #000;
+}
+
+.nm-admin-login-for{
+    display: block;
+    color: #fff;
+    margin-bottom: 11px;
+}
+
+.submit-button{
+    background: #cc0000;
+    height: auto;
+    font-weight: bold !important;
+    margin-top: 5px;
+    padding: 5px 20px !important;
+    color: #fff;
+    cursor: pointer;
+    float: left;
+    border-radius: 10px !important;
+    transition: .7s;
+    display: block;
+}
+.submit-button:hover{
+    background: #db2525;
+    transform: scale(1.1, 1.2) !important;
+    font-weight: bold;
+}
+.result-area input{
+    width: auto;
+    height: 50px;
+    font-size: 25px;
+    font-weight: bold;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    padding-left: 10px;
+    background: #fff;
+    color: #000;
+    display: block;
+    margin: 0px auto;
+    text-align: center;
+}
+.result-area h1{
+    color: #fff;
+    text-align: center;
+}
+
+input[type="radio"] {
+    width: 20px;
+}
+
+.data_table{
+    padding: 20px 10px;
+    border: 2px double #999999;
+    width: 100%;
+}
+
+/*Tv Box*/
+.tv-box{
+    background: #fff;
+    min-width: 100%;
+    padding: 15px;
+}
+
+.btn_area_tamasha{
+    margin: 20px auto;
+}
+.customize_area{
+    overflow: hidden;
+}
+.customize_area input{
+    width: 100%;
+    height: 30px;
+    padding: 0px;
+}
+
+#customiz_collaspe_area{
+    position: relative;
+    transition: 1s;
+    top: -1000px;
+}

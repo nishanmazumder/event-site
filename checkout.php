@@ -5,7 +5,7 @@
         <div class="col-md-6 text-center">
             <h1>Thanks for contribution.</h1>
             <h3>You may check other payment method</h3>
-            <img src="img/pay3.png" style="width: 75%;" alt="" />
+            <img src="admin/uploads/pay3.png" style="width: 75%;" alt="" />
         </div>
         <div class="col-md-6 nm-check-form-section">
             <?php

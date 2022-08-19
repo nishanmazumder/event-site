@@ -4,7 +4,7 @@
 
     </div>
     <div class="row no-gutters">
-        <div class="col-8 col-lg-8 col-md-8 col-sm-12 col-xs-12 wow slideInLeft">
+        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 wow slideInLeft nm-up-events">
             <div class="nm-title-left">
                 <h1>Upcoming Events</h1>
                 <div class="nm-line"></div>
@@ -18,8 +18,10 @@
             while ($data = mysqli_fetch_assoc($result)) {
                 ?>
                 <div class="row no-gutters align-items-center nm-upcoming-eve">
-                    <div class="col-3 nm-eve-img" style="background-image: url('admin/<?php echo $data['eve_img']; ?>');"></div>
-                    <div class="col-6 nm-eve-details">
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 ">
+                        <div class="nm-eve-img" style="background-image: url('admin/<?php echo $data['eve_img']; ?>');"></div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 nm-eve-details">
                         <div class="nm-eve-time">
                             <?php echo $fm->dateFormat($data['eve_time']); ?> <span><?php echo $fm->timeFormat($data['eve_time']); ?></span>
                         </div>
@@ -31,7 +33,8 @@
                             <span><?php echo $data['location']; ?></span>
                         </div>
                     </div>
-                    <div class="col-3">
+                    
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 ">
                         <div class="nm-eve-hoster">
                             <img src="admin/<?php echo $data['host_img']; ?>" alt="" />
                             <ul>
@@ -42,18 +45,19 @@
                             <a href="single.php?eventId=<?php echo $data['id']; ?>" class="nm-btn nm-btn-color-block">Join Now</a>
                         </div>
                     </div>
+                    
                 </div>
             <?php } ?>
 
             <div class="row no-gutters">
-                <div class="col-12">
-                    <a href="../events/events.php" class="text-left nm-text-pink nm-see-more">See more</a>
+                <div class="col-md-12">
+                    <a href="events.php" class="text-left nm-text-pink nm-see-more">See more</a>
                 </div>
             </div>                
         </div>
 
         <!-- Recent Events -->
-        <div class="col-4  col-lg-4 col-md-4 col-sm-12 col-xs-12 wow slideInRight">
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 wow slideInRight">
             <div class="nm-title-left">
                 <h1>Recent Events</h1>
                 <div class="nm-line"></div>
@@ -69,7 +73,7 @@
 
                     <li data-thumb="admin/<?php echo $data_gal['eve_img_gal']; ?>" data-src="admin/<?php echo $data_gal['eve_img_gal']; ?>">
                         <img src="admin/<?php echo $data_gal['eve_img_gal']; ?>" />
-                        <a class="nm-eve-slider-title" href="../single.php?eventId=<?php echo $data_gal['id']; ?>"><?php echo $data_gal['title']; ?></a>
+                        <a class="nm-eve-slider-title" href="single.php?eventId=<?php echo $data_gal['id']; ?>"><?php echo $data_gal['title']; ?></a>
                     </li>
 
                 <?php } ?>

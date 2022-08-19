@@ -5,7 +5,7 @@
 
         <div class="col-md-12 nm-profile-header">
             <img src="img/prf1.png" alt="" style="" />
-            <h3 class="text-center">Hello <?php echo $userName; ?>!</h3>
+           <h3 class="text-center">Hello <?php echo $userName; ?>!</h3>
             <div class="nm-line-middle"></div>
         </div>
 

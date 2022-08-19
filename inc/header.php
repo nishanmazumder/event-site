@@ -33,7 +33,7 @@ $userRole = Session::get('userRole');
                         while ($data = $result->fetch_assoc()) {
                             ?>
 
-                            <a class="navbar-brand" href="#"><img src="../events/admin/<?php echo $data['nm_logo']; ?>" alt="Logo" class="nm-logo"/></a>
+                            <a class="navbar-brand" href="<?php echo $base_url;?>"><img src="admin/<?php echo $data['nm_logo']; ?>" alt="Logo" class="nm-logo"/></a>
                             <?php
                         }
                     }
@@ -45,25 +45,25 @@ $userRole = Session::get('userRole');
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto nm-nav-item">
                             <li class="nav-item active">
-                                <a class="nav-link" href="http://localhost/events/">Home <span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="<?php echo $base_url;?>">Home <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#nmAbout">About</a>
+                                <a class="nav-link" href="<?php echo $base_url;?>#nmAbout">About</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#nmEvents">Events</a>
+                                <a class="nav-link" href="<?php echo $base_url;?>#nmEvents">Events</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#nmTickets">Tickets</a>
+                                <a class="nav-link" href="<?php echo $base_url;?>#nmTickets">Tickets</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#nmFaq">Faq</a>
+                                <a class="nav-link" href="<?php echo $base_url;?>#nmFaq">Faq</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#nmJoin">Join</a>
+                                <a class="nav-link" href="<?php echo $base_url;?>#nmJoin">Join</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#nmContact">Contact</a>
+                                <a class="nav-link" href="<?php echo $base_url;?>#nmContact">Contact</a>
                             </li>
                         </ul>
 
@@ -78,11 +78,11 @@ $userRole = Session::get('userRole');
                                     <li><a href="<?php echo $data_social['nm_face']; ?>" class="nm-transparent"><i class="fab fa-facebook-f nm-icon"></i></a></li>
                                     <li><a href="<?php echo $data_social['nm_twt']; ?>" class="nm-transparent"><i class="fab fa-twitter nm-icon"></i></a></li>
                                     <li><a href="<?php echo $data_social['nm_gog']; ?>" class="nm-transparent"><i class="fab fa-google-plus-g nm-icon"></i></a></li>
-                                    <?php if (isset($userName)) { ?>
-                                        <li><a href="../events/profile.php" class="nm-transparent"><i class="nm-icon" style="font-size: 16px;">Hi <?php echo $userName; ?> </i></a></li>
+                                    <?php if (!empty($userName)) { ?>
+                                        <li><a href="profile.php" class="nm-transparent"><i class="nm-icon" style="font-size: 16px;">Hi <?php echo $userName; ?> </i></a></li>
                                     <?php } else {
                                         ?>
-                                        <li><a href="../events/login.php" class="nm-transparent nm-btn nm-btn-color-block" style="padding: 4px 10px">Upload</a></li>
+                                        <li><a href="login.php" class="nm-transparent nm-btn nm-btn-color-block" style="padding: 4px 10px">Upload</a></li>
                                             <?php
                                         }
                                     }
