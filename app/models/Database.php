@@ -29,7 +29,7 @@ class Database
 			echo 'Phew we have it!';
 		}
 
-		$this->link = new mysqli($this->host, $this->user, $this->pass, $this->dbname);
+		$this->link = new \mysqli($this->host, $this->user, $this->pass, $this->dbname);
 
 		print_r($this->link);
 

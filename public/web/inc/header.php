@@ -1,11 +1,5 @@
 <?php
 
-if (file_exists(__DIR__ .'/../vendor/autoload.php')){
-    require __DIR__ .'/../vendor/autoload.php';
-}else{
-    echo "Autoloader not found!";
-}
-
 use App\Session;
 use App\Database;
 use App\Format;

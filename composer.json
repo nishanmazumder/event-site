@@ -24,10 +24,12 @@
     "psr-4": {
       "App\\Model\\": [
         "app/models/"
+      ],
+      "App\\Config\\": [
+        "config/"
       ]
     },
-
     "classmap": ["app/models/"],
-    "files" :[]
+    "files" :["config/config.php"]
   }
 }
