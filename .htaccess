@@ -26,5 +26,5 @@
     FallbackResource /404.php
 
     #Deny access to one specific folder
-    Options -Indexes
+    #Options -Indexes
 </IfModule>

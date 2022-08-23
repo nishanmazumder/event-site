@@ -30,7 +30,7 @@ if (file_exists(__DIR__ . "/../vendor/autoload.php")) {
 // }
 
 
- // include 'inc/header.php';
+ //include 'inc/header.php';
  // include 'inc/banner.php';
  // include 'inc/about.php';
  // include 'inc/event.php';
@@ -39,9 +39,9 @@ if (file_exists(__DIR__ . "/../vendor/autoload.php")) {
  // include 'inc/contact.php';
  // include 'inc/footer.php';
 
-echo TITLE;
+// echo TITLE;
 
-echo "index";
+// echo "index";
 
 
 

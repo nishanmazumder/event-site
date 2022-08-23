@@ -1,87 +1,96 @@
 <?php
 
-namespace App;
+namespace App\Model;
 
-include __DIR__."/../config/config.php";
+require_once __DIR__ . '/../../config/connection.php';
+require_once __DIR__ . '/../traits/crud.php';
+use App\Config\Connection as Connection;
+use READ;
 
-class Database
+class Database extends Connection
 {
-	public $host   = DB_HOST;
-	public $user   = DB_USER;
-	public $pass   = DB_PASS;
-	public $dbname = DB_NAME;
+
+	use READ;
 
 
-	public $link;
-	public $error;
+	//public $test_data = $this->test_data;
 
-	public function __construct()
-	{
-		$this->connectDB();
-	}
+	// public $link;
+	// public $error;
 
-	private function connectDB()
-	{
+	// public function __construct()
+	// {
+	// 	$this->connectDB();
+	// }
 
-		if (!function_exists('mysqli_init') && !extension_loaded('mysqli')) {
-			echo 'We don\'t have mysqli!!!';
-		} else {
-			echo 'Phew we have it!';
-		}
+	// private function connectDB()
+	// {
 
-		$this->link = new \mysqli($this->host, $this->user, $this->pass, $this->dbname);
+	// 	if (!function_exists('mysqli_init') && !extension_loaded('mysqli')) {
+	// 		echo 'We don\'t have mysqli!!!';
+	// 	} else {
+	// 		echo 'Phew we have it!';
+	// 	}
 
-		print_r($this->link);
+	// 	$this->link = new \mysqli($this->host, $this->user, $this->pass, $this->dbname);
 
-		if (!$this->link) {
-			$this->error = "Connection fail" . $this->link->connect_error;
-			return false;
-		}
-	}
+	// 	print_r($this->link);
 
-	// Select or Read data
+	// 	if (!$this->link) {
+	// 		$this->error = "Connection fail" . $this->link->connect_error;
+	// 		return false;
+	// 	}
+	// }
 
-	public function select($query)
-	{
-		$result = $this->link->query($query) or die($this->link->error . __LINE__);
-		if ($result->num_rows > 0) {
-			return $result;
-		} else {
-			return false;
-		}
-	}
+	// // Select or Read data
 
-	// Insert data
-	public function insert($query)
-	{
-		$insert_row = $this->link->query($query) or die($this->link->error . __LINE__);
-		if ($insert_row) {
-			return $insert_row;
-		} else {
-			return FALSE;
-		}
-	}
+	// public function select($query)
+	// {
+	// 	$result = $this->link->query($query) or die($this->link->error . __LINE__);
+	// 	if ($result->num_rows > 0) {
+	// 		return $result;
+	// 	} else {
+	// 		return false;
+	// 	}
+	// }
 
-	// Update data
-	public function update($query)
-	{
-		$update_row = $this->link->query($query) or die($this->link->error . __LINE__);
-		if ($update_row) {
-			return $update_row;
-		} else {
-			return FALSE;
-		}
-	}
+	// // Insert data
+	// public function insert($query)
+	// {
+	// 	$insert_row = $this->link->query($query) or die($this->link->error . __LINE__);
+	// 	if ($insert_row) {
+	// 		return $insert_row;
+	// 	} else {
+	// 		return FALSE;
+	// 	}
+	// }
 
-	// Delete data
-	public function delete($query)
-	{
-		$delete_row = $this->link->query($query) or die($this->link->error . __LINE__);
-		if ($delete_row) {
-			return $delete_row;
-		} else {
-			return FALSE;
-		}
-	}
+	// // Update data
+	// public function update($query)
+	// {
+	// 	$update_row = $this->link->query($query) or die($this->link->error . __LINE__);
+	// 	if ($update_row) {
+	// 		return $update_row;
+	// 	} else {
+	// 		return FALSE;
+	// 	}
+	// }
+
+	// // Delete data
+	// public function delete($query)
+	// {
+	// 	$delete_row = $this->link->query($query) or die($this->link->error . __LINE__);
+	// 	if ($delete_row) {
+	// 		return $delete_row;
+	// 	} else {
+	// 		return FALSE;
+	// 	}
+	// }
 }
+
+$data_check = new Database();
+
+$result= $data_check->select("SELECT * FROM nm_event_up WHERE status = 1 ORDER BY eve_time ASC limit 3");
+
+var_dump($result);
 

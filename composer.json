@@ -22,14 +22,10 @@
   },
   "autoload": {
     "psr-4": {
-      "App\\Model\\": [
-        "app/models/"
-      ],
-      "App\\Config\\": [
-        "config/"
-      ]
+      "App\\Model\\": ["app/models/"],
+      "App\\Config\\": ["config/"]
     },
-    "classmap": ["app/models/"],
+    "classmap": ["app/models/", "config/"],
     "files" :["config/config.php"]
   }
 }

@@ -20,5 +20,17 @@ class Connection {
             exit('Error:' . $err->getMessage());
         }
     }
+
+    public function test_data(){
+        return $this->serverName;
+    }
 }
+
+// DEBUG
+// MYSQL Extension check
+// if (!function_exists('mysqli_init') && !extension_loaded('mysqli')) {
+//     echo 'Problem!';
+// } else {
+//     echo 'DONE!';
+// }
 
