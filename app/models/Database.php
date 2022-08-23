@@ -2,90 +2,58 @@
 
 namespace App\Model;
 
-require_once __DIR__ . '/../../config/connection.php';
-require_once __DIR__ . '/../traits/crud.php';
+/*
+|--------------------------------------------------------------------------
+| Connection & Traits
+|--------------------------------------------------------------------------
+|
+| Load connection and trait files
+|
+*/
+
+if (file_exists(require_once __DIR__ . '/../../config/connection.php')) {
+    require_once __DIR__ . '/../../config/connection.php';
+} else {
+    echo "Connection not found!";
+}
+
+if (file_exists(require_once __DIR__ . '/../traits/crud.php')) {
+    require_once __DIR__ . '/../traits/crud.php';
+} else {
+    echo "Connection not found!";
+}
+
+/*
+|--------------------------------------------------------------------------
+| Classes
+|--------------------------------------------------------------------------
+|
+| Use require calsses
+|
+*/
+
 use App\Config\Connection as Connection;
-use READ;
+use App\Trait\READ;
+
+/*
+|--------------------------------------------------------------------------
+| Database Query
+|--------------------------------------------------------------------------
+|
+| Database query for CRUD (query loded from traits)
+|
+*/
 
 class Database extends Connection
 {
 
+	/*
+	|--------------------------------------------------------------------------
+	| Read Data
+	|--------------------------------------------------------------------------
+	*/
 	use READ;
 
-
-	//public $test_data = $this->test_data;
-
-	// public $link;
-	// public $error;
-
-	// public function __construct()
-	// {
-	// 	$this->connectDB();
-	// }
-
-	// private function connectDB()
-	// {
-
-	// 	if (!function_exists('mysqli_init') && !extension_loaded('mysqli')) {
-	// 		echo 'We don\'t have mysqli!!!';
-	// 	} else {
-	// 		echo 'Phew we have it!';
-	// 	}
-
-	// 	$this->link = new \mysqli($this->host, $this->user, $this->pass, $this->dbname);
-
-	// 	print_r($this->link);
-
-	// 	if (!$this->link) {
-	// 		$this->error = "Connection fail" . $this->link->connect_error;
-	// 		return false;
-	// 	}
-	// }
-
-	// // Select or Read data
-
-	// public function select($query)
-	// {
-	// 	$result = $this->link->query($query) or die($this->link->error . __LINE__);
-	// 	if ($result->num_rows > 0) {
-	// 		return $result;
-	// 	} else {
-	// 		return false;
-	// 	}
-	// }
-
-	// // Insert data
-	// public function insert($query)
-	// {
-	// 	$insert_row = $this->link->query($query) or die($this->link->error . __LINE__);
-	// 	if ($insert_row) {
-	// 		return $insert_row;
-	// 	} else {
-	// 		return FALSE;
-	// 	}
-	// }
-
-	// // Update data
-	// public function update($query)
-	// {
-	// 	$update_row = $this->link->query($query) or die($this->link->error . __LINE__);
-	// 	if ($update_row) {
-	// 		return $update_row;
-	// 	} else {
-	// 		return FALSE;
-	// 	}
-	// }
-
-	// // Delete data
-	// public function delete($query)
-	// {
-	// 	$delete_row = $this->link->query($query) or die($this->link->error . __LINE__);
-	// 	if ($delete_row) {
-	// 		return $delete_row;
-	// 	} else {
-	// 		return FALSE;
-	// 	}
-	// }
 }
 
 $data_check = new Database();

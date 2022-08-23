@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Trait;
+
 trait READ{
     public function select($query)
     {

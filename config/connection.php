@@ -2,9 +2,28 @@
 
 namespace App\Config;
 
-// Get configaration data
-include __DIR__."\config.php";
+/*
+|--------------------------------------------------------------------------
+| Configuration
+|--------------------------------------------------------------------------
+|
+| Load configaration information
+|
+*/
+if (file_exists(require __DIR__."\config.php")) {
+    require __DIR__."\config.php";
+} else {
+    echo "Configuration not found!";
+}
 
+/*
+|--------------------------------------------------------------------------
+| Connection
+|--------------------------------------------------------------------------
+|
+| Connect to Database
+|
+*/
 class Connection {
     protected $connect;
     protected $serverName = DB_HOST;
@@ -26,7 +45,14 @@ class Connection {
     }
 }
 
-// DEBUG
+/*
+|--------------------------------------------------------------------------
+| DEBUG
+|--------------------------------------------------------------------------
+|
+| Connection debug note
+|
+*/
 // MYSQL Extension check
 // if (!function_exists('mysqli_init') && !extension_loaded('mysqli')) {
 //     echo 'Problem!';
