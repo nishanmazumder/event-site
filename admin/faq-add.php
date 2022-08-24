@@ -123,7 +123,7 @@
                             <button name="nm_submit" type="submit" class="btn btn-primary align-right">Done</button>
                         </div>
                     </div>
-                </form> 
+                </form>
             <?php } ?>
 
 
