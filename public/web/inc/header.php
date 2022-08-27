@@ -1,8 +1,9 @@
 <?php
 
-use App\Session;
-use App\Database;
-use App\Format;
+use App\Model\Database;
+use App\Model\Session;
+use App\Model\Format;
+
 
 Session::init();
 $db = new Database();
@@ -17,7 +18,7 @@ $userRole = Session::get('userRole');
 <!doctype html>
 <html lang="en">
     <head>
-        <?php include 'scripts/meta.php'; ?>
+        <?php include DIR . '/resources/scripts/meta.php'; ?>
         <?php include 'scripts/css.php'; ?>
         <?php include 'scripts/style.php'; ?>
         <title><?php echo TITLE; ?></title>

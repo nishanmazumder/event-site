@@ -2,35 +2,45 @@
 
 /*
 |--------------------------------------------------------------------------
-| Register The Auto Loader
-|--------------------------------------------------------------------------
-|
-| Composer
-|
-*/
-if (file_exists(__DIR__ . "/../vendor/autoload.php")) {
-    require __DIR__ . "/../vendor/autoload.php";
-} else {
-    echo "Autoloader not found!";
-}
-
-
-/*
-|--------------------------------------------------------------------------
-| Register The Configure
+| Load Configuration
 |--------------------------------------------------------------------------
 |
 | Including configure file.
 |
 */
-// if (file_exists(__DIR__."/../config/config.php")) {
-//     include __DIR__."/../config/config.php";
-// } else {
-//     echo "Configure file not found!";
-// }
+if (file_exists(__DIR__."/../config/config.php")) {
+    include __DIR__."/../config/config.php";
+} else {
+    echo "Configure file not found!";
+}
+
+/*
+|--------------------------------------------------------------------------
+| Load Models
+|--------------------------------------------------------------------------
+|
+| Including configure file.
+|
+*/
+
+// use App\Model\Database;
+// use App\Model\Session;
+use App\Model\Format;
+use App\Trait\Singleton;
+
+//$get_rand = Format::get_instance();
+// $get_rand = Format::get_instance();
+
+// echo $get_rand->random_token(10);
 
 
- //include 'inc/header.php';
+
+
+
+
+
+
+//  include DIR.'/public/web/inc/header.php';
  // include 'inc/banner.php';
  // include 'inc/about.php';
  // include 'inc/event.php';
@@ -42,6 +52,10 @@ if (file_exists(__DIR__ . "/../vendor/autoload.php")) {
 // echo TITLE;
 
 // echo "index";
+
+//print_r(__DIR__);
+
+// print_r(dirname(__DIR__));
 
 
 

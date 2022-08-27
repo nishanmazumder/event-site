@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Model;
 
 class Session{
     static function init(){
@@ -39,9 +39,9 @@ class Session{
         header("Location: login.php");
     }
 
-
-
-
-
+    public function __construct()
+    {
+        echo "Session!";
+    }
 }
 

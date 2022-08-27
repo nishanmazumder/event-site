@@ -16,6 +16,8 @@ trait READ
             $this->connect->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
             $query = $this->connect->prepare($query);
             $query->execute();
+
+            return $query->fetchAll(\PDO::FETCH_OBJ);
         } catch (\PDOException $err) {
             return 'Error:' . $query . ' ' . $err->getMessage();
         }

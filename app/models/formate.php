@@ -1,8 +1,14 @@
 <?php
 
-namespace App;
+namespace App\Model;
+
+// include __DIR__."/../traits/Singleton.php";
+
+// use APP\Trait\Singleton;
 
 class Format {
+
+   // use Singleton;
 
     // Date
     public function dateFormat($time) {

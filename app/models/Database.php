@@ -4,6 +4,21 @@ namespace App\Model;
 
 /*
 |--------------------------------------------------------------------------
+| Load Auto Loader
+|--------------------------------------------------------------------------
+|
+| Composer
+|
+*/
+
+if (file_exists(__DIR__ . "/../../vendor/autoload.php")) {
+	require_once __DIR__ . "/../../vendor/autoload.php";
+} else {
+	echo "Autoloader not found!";
+}
+
+/*
+|--------------------------------------------------------------------------
 | Connection & Traits
 |--------------------------------------------------------------------------
 |
@@ -11,17 +26,14 @@ namespace App\Model;
 |
 */
 
-if (file_exists(__DIR__ . '/../../config/connection.php')) {
-	require_once __DIR__ . '/../../config/connection.php';
-} else {
-	echo "Connection not found!";
-}
+// if (file_exists(__DIR__ . '/../traits/CRUD.php')) {
+// 	require_once __DIR__ . '/../traits/CRUD.php';
+// } else {
+// 	echo "Trait not found!";
+// }
 
-if (file_exists(__DIR__ . '/../traits/CRUD.php')) {
-	require_once __DIR__ . '/../traits/CRUD.php';
-} else {
-	echo "Trait not found!";
-}
+// require_once __DIR__."/../config/connection.php";
+// require_once __DIR__."/Connect.php";
 
 /*
 |--------------------------------------------------------------------------
@@ -32,7 +44,7 @@ if (file_exists(__DIR__ . '/../traits/CRUD.php')) {
 |
 */
 
-use App\Config\Connection as Connection;
+use Config\Connection;
 use App\Trait\CREATE;
 use App\Trait\DELETE;
 use App\Trait\READ;
@@ -88,11 +100,11 @@ class Database extends Connection
 |
 */
 
-//$data_check = new Database();
+$data_check = new Database();
 
 // select
 // $result= $data_check->select("SELECT * FROM nm_faq");
-// $result= $data_check->select("SELECT * FROM nm_faq WHERE id = 6");
+$result = $data_check->select("SELECT * FROM nm_faq WHERE id = 6");
 
 // insert
 // $result = $data_check->insert("INSERT INTO nm_faq (ques, ans) VALUES ('Question', 'Answer')");
@@ -103,4 +115,9 @@ class Database extends Connection
 // Delete
 //$result = $data_check->delete("DELETE FROM nm_faq WHERE id = '8'");
 
-//var_dump($result);
+var_dump($result);
+
+
+// $rand_data = new Format();
+
+// echo $rand_data->random_token(10);

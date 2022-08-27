@@ -1,6 +1,10 @@
 <?php
 
-namespace App\Config;
+namespace Config;
+
+
+
+// include __DIR__."/../traits/Singleton.php";
 
 /*
 |--------------------------------------------------------------------------
@@ -10,10 +14,11 @@ namespace App\Config;
 | Load configaration information
 |
 */
-if (file_exists(__DIR__."\config.php")) {
-    require_once __DIR__."\config.php";
+
+if (file_exists(__DIR__ . "/../../vendor/autoload.php")) {
+	require_once __DIR__ . "/../../vendor/autoload.php";
 } else {
-    echo "Configuration not found!";
+	echo "Autoloader not found!";
 }
 
 /*
@@ -24,7 +29,7 @@ if (file_exists(__DIR__."\config.php")) {
 | Connect to Database
 |
 */
-class Connection {
+class Connection{
     protected $connect;
     protected $serverName = DB_HOST;
     protected $dbName = DB_NAME;
