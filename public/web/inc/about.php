@@ -1,13 +1,16 @@
 <!-- Content Start -->
 <main>
     <!-- About Us Start -->
-    <?php 
+    <?php
         $query = "SELECT * FROM nm_about";
         $result = $db->select($query);
-        while($data = $result->fetch_assoc()){
+
+        if($result){
+        //while($data = $result->fetch_assoc()){
+        while($data = $result->PDO::FETCH_ASSOC){
     ?>
-    
-    
+
+
     <div id="nmAbout" class="container-fluid nm-section nm-about">
         <div class="row align-items-center">
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 wow slideInLeft">
@@ -46,5 +49,7 @@
             </div>
         </div>
     </div>
-    <?php }?>
+    <?php }}else{
+        echo "no data found about";
+    }?>
     <!-- About Us End -->

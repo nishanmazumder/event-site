@@ -2,7 +2,6 @@
 <div id="nmHome" class="nm-banner">
 
     <?php
-    $db = new Database();
     $query = "SELECT * FROM nm_event_up WHERE status = 1 order by str_to_date(`eve_time`, '%Y-%m-%d') ASC limit 1";
     $result = $db->select($query);
 

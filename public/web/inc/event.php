@@ -16,7 +16,8 @@
             $query = "SELECT * FROM nm_event_up WHERE status = 1 ORDER BY eve_time ASC limit 3";
             $result = $db->select($query);
 
-            while ($data = mysqli_fetch_assoc($result)) {
+            //while ($data = mysqli_fetch_assoc($result)) {
+            while ($data = $result->fetch(PDO::FETCH_ASSOC)) {
                 ?>
                 <div class="row no-gutters align-items-center nm-upcoming-eve">
                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 ">

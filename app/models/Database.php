@@ -7,7 +7,7 @@ namespace App\Model;
 | Load Auto Loader
 |--------------------------------------------------------------------------
 |
-| Composer
+| Connection & Traits
 |
 */
 
@@ -17,23 +17,6 @@ if (file_exists(__DIR__ . "/../../vendor/autoload.php")) {
 	echo "Autoloader not found!";
 }
 
-/*
-|--------------------------------------------------------------------------
-| Connection & Traits
-|--------------------------------------------------------------------------
-|
-| Load connection and trait files
-|
-*/
-
-// if (file_exists(__DIR__ . '/../traits/CRUD.php')) {
-// 	require_once __DIR__ . '/../traits/CRUD.php';
-// } else {
-// 	echo "Trait not found!";
-// }
-
-// require_once __DIR__."/../config/connection.php";
-// require_once __DIR__."/Connect.php";
 
 /*
 |--------------------------------------------------------------------------
@@ -45,10 +28,10 @@ if (file_exists(__DIR__ . "/../../vendor/autoload.php")) {
 */
 
 use Config\Connection;
-use App\Trait\CREATE;
-use App\Trait\DELETE;
 use App\Trait\READ;
+use App\Trait\CREATE;
 use App\Trait\UPDATE;
+use App\Trait\DELETE;
 
 /*
 |--------------------------------------------------------------------------
@@ -100,11 +83,11 @@ class Database extends Connection
 |
 */
 
-$data_check = new Database();
+// $data_check = new Database();
 
 // select
 // $result= $data_check->select("SELECT * FROM nm_faq");
-$result = $data_check->select("SELECT * FROM nm_faq WHERE id = 6");
+// $result = $data_check->select("SELECT * FROM nm_faq WHERE id = 6");
 
 // insert
 // $result = $data_check->insert("INSERT INTO nm_faq (ques, ans) VALUES ('Question', 'Answer')");
@@ -115,9 +98,5 @@ $result = $data_check->select("SELECT * FROM nm_faq WHERE id = 6");
 // Delete
 //$result = $data_check->delete("DELETE FROM nm_faq WHERE id = '8'");
 
-var_dump($result);
+// var_dump($result);
 
-
-// $rand_data = new Format();
-
-// echo $rand_data->random_token(10);

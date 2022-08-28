@@ -1,26 +1,9 @@
-<?php
-
-use App\Model\Database;
-use App\Model\Session;
-use App\Model\Format;
-
-
-Session::init();
-$db = new Database();
-$fm = new Format();
-
-$userName = Session::get('user');
-$userId = Session::get('userId');
-$userRole = Session::get('userRole');
-
-?>
-
 <!doctype html>
 <html lang="en">
     <head>
         <?php include DIR . '/resources/scripts/meta.php'; ?>
-        <?php include 'scripts/css.php'; ?>
-        <?php include 'scripts/style.php'; ?>
+        <?php include DIR . '/resources/scripts/css.php'; ?>
+        <?php include DIR . '/resources/scripts/style.php'; ?>
         <title><?php echo TITLE; ?></title>
     </head>
 
@@ -104,3 +87,5 @@ $userRole = Session::get('userRole');
             <!--Navigation autoplay-->
         </header>
         <!-- Header End -->
+
+        <?php var_dump($result); ?>

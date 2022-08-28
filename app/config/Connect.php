@@ -2,13 +2,9 @@
 
 namespace Config;
 
-
-
-// include __DIR__."/../traits/Singleton.php";
-
 /*
 |--------------------------------------------------------------------------
-| Configuration
+| Load Auto Loader
 |--------------------------------------------------------------------------
 |
 | Load configaration information
@@ -43,10 +39,6 @@ class Connection{
         } catch (\PDOException $err) {
             exit('Error:' . $err->getMessage());
         }
-    }
-
-    public function test_data(){
-        return $this->serverName;
     }
 }
 

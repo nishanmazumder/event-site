@@ -2,16 +2,16 @@
 
 /*
 |--------------------------------------------------------------------------
-| Load Configuration
+| Load Auto Loader
 |--------------------------------------------------------------------------
 |
-| Including configure file.
+| Composer
 |
 */
-if (file_exists(__DIR__."/../config/config.php")) {
-    include __DIR__."/../config/config.php";
+if (file_exists(__DIR__ . "/../vendor/autoload.php")) {
+	require_once __DIR__ . "/../vendor/autoload.php";
 } else {
-    echo "Configure file not found!";
+	echo "Autoloader not found!";
 }
 
 /*
@@ -19,35 +19,47 @@ if (file_exists(__DIR__."/../config/config.php")) {
 | Load Models
 |--------------------------------------------------------------------------
 |
-| Including configure file.
+| Load all essential classes...
 |
 */
 
 // use App\Model\Database;
 // use App\Model\Session;
-use App\Model\Format;
-use App\Trait\Singleton;
+// use App\Model\Format;
+// use App\Trait\Singleton;
 
-//$get_rand = Format::get_instance();
+// $get_rand = Format::get_instance();
+// $get_rand = new Format();
 // $get_rand = Format::get_instance();
 
 // echo $get_rand->random_token(10);
 
+use App\Model\Database;
+// use App\Model\Session;
+use App\Model\Format;
+
+
+// Session::init();
+$db = new Database();
+$fm = new Format();
+
+// $userName = Session::get('user');
+// $userId = Session::get('userId');
+// $userRole = Session::get('userRole');
 
 
 
 
 
 
-
-//  include DIR.'/public/web/inc/header.php';
- // include 'inc/banner.php';
- // include 'inc/about.php';
- // include 'inc/event.php';
- // include 'inc/ticket.php';
- // include 'inc/faq.php';
- // include 'inc/contact.php';
- // include 'inc/footer.php';
+ include DIR.'/public/web/inc/header.php';
+ include DIR.'/public/web/inc/banner.php';
+//  include DIR.'/public/web/inc/about.php';
+//  include DIR.'/public/web/inc/event.php';
+//  include DIR.'/public/web/inc/ticket.php';
+//  include DIR.'/public/web/inc/faq.php';
+//  include DIR.'/public/web/inc/contact.php';
+ include DIR.'/public/web/inc/footer.php';
 
 // echo TITLE;
 

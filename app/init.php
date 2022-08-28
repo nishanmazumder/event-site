@@ -43,11 +43,11 @@ $base_url = "http://events.test/";
 |
 */
 
-if (file_exists(DIR . "/vendor/autoload.php")) {
-    require_once DIR . "/vendor/autoload.php";
-} else {
-    echo "Autoloader not found!";
-}
+// if (file_exists(DIR . "/vendor/autoload.php")) {
+//     require_once DIR . "/vendor/autoload.php";
+// } else {
+//     echo "Autoloader not found!";
+// }
 
 /*
 |--------------------------------------------------------------------------

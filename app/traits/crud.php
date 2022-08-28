@@ -17,7 +17,7 @@ trait READ
             $query = $this->connect->prepare($query);
             $query->execute();
 
-            return $query->fetchAll(\PDO::FETCH_OBJ);
+            // return $query->fetchAll(\PDO::FETCH_OBJ);
         } catch (\PDOException $err) {
             return 'Error:' . $query . ' ' . $err->getMessage();
         }
