@@ -1,3 +1,18 @@
+<?php
+if (file_exists(__DIR__ . "/../../../vendor/autoload.php")) {
+	require_once __DIR__ . "/../../../vendor/autoload.php";
+} else {
+	echo "Autoloader not found!";
+}
+use App\Model\Database;
+use App\Model\Format;
+$db = new Database();
+$fm = new Format();
+
+
+?>
+
+
 <!-- Contact Start -->
 
 <?php
@@ -23,11 +38,14 @@ if (isset($_POST['nmMailSend'])) {
         $mailquery = "INSERT INTO nm_contact (name, email, msg) VALUES ('$userName', '$userEmail', '$userMsg')";
         $result = $db->insert($mailquery);
 
+        echo $result;
+
         if ($result) {
-            echo "<script>window.location = 'notification.php';</script>";
+            //include DIR. "notification.php";
+            echo "<script>window.location = ".DIR."'public/web/notification.php';</script>";
             $_SESSION["Msg"] = "Message Send Successfully.";
 
-            //echo "<script>confirmMsg(){alert('Message Send Successfully !');}</scrip>";
+            echo "<script>confirmMsg(){alert('Message Send Successfully !');}</scrip>";
         } else {
             echo "<script>window.location = 'notification.php';</script>";
             $_SESSION["Msg"] = "OPSS! Message not send. Try again Later.";
@@ -41,7 +59,7 @@ if (isset($_POST['nmMailSend'])) {
 $query = "SELECT * FROM nm_map WHERE id = 1";
 $result = $db->select($query);
 
-while ($data = mysqli_fetch_assoc($result)) {
+while ($data = $result->fetch(PDO::FETCH_ASSOC)) {
     ?>
 
     <div id="nmContact" class="container-fluid nm-contact">
@@ -108,10 +126,10 @@ while ($data = mysqli_fetch_assoc($result)) {
                 <?php
                 $iframe = str_replace(array('600', '450'), array('100%', '250'), $data['map_loc']);
                 echo $iframe;
-                ?> 
+                ?>
             </div>
         </div>
     </div>
 <?php } ?>
-<!-- Contact End -->	
+<!-- Contact End -->
 </main>

@@ -14,10 +14,9 @@ trait READ
     {
         try {
             $this->connect->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
-            $query = $this->connect->prepare($query);
-            $query->execute();
-
-            // return $query->fetchAll(\PDO::FETCH_OBJ);
+            $results = $this->connect->prepare($query);
+            $results->execute();
+            return $results;
         } catch (\PDOException $err) {
             return 'Error:' . $query . ' ' . $err->getMessage();
         }
@@ -54,7 +53,7 @@ trait CREATE
             $query = $this->connect->prepare($query);
             $query->execute();
 
-            // return $this->connect->lastInsertId() . " Data Inserted!";
+             return $this->connect->lastInsertId() . " Data Inserted!";
         } catch (\PDOException $err) {
             return "Error:" . $query . " " . $err->getMessage();
         }

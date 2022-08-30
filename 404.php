@@ -1,4 +1,4 @@
-<?php include 'inc/header.php'; ?>
+<?php include __DIR__. '/public/web/inc/header.php'; ?>
 
 <div class="container nm-section">
     <div class="row">

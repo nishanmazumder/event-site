@@ -1,9 +1,22 @@
 <?php
+
+if (file_exists(__DIR__ . "/../../../vendor/autoload.php")) {
+	require_once __DIR__ . "/../../../vendor/autoload.php";
+} else {
+	echo "Autoloader not found!";
+}
+use App\Model\Database;
+use App\Model\Format;
+$db = new Database();
+$fm = new Format();
+
+
+
 $query = "SELECT * FROM nm_eve_color WHERE id = 1";
 $result = $db->select($query);
 
 if ($result) {
-    while ($data = $result->fetch_assoc()) {
+    while ($data = $result->fetch(PDO::FETCH_ASSOC)) {
         ?>
 
         <style>
@@ -174,7 +187,7 @@ if ($result) {
             }
             /***Success***/
             .nm-success{
-                border: 1px solid <?php echo $data['eve_color']; ?> !important; 
+                border: 1px solid <?php echo $data['eve_color']; ?> !important;
             }
         </style>
 

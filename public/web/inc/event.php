@@ -1,3 +1,16 @@
+<?php
+if (file_exists(__DIR__ . "/../../../vendor/autoload.php")) {
+	require_once __DIR__ . "/../../../vendor/autoload.php";
+} else {
+	echo "Autoloader not found!";
+}
+use App\Model\Database;
+use App\Model\Format;
+$db = new Database();
+$fm = new Format();
+
+?>
+
 
 <!-- Events Start -->
 <div id="nmEvents" class="container-fluid nm-section nm-events">
@@ -70,7 +83,7 @@
                 $query_gal = "SELECT nm_event_rec.*, nm_event_up.id, nm_event_up.title, nm_event_up.token FROM nm_event_rec, nm_event_up WHERE nm_event_rec.token = nm_event_up.token";
                 $result_gal = $db->select($query_gal);
 
-                while ($data_gal = mysqli_fetch_assoc($result_gal)) {
+                while ($data_gal = $result_gal->fetch(PDO::FETCH_ASSOC)) {
                     ?>
 
                     <li data-thumb="admin/<?php echo $data_gal['eve_img_gal']; ?>" data-src="admin/<?php echo $data_gal['eve_img_gal']; ?>">

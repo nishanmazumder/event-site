@@ -1,3 +1,16 @@
+<?php
+if (file_exists(__DIR__ . "/../../../vendor/autoload.php")) {
+	require_once __DIR__ . "/../../../vendor/autoload.php";
+} else {
+	echo "Autoloader not found!";
+}
+use App\Model\Database;
+use App\Model\Format;
+$db = new Database();
+$fm = new Format();
+
+?>
+
 <!-- Content Start -->
 <main>
     <!-- About Us Start -->
@@ -6,8 +19,7 @@
         $result = $db->select($query);
 
         if($result){
-        //while($data = $result->fetch_assoc()){
-        while($data = $result->PDO::FETCH_ASSOC){
+        while($data = $result->fetch(PDO::FETCH_ASSOC)){
     ?>
 
 

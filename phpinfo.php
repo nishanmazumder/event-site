@@ -1,6 +1,6 @@
 <?php
 
-//phpinfo();
+phpinfo();
 
-phpinfo(INFO_MODULES);
+// phpinfo(INFO_MODULES);
 

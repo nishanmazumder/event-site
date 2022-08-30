@@ -53,12 +53,12 @@ $fm = new Format();
 
 
  include DIR.'/public/web/inc/header.php';
- include DIR.'/public/web/inc/banner.php';
-//  include DIR.'/public/web/inc/about.php';
-//  include DIR.'/public/web/inc/event.php';
-//  include DIR.'/public/web/inc/ticket.php';
-//  include DIR.'/public/web/inc/faq.php';
-//  include DIR.'/public/web/inc/contact.php';
+ //include DIR.'/public/web/inc/banner.php';
+ include DIR.'/public/web/inc/about.php';
+ include DIR.'/public/web/inc/event.php';
+ include DIR.'/public/web/inc/ticket.php';
+ include DIR.'/public/web/inc/faq.php';
+ include DIR.'/public/web/inc/contact.php';
  include DIR.'/public/web/inc/footer.php';
 
 // echo TITLE;
@@ -68,8 +68,6 @@ $fm = new Format();
 //print_r(__DIR__);
 
 // print_r(dirname(__DIR__));
-
-
 
 
 

@@ -1,3 +1,14 @@
+<?php
+
+if (file_exists(__DIR__ . "/../../../vendor/autoload.php")) {
+	require_once __DIR__ . "/../../../vendor/autoload.php";
+} else {
+	echo "Autoloader not found!";
+}
+
+?>
+
+
 <!doctype html>
 <html lang="en">
     <head>
@@ -19,7 +30,7 @@
                     $result = $db->select($query);
 
                     if ($result) {
-                        while ($data = $result->fetch_assoc()) {
+                        while ($data = $result->fetch(PDO::FETCH_ASSOC)) {
                             ?>
 
                             <a class="navbar-brand" href="<?php echo $base_url;?>"><img src="admin/<?php echo $data['nm_logo']; ?>" alt="Logo" class="nm-logo"/></a>
@@ -62,7 +73,7 @@
                             $result_social = $db->select($query_social);
 
                             if ($result_social) {
-                                while ($data_social = $result_social->fetch_assoc()) {
+                                while ($data_social = $result_social->fetch(PDO::FETCH_ASSOC)) {
                                     ?>
                                     <li><a href="<?php echo $data_social['nm_face']; ?>" class="nm-transparent"><i class="fab fa-facebook-f nm-icon"></i></a></li>
                                     <li><a href="<?php echo $data_social['nm_twt']; ?>" class="nm-transparent"><i class="fab fa-twitter nm-icon"></i></a></li>
@@ -87,5 +98,3 @@
             <!--Navigation autoplay-->
         </header>
         <!-- Header End -->
-
-        <?php var_dump($result); ?>

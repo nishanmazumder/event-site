@@ -1,3 +1,18 @@
+<?php
+if (file_exists(__DIR__ . "/../../../vendor/autoload.php")) {
+	require_once __DIR__ . "/../../../vendor/autoload.php";
+} else {
+	echo "Autoloader not found!";
+}
+use App\Model\Database;
+use App\Model\Format;
+$db = new Database();
+$fm = new Format();
+
+
+?>
+
+
 <!--Banner-->
 <div id="nmHome" class="nm-banner">
 
@@ -5,8 +20,9 @@
     $query = "SELECT * FROM nm_event_up WHERE status = 1 order by str_to_date(`eve_time`, '%Y-%m-%d') ASC limit 1";
     $result = $db->select($query);
 
+
     if ($result) {
-        while ($data = $result->fetch_assoc()) {
+        while ($data = $result->fetch(PDO::FETCH_ASSOC)) {
 
             $eve_date = explode(' ', $data['eve_time']);
             $eve_current_date = explode(' ', date("Y-m-d h:i:sa"));
@@ -25,7 +41,7 @@
                 $query_video = "SELECT nm_header_video FROM nm_general WHERE id = 1";
                 $result_video = $db->select($query_video);
                 if ($result_video) {
-                    while ($data_v = $result_video->fetch_assoc()) {
+                    while ($data_v = $result_video->fetch(PDO::FETCH_ASSOC)) {
                         ?>
                         <div class="overlay"></div>
                         <video playsinline="playsinline" muted="muted" loop="loop" autoplay>

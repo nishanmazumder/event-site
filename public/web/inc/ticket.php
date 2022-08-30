@@ -1,3 +1,17 @@
+<?php
+if (file_exists(__DIR__ . "/../../../vendor/autoload.php")) {
+	require_once __DIR__ . "/../../../vendor/autoload.php";
+} else {
+	echo "Autoloader not found!";
+}
+use App\Model\Database;
+use App\Model\Format;
+$db = new Database();
+$fm = new Format();
+
+
+?>
+
 <div id="nmTickets" class="container-fluid nm-section nm-tickets nm-bg">
     <div class="row no-gutters nm-ticket-list">
         <div class="col-12 wow fadeInDown">
@@ -12,11 +26,11 @@
         $result = $db->select($query);
 
         if ($result) {
-            while ($data = $result->fetch_assoc()) {
+            while ($data = $result->fetch(PDO::FETCH_ASSOC)) {
                 ?>
 
                 <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 wow bounceIn">
-                   
+
                         <div class="nm-eve-price">
                             <h3><?php echo $data['plan_title']; ?></h3>
                             <h1>$<?php echo $data['plan_price']/100; ?>/<span>m</span></h1>
@@ -31,8 +45,8 @@
 
                             </ul>
                             <a href="checkout.php?planId=<?php echo $data['id']; ?>" class="nm-btn">Buy Now</a>
-                        </div> 
-                    
+                        </div>
+
                 </div>
 
                 <?php
