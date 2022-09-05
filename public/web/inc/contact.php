@@ -22,9 +22,9 @@ if (isset($_POST['nmMailSend'])) {
     $userEmail = $fm->validation($_POST['nmUserMail']);
     $userMsg = $fm->validation($_POST['nmUserMsg']);
 
-    $userName = mysqli_real_escape_string($db->link, $userName);
-    $userEmail = mysqli_real_escape_string($db->link, $userEmail);
-    $userMsg = mysqli_real_escape_string($db->link, $userMsg);
+    // $userName = mysqli_real_escape_string($db->link, $userName);
+    // $userEmail = mysqli_real_escape_string($db->link, $userEmail);
+    // $userMsg = mysqli_real_escape_string($db->link, $userMsg);
 
     if (empty($userName)) {
         $error = "Name not be empty !";
@@ -42,8 +42,8 @@ if (isset($_POST['nmMailSend'])) {
 
         if ($result) {
             //include DIR. "notification.php";
-            echo "<script>window.location = ".DIR."'public/web/notification.php';</script>";
             $_SESSION["Msg"] = "Message Send Successfully.";
+            echo "<script>window.location = ".DIR."'/public/web/notification.php';</script>";
 
             echo "<script>confirmMsg(){alert('Message Send Successfully !');}</scrip>";
         } else {

@@ -1,4 +1,16 @@
-<?php include 'inc/header.php'; ?>
+<?php
+
+if (file_exists(__DIR__ . "/../../vendor/autoload.php")) {
+	require_once __DIR__ . "/../../vendor/autoload.php";
+} else {
+	echo "Autoloader not found!";
+}
+
+
+
+?>
+
+<?php include DIR.'/public/web/inc/header.php'; ?>
 
 <div class="container nm-section">
     <div class="row">
@@ -9,10 +21,10 @@
             }else{
                 echo "<script>window.location = 'index.php';</script>";
             }
-            unset($_SESSION["Msg"]);
+            //unset($_SESSION["Msg"]);
             ?>
         </h1>
     </div>
 </div>
 
-<?php include 'inc/footer.php'; ?>
+<?php include DIR.'/public/web/inc/footer.php'; ?>

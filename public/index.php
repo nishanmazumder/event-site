@@ -35,17 +35,17 @@ if (file_exists(__DIR__ . "/../vendor/autoload.php")) {
 // echo $get_rand->random_token(10);
 
 use App\Model\Database;
-// use App\Model\Session;
+use App\Model\Session;
 use App\Model\Format;
 
 
-// Session::init();
+Session::init();
 $db = new Database();
 $fm = new Format();
 
-// $userName = Session::get('user');
-// $userId = Session::get('userId');
-// $userRole = Session::get('userRole');
+$userName = Session::get('user');
+$userId = Session::get('userId');
+$userRole = Session::get('userRole');
 
 
 
@@ -61,13 +61,6 @@ $fm = new Format();
  include DIR.'/public/web/inc/contact.php';
  include DIR.'/public/web/inc/footer.php';
 
-// echo TITLE;
-
-// echo "index";
-
-//print_r(__DIR__);
-
-// print_r(dirname(__DIR__));
 
 
 
