@@ -1,4 +1,20 @@
-<?php include 'inc/header.php'; ?>
+<?php
+
+if (file_exists(__DIR__ . "/../../vendor/autoload.php")) {
+    require_once __DIR__ . "/../../vendor/autoload.php";
+} else {
+    echo "Autoloader not found!";
+}
+
+if (file_exists(DIR . "/public/web/inc/header.php")) {
+    include DIR . "/public/web/inc/header.php";
+} else {
+    echo "Header not found from Login page!";
+}
+
+use App\Model\Session;
+
+?>
 
 <div class="container nm-section-single nm-checkout">
     <div class="row no-gutters justify-content-center">
@@ -97,7 +113,7 @@
                     $address = mysqli_real_escape_string($db->link, $address);
 
                     $query = "INSERT INTO eve_user (nm_username, nm_password, nm_email, nm_phone, nm_address, role)"
-                            . "VALUES ('$username', '$pass', '$email', '$phone', '$address', 4)";
+                        . "VALUES ('$username', '$pass', '$email', '$phone', '$address', 4)";
 
                     $result = $db->insert($query);
 
@@ -135,7 +151,7 @@
                         </div>
 
                         <button type="submit" name="nm_forget_pass" class="nm-btn nm-btn-color-block" style="margin: 10px auto;display: block;">Submit</button>
-                    </form> 
+                    </form>
                 <?php } else { ?>
                     <h3 class="text-center mb-3">Login</h3>
 
@@ -146,7 +162,7 @@
                         </div>
 
                         <button type="submit" name="nm_login" class="nm-btn nm-btn-color-block" style="margin: 10px auto;display: block;">Login</button>
-                    </form> 
+                    </form>
                     <p class="text-center"><a href="login.php?login=forget">Forget Password?</a></p>
                 <?php }
                 ?>
@@ -158,4 +174,11 @@
     </div>
 </div>
 
-<?php include 'inc/footer.php'; ?>
+
+<?php
+
+if (file_exists(DIR . "/public/web/inc/footer.php")) {
+    include DIR . "/public/web/inc/footer.php";
+} else {
+    echo "Footer not found from Login page!";
+}

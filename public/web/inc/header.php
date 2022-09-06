@@ -33,7 +33,7 @@ if (file_exists(__DIR__ . "/../../../vendor/autoload.php")) {
                         while ($data = $result->fetch(PDO::FETCH_ASSOC)) {
                             ?>
 
-                            <a class="navbar-brand" href="<?php echo $base_url;?>"><img src="admin/<?php echo $data['nm_logo']; ?>" alt="Logo" class="nm-logo"/></a>
+                            <a class="navbar-brand" href="<?php echo BASE_URL;?>"><img src="<?php echo BASE_URL;?>admin/<?php echo $data['nm_logo']; ?>" alt="Logo" class="nm-logo"/></a>
                             <?php
                         }
                     }
@@ -45,25 +45,25 @@ if (file_exists(__DIR__ . "/../../../vendor/autoload.php")) {
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto nm-nav-item">
                             <li class="nav-item active">
-                                <a class="nav-link" href="<?php echo $base_url;?>">Home <span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="<?php echo BASE_URL;?>">Home <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="<?php echo $base_url;?>#nmAbout">About</a>
+                                <a class="nav-link" href="<?php echo BASE_URL;?>#nmAbout">About</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="<?php echo $base_url;?>#nmEvents">Events</a>
+                                <a class="nav-link" href="<?php echo BASE_URL;?>#nmEvents">Events</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="<?php echo $base_url;?>#nmTickets">Tickets</a>
+                                <a class="nav-link" href="<?php echo BASE_URL;?>#nmTickets">Tickets</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="<?php echo $base_url;?>#nmFaq">Faq</a>
+                                <a class="nav-link" href="<?php echo BASE_URL;?>#nmFaq">Faq</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="<?php echo $base_url;?>#nmJoin">Join</a>
+                                <a class="nav-link" href="<?php echo BASE_URL;?>#nmJoin">Join</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="<?php echo $base_url;?>#nmContact">Contact</a>
+                                <a class="nav-link" href="<?php echo BASE_URL;?>#nmContact">Contact</a>
                             </li>
                         </ul>
 
@@ -82,7 +82,7 @@ if (file_exists(__DIR__ . "/../../../vendor/autoload.php")) {
                                         <li><a href="profile.php" class="nm-transparent"><i class="nm-icon" style="font-size: 16px;">Hi <?php echo $userName; ?> </i></a></li>
                                     <?php } else {
                                         ?>
-                                        <li><a href="login.php" class="nm-transparent nm-btn nm-btn-color-block" style="padding: 4px 10px">Upload</a></li>
+                                        <li><a href="<?php echo BASE_URL . 'public/web/login.php'; ?>" class="nm-transparent nm-btn nm-btn-color-block" style="padding: 4px 10px">Upload</a></li>
                                             <?php
                                         }
                                     }

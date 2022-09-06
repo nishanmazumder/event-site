@@ -25,7 +25,7 @@ $db = new Database();
                    while ($data = $result->fetch(PDO::FETCH_ASSOC)) {
                         ?>
 
-                    <li><img class="nm-m-block" src="admin/<?php echo $data['img']; ?>" alt="" /></li>
+                    <li><img class="nm-m-block" src="<?php echo BASE_URL;?>admin/<?php echo $data['img']; ?>" alt="" /></li>
 
                     <?php } ?>
                 </ul>
