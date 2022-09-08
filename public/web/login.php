@@ -78,20 +78,20 @@ use App\Model\Session;
                 if (isset($_POST['nm_login'])) {
                     $email = $fm->validation($_POST['nm_email']);
                     $pass = $fm->validation(md5($_POST['nm_password']));
-                    $email = mysqli_real_escape_string($db->link, $email);
+                    // $email = mysqli_real_escape_string($db->link, $email);
                     $pass = $fm->validation(md5($_POST['nm_password']));
 
                     $query = "SELECT * FROM eve_user WHERE nm_email='$email' AND nm_password = '$pass'";
                     $result = $db->select($query);
 
                     if ($result != FALSE) {
-                        $value = mysqli_fetch_assoc($result);
+                        $value = $result->fetch(PDO::FETCH_ASSOC);
 
                         Session::set('login', TRUE);
                         Session::set("user", $value['nm_username']);
                         Session::set("userId", $value['id']);
                         Session::set("userRole", $value['role']);
-                        echo "<script>window.location = 'index.php';</script>";
+                        echo "<script>window.location = '".BASE_URL."';</script>";
                     } else {
                         echo '<p style="color: red;">User or Password dose not match</p>';
                     }

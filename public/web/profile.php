@@ -1,4 +1,18 @@
-<?php include 'inc/header.php'; ?>
+<?php
+
+if (file_exists(__DIR__ . "/../../vendor/autoload.php")) {
+    require_once __DIR__ . "/../../vendor/autoload.php";
+} else {
+    echo "Autoloader not found!";
+}
+
+if (file_exists(DIR . "/public/web/inc/header.php")) {
+    include DIR . "/public/web/inc/header.php";
+} else {
+    echo "Header not found from Login page!";
+}
+
+?>
 
 <div class="container nm-section nm-profile">
     <div class="row nm-profile-details">
@@ -66,7 +80,7 @@
                                         <td><img src="admin/<?php echo $data['host_img']; ?>" alt=""></td>
                                         <td><img src="admin/<?php echo $data['eve_img']; ?>" alt=""></td>
                                         <td>
-                                            <?php echo $fm->dateFormat($data['eve_time']); ?> <span><?php echo $fm->timeFormat($data['eve_time']); ?></span>  
+                                            <?php echo $fm->dateFormat($data['eve_time']); ?> <span><?php echo $fm->timeFormat($data['eve_time']); ?></span>
                                         </td>
                                         <td><?php echo $data['location']; ?></td>
                                         <td><a href="events-update.php?id=<?php echo $data['id']; ?>" class="nm-btn nm-btn-color-block">Edit</a>&nbsp;<a href="?id=<?php echo $data['id']; ?>" class="nm-btn nm-btn-color-block" onclick="confirm('Are u sure want to delete?')">Delete</a></td>
@@ -120,7 +134,7 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="tab-pane fade show" id="nm-user-profile" role="tabpanel" aria-labelledby="nm-user-profile-tab">   
+                <div class="tab-pane fade show" id="nm-user-profile" role="tabpanel" aria-labelledby="nm-user-profile-tab">
                     <form action="" method="post">
                         <table class="table table-fixed" id="myTable">
                             <tbody class="nm_tbl_body scrollable-area">
@@ -163,4 +177,12 @@
     </div>
 </div>
 
-<?php include 'inc/footer.php'; ?>
+<?php
+if (file_exists(DIR . "/public/web/inc/footer.php")) {
+    include DIR . "/public/web/inc/footer.php";
+} else {
+    echo "Footer not found from Login page!";
+}
+
+
+?>

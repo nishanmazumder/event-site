@@ -39,13 +39,15 @@ use App\Model\Session;
 use App\Model\Format;
 
 
-Session::init();
 $db = new Database();
 $fm = new Format();
 
+Session::init();
 $userName = Session::get('user');
 $userId = Session::get('userId');
 $userRole = Session::get('userRole');
+
+// echo $userName;
 
 
 
