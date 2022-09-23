@@ -12,14 +12,26 @@ if (file_exists(DIR . "/public/web/inc/header.php")) {
     echo "Header not found from Login page!";
 }
 
+use App\Model\Database;
+use App\Model\Format;
+use App\Model\Session;
+
+$db = new Database();
+$fm = new Format();
+
+if (isset($_POST['nm_customer_logout'])) {
+    Session::destroy();
+    header('Location: login.php?login=login');
+    exit;
+}
+
 ?>
 
 <div class="container nm-section nm-profile">
     <div class="row nm-profile-details">
-
         <div class="col-md-12 nm-profile-header">
-            <img src="img/prf1.png" alt=""/>
-           <h3 class="text-center">Hello <?php echo $userName; ?>!</h3>
+            <img src="img/prf1.png" alt="" />
+            <h3 class="text-center">Hello <?php echo $userName; ?>!</h3>
             <div class="nm-line-middle"></div>
         </div>
 
@@ -72,9 +84,9 @@ if (file_exists(DIR . "/public/web/inc/header.php")) {
 
                             if ($result) {
                                 while ($data = $result->fetch(PDO::FETCH_ASSOC)) {
-                                    ?>
-                                    <tr class = "nm_deep">
-                                        <th scope = "row"><?php echo $i++ ?></th>
+                            ?>
+                                    <tr class="nm_deep">
+                                        <th scope="row"><?php echo $i++ ?></th>
                                         <td><?php echo $fm->textLimit($data['title'], 30); ?></td>
                                         <td><?php echo $data['host_name']; ?></td>
                                         <td><img src="admin/<?php echo $data['host_img']; ?>" alt=""></td>
@@ -83,9 +95,9 @@ if (file_exists(DIR . "/public/web/inc/header.php")) {
                                             <?php echo $fm->dateFormat($data['eve_time']); ?> <span><?php echo $fm->timeFormat($data['eve_time']); ?></span>
                                         </td>
                                         <td><?php echo $data['location']; ?></td>
-                                        <td><a href="<?php BASE_URL;?>/../../admin/events-update.php?id=<?php echo $data['id']; ?>" class="nm-btn nm-btn-color-block">Edit</a>&nbsp;<a href="?id=<?php echo $data['id']; ?>" class="nm-btn nm-btn-color-block" onclick="confirm('Are u sure want to delete?')">Delete</a></td>
+                                        <td><a href="<?php BASE_URL; ?>/../../admin/events-update.php?id=<?php echo $data['id']; ?>" class="nm-btn nm-btn-color-block">Edit</a>&nbsp;<a href="?id=<?php echo $data['id']; ?>" class="nm-btn nm-btn-color-block" onclick="confirm('Are u sure want to delete?')">Delete</a></td>
                                     </tr>
-                                    <?php
+                            <?php
                                 }
                             } else {
                                 echo "Data not found!";
@@ -115,7 +127,7 @@ if (file_exists(DIR . "/public/web/inc/header.php")) {
                             $i = 1;
                             if ($result) {
                                 while ($data = $result->fetch(PDO::FETCH_ASSOC)) {
-                                    ?>
+                            ?>
 
                                     <tr class="nm_deep">
                                         <th scope="row"><?php echo $i++; ?></th>
@@ -125,7 +137,7 @@ if (file_exists(DIR . "/public/web/inc/header.php")) {
                                         <td><?php echo $data['id']; ?></td>
                                         <td><?php echo $data['created_at']; ?></td>
                                     </tr>
-                                    <?php
+                            <?php
                                 }
                             } else {
                                 echo "Data Not Found!";
@@ -164,8 +176,16 @@ if (file_exists(DIR . "/public/web/inc/header.php")) {
                         <table>
                             <tr>
                                 <td></td>
-                                <td><button type="submit" name="" class="nm-btn nm-btn-color-block">Go to Home</button></td>
-                                <td><button type="submit" name="" class="nm-btn nm-btn-color-block">Logout</button></td>
+                                <td>
+                                    <a href="<?php echo BASE_URL; ?>">
+                                        <button class="nm-btn nm-btn-color-block">Go to Home</button>
+                                    </a>
+                                </td>
+                                <td>
+                                    <form action="POST">
+                                        <button type="submit" name="nm_customer_logout" class="nm-btn nm-btn-color-block">Logout</button>
+                                    </form>
+                                </td>
                             </tr>
                         </table>
                     </form>

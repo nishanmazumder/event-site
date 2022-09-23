@@ -16,6 +16,7 @@ use App\Model\Session;
 use App\Model\Database;
 use App\Model\Format;
 
+Session::init();
 $db = new Database();
 $fm = new Format();
 ?>
@@ -89,12 +90,14 @@ $fm = new Format();
                     if ($result != FALSE) {
                         $value = $result->fetch(PDO::FETCH_ASSOC);
 
+                        //echo $value['nm_username'];
+
                         Session::set('login', TRUE);
                         Session::set("user", $value['nm_username']);
                         Session::set("userId", $value['id']);
                         Session::set("userRole", $value['role']);
 
-                        header('Location: '.BASE_URL);
+                        header('Location: profile.php');
                         exit;
                     } else {
                         echo '<p style="color: red;">User or Password dose not match</p>';

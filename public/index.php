@@ -35,17 +35,11 @@ if (file_exists(__DIR__ . "/../vendor/autoload.php")) {
 // echo $get_rand->random_token(10);
 
 use App\Model\Database;
-use App\Model\Session;
 use App\Model\Format;
 
 
 $db = new Database();
 $fm = new Format();
-
-Session::init();
-$userName = Session::get('user');
-$userId = Session::get('userId');
-$userRole = Session::get('userRole');
 
 
 
@@ -63,12 +57,15 @@ $userRole = Session::get('userRole');
 //  include DIR.'/public/web/inc/faq.php';
 //  include DIR.'/public/web/inc/contact.php';
 
+// $_SESSION['myname'] = "Nishan";
 
-if (isset($_SESSION['user'])) {
-	echo $userName;
-}else{
-	echo "session not found from index!";
-}
+// print_r($_SESSION['myname']);
+
+// if (isset($_SESSION['user'])) {
+// 	echo $userName;
+// }else{
+// 	echo "session not found from index!";
+// }
 
 
 

@@ -6,6 +6,13 @@ if (file_exists(__DIR__ . "/../../../vendor/autoload.php")) {
 	echo "Autoloader not found! - header.php";
 }
 
+use App\Model\Session;
+
+Session::init();
+$userName = Session::get('user');
+$userId = Session::get('userId');
+$userRole = Session::get('userRole');
+
 ob_start();
 
 ?>
@@ -81,7 +88,7 @@ ob_start();
                                     <li><a href="<?php echo $data_social['nm_twt']; ?>" class="nm-transparent"><i class="fab fa-twitter nm-icon"></i></a></li>
                                     <li><a href="<?php echo $data_social['nm_gog']; ?>" class="nm-transparent"><i class="fab fa-google-plus-g nm-icon"></i></a></li>
                                     <?php if (!empty($userName)) { ?>
-                                        <li><a href="profile.php" class="nm-transparent"><i class="nm-icon" style="font-size: 16px;">Hi <?php echo $userName; ?> </i></a></li>
+                                        <li><a href="<?php echo BASE_URL . 'public/web/profile.php'; ?>" class="nm-transparent"><i class="nm-icon" style="font-size: 16px;">Hi <?php echo $userName; ?> </i></a></li>
                                     <?php } else {
                                         ?>
                                         <li><a href="<?php echo BASE_URL . 'public/web/login.php'; ?>" class="nm-transparent nm-btn nm-btn-color-block" style="padding: 4px 10px">Upload</a></li>

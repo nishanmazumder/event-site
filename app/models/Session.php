@@ -3,15 +3,15 @@
 namespace App\Model;
 
 class Session{
-    static function init(){
+    public static function init(){
         session_start();
     }
 
-    static function set($key, $value){
+    public static function set($key, $value){
         $_SESSION[$key] = $value;
     }
 
-    static function get($key){
+    public static function get($key){
         if(isset($_SESSION[$key])){
             return $_SESSION[$key];
         } else {
@@ -19,24 +19,23 @@ class Session{
         }
     }
 
-    static function checkSession(){
+    public static function checkSession(){
         self::init();
         if(self::get('login')== FALSE){
             self::destroy();
-            header("Location: login.php");
         }
     }
 
-    static function loginCheck(){
+    public static function loginCheck(){
         self::init();
         if(self::get('login')== TRUE){
             header("Location: index.php");
+            exit;
         }
     }
 
-    static function destroy(){
+    public static function destroy(){
         session_destroy();
-        header("Location: login.php");
     }
 
     public function __construct()
