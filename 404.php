@@ -9,4 +9,10 @@
     </div>
 </div>
 
-<?php include 'inc/footer.php'; ?>
+<?php
+if (file_exists(DIR . "/public/web/inc/footer.php")) {
+    include DIR . "/public/web/inc/footer.php";
+} else {
+    echo "Footer not found from Login page!";
+}
+?>

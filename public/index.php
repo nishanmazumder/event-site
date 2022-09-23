@@ -11,7 +11,7 @@
 if (file_exists(__DIR__ . "/../vendor/autoload.php")) {
 	require_once __DIR__ . "/../vendor/autoload.php";
 } else {
-	echo "Autoloader not found!";
+	echo "Autoloader not found! - index.php";
 }
 
 /*
@@ -47,7 +47,6 @@ $userName = Session::get('user');
 $userId = Session::get('userId');
 $userRole = Session::get('userRole');
 
-// echo $userName;
 
 
 
@@ -55,12 +54,25 @@ $userRole = Session::get('userRole');
 
 
  include DIR.'/public/web/inc/header.php';
-//  //include DIR.'/public/web/inc/banner.php';
+
+
+//  include DIR.'/public/web/inc/banner.php';
 //  include DIR.'/public/web/inc/about.php';
 //  include DIR.'/public/web/inc/event.php';
 //  include DIR.'/public/web/inc/ticket.php';
 //  include DIR.'/public/web/inc/faq.php';
 //  include DIR.'/public/web/inc/contact.php';
+
+
+if (isset($_SESSION['user'])) {
+	echo $userName;
+}else{
+	echo "session not found from index!";
+}
+
+
+
+
  include DIR.'/public/web/inc/footer.php';
 
 

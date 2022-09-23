@@ -30,12 +30,8 @@ define("DIR", dirname(__DIR__));
 |
 */
 
-//$base_url="http://".$_SERVER['SERVER_NAME'].dirname($_SERVER["REQUEST_URI"].'?');
-define("BASE_URL", "http://events.test/");
-
-// global $base_url;
-// $base_url = "http://events.test/";
-// // $base_url = "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+define("BASE_URL", "http://events.test/"); // Local Development
+// define("BASE_URL", "https://".$_SERVER['SERVER_NAME'].dirname($_SERVER["REQUEST_URI"].'?'));
 
 /*
 |--------------------------------------------------------------------------

@@ -3,7 +3,7 @@
 if (file_exists(__DIR__ . "/../../vendor/autoload.php")) {
     require_once __DIR__ . "/../../vendor/autoload.php";
 } else {
-    echo "Autoloader not found!";
+    echo "Autoloader not found! - profile.php";
 }
 
 if (file_exists(DIR . "/public/web/inc/header.php")) {
@@ -18,7 +18,7 @@ if (file_exists(DIR . "/public/web/inc/header.php")) {
     <div class="row nm-profile-details">
 
         <div class="col-md-12 nm-profile-header">
-            <img src="img/prf1.png" alt="" style="" />
+            <img src="img/prf1.png" alt=""/>
            <h3 class="text-center">Hello <?php echo $userName; ?>!</h3>
             <div class="nm-line-middle"></div>
         </div>
@@ -71,7 +71,7 @@ if (file_exists(DIR . "/public/web/inc/header.php")) {
                             $i = 1;
 
                             if ($result) {
-                                while ($data = $result->fetch_assoc()) {
+                                while ($data = $result->fetch(PDO::FETCH_ASSOC)) {
                                     ?>
                                     <tr class = "nm_deep">
                                         <th scope = "row"><?php echo $i++ ?></th>
@@ -83,12 +83,12 @@ if (file_exists(DIR . "/public/web/inc/header.php")) {
                                             <?php echo $fm->dateFormat($data['eve_time']); ?> <span><?php echo $fm->timeFormat($data['eve_time']); ?></span>
                                         </td>
                                         <td><?php echo $data['location']; ?></td>
-                                        <td><a href="events-update.php?id=<?php echo $data['id']; ?>" class="nm-btn nm-btn-color-block">Edit</a>&nbsp;<a href="?id=<?php echo $data['id']; ?>" class="nm-btn nm-btn-color-block" onclick="confirm('Are u sure want to delete?')">Delete</a></td>
+                                        <td><a href="<?php BASE_URL;?>/../../admin/events-update.php?id=<?php echo $data['id']; ?>" class="nm-btn nm-btn-color-block">Edit</a>&nbsp;<a href="?id=<?php echo $data['id']; ?>" class="nm-btn nm-btn-color-block" onclick="confirm('Are u sure want to delete?')">Delete</a></td>
                                     </tr>
                                     <?php
                                 }
                             } else {
-                                echo "Data not found";
+                                echo "Data not found!";
                             }
                             ?>
                         </tbody>
@@ -114,7 +114,7 @@ if (file_exists(DIR . "/public/web/inc/header.php")) {
                             $result = $db->select($query);
                             $i = 1;
                             if ($result) {
-                                while ($data = $result->fetch_assoc()) {
+                                while ($data = $result->fetch(PDO::FETCH_ASSOC)) {
                                     ?>
 
                                     <tr class="nm_deep">
@@ -128,18 +128,18 @@ if (file_exists(DIR . "/public/web/inc/header.php")) {
                                     <?php
                                 }
                             } else {
-                                echo "Data Not Found";
+                                echo "Data Not Found!";
                             }
                             ?>
                         </tbody>
                     </table>
                 </div>
-                <div class="tab-pane fade show" id="nm-user-profile" role="tabpanel" aria-labelledby="nm-user-profile-tab">
+                <div class="tab-pane fade" id="nm-user-profile" role="tabpanel" aria-labelledby="nm-user-profile-tab">
                     <form action="" method="post">
                         <table class="table table-fixed" id="myTable">
                             <tbody class="nm_tbl_body scrollable-area">
                                 <tr>
-                                    <td>Your Name: Nishan M.</td>
+                                    <td>Your Name: Md Rashidul Azam</td>
                                     <td></td>
                                 </tr>
                                 <tr>

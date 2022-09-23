@@ -3,7 +3,7 @@
 if (file_exists(__DIR__ . "/../../vendor/autoload.php")) {
     require_once __DIR__ . "/../../vendor/autoload.php";
 } else {
-    echo "Autoloader not found!";
+    echo "Autoloader not found! - login.php";
 }
 
 if (file_exists(DIR . "/public/web/inc/header.php")) {
@@ -13,7 +13,11 @@ if (file_exists(DIR . "/public/web/inc/header.php")) {
 }
 
 use App\Model\Session;
+use App\Model\Database;
+use App\Model\Format;
 
+$db = new Database();
+$fm = new Format();
 ?>
 
 <div class="container nm-section-single nm-checkout">
@@ -78,10 +82,8 @@ use App\Model\Session;
                 if (isset($_POST['nm_login'])) {
                     $email = $fm->validation($_POST['nm_email']);
                     $pass = $fm->validation(md5($_POST['nm_password']));
-                    // $email = mysqli_real_escape_string($db->link, $email);
-                    $pass = $fm->validation(md5($_POST['nm_password']));
 
-                    $query = "SELECT * FROM eve_user WHERE nm_email='$email' AND nm_password = '$pass'";
+                    $query = "SELECT * FROM eve_user WHERE nm_email = '$email' AND nm_password = '$pass'";
                     $result = $db->select($query);
 
                     if ($result != FALSE) {
@@ -91,7 +93,9 @@ use App\Model\Session;
                         Session::set("user", $value['nm_username']);
                         Session::set("userId", $value['id']);
                         Session::set("userRole", $value['role']);
-                        echo "<script>window.location = '".BASE_URL."';</script>";
+
+                        header('Location: '.BASE_URL);
+                        exit;
                     } else {
                         echo '<p style="color: red;">User or Password dose not match</p>';
                     }
@@ -106,11 +110,11 @@ use App\Model\Session;
                     $phone = $fm->validation($_POST['nm_phone']);
                     $address = $fm->validation($_POST['nm_address']);
 
-                    $username = mysqli_real_escape_string($db->link, $username);
-                    $pass = mysqli_real_escape_string($db->link, $pass);
-                    $email = mysqli_real_escape_string($db->link, $email);
-                    $phone = mysqli_real_escape_string($db->link, $phone);
-                    $address = mysqli_real_escape_string($db->link, $address);
+                    // $username = mysqli_real_escape_string($db->link, $username);
+                    // $pass = mysqli_real_escape_string($db->link, $pass);
+                    // $email = mysqli_real_escape_string($db->link, $email);
+                    // $phone = mysqli_real_escape_string($db->link, $phone);
+                    // $address = mysqli_real_escape_string($db->link, $address);
 
                     $query = "INSERT INTO eve_user (nm_username, nm_password, nm_email, nm_phone, nm_address, role)"
                         . "VALUES ('$username', '$pass', '$email', '$phone', '$address', 4)";
