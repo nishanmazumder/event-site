@@ -1,8 +1,37 @@
 <?php
-//session_start();
-require_once '../lib/login.php';
-require_once '../helpers/formate.php';
+
+/*
+|--------------------------------------------------------------------------
+| Load Auto Loader
+|--------------------------------------------------------------------------
+|
+| Composer
+|
+*/
+if (file_exists(__DIR__ . "/../vendor/autoload.php")) {
+	require_once __DIR__ . "/../vendor/autoload.php";
+} else {
+	echo "Autoloader not found! - index.php";
+}
+
+/*
+|--------------------------------------------------------------------------
+| Load Models
+|--------------------------------------------------------------------------
+|
+| Load all essential classes...
+|
+*/
+
+use App\Model\Database;
+use App\Model\Format;
+
+$db = new Database();
 $fm = new Format();
+//session_start();
+// require_once '/../public/web/login.php';
+// require_once '../helpers/formate.php';
+// $fm = new Format();
 
 $login_error = '';
 
@@ -38,7 +67,7 @@ if (isset($_POST['btnLogin'])) {
             <div class="row wapper">
                 <div class="col-md-6">
                     <div class="big-title">
-                        <h1>Do you wanna <br /> 
+                        <h1>Do you wanna <br />
                             <span class="red-text">try</span> anything<span class="red-text">?</span></h1>
                     </div>
                 </div>
@@ -52,7 +81,7 @@ if (isset($_POST['btnLogin'])) {
                                 $_GET['login_error'] = 'Invalid Login';
                                 echo '<div class="alert alert-danger text-danger"><strong>Error: </strong> ' . $_GET['login_error'] . '</div>';
                             }
-                            
+
                             ?>
                             <div class="form-group">
                                 <input name="usermail" type="email" class="form-control" id="" placeholder="Email">

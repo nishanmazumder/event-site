@@ -20,7 +20,7 @@
   "autoload": {
     "psr-4": {
       "Config\\": ["app/config/"],
-      "App\\Model\\": ["app/models/"],
+      "App\\Model\\": ["app/models/", "admin/models/"],
       "App\\Trait\\": ["app/traits/"]
     },
     "classmap": ["app/"],
