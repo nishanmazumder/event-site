@@ -8,7 +8,7 @@
 <!--Select2 css-->
 <link href="css/select2.min.css" rel="stylesheet" />
 <!--Multiselect css-->
-<link rel="stylesheet" href="css/bootstrap-multiselect.css">	
+<link rel="stylesheet" href="css/bootstrap-multiselect.css">
 <!--Table js-->
 <link rel="stylesheet" href="css/jquery.stickytable.min.css">
 

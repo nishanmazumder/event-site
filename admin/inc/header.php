@@ -25,7 +25,7 @@ use App\Model\Session;
 use App\Model\Database;
 use App\Model\Format;
 use App\Model\UserLogin;
-Session::init();
+// Session::init();
 $db = new Database();
 $fm = new Format();
 
@@ -50,9 +50,9 @@ $userRole = Session::get('user_role');
 <html lang="en">
     <head>
         <!--META-->
-        <?php include("scripts/meta.php"); ?>
+        <?php include DIR."/admin/scripts/meta.php"; ?>
         <!--CSS-->
-        <?php include("scripts/css.php"); ?>
+        <?php include DIR."/admin/scripts/css.php"; ?>
 
     </head>
 
@@ -90,12 +90,11 @@ $userRole = Session::get('user_role');
                                 <i class="fa fa-bell fa-2x text-warning"></i>
                                 <span class="badge badge-warning align-top">
                                     <?php
-                                    if ($result) {
-                                        $newMail = mysqli_num_rows($result);
-                                        echo $newMail;
-                                    } else {
-                                        echo "0";
-                                    }
+                                        if($result->fetch(PDO::FETCH_ASSOC)){
+                                            echo $result->rowCount();
+                                        }else{
+                                            echo "0";
+                                        }
                                     ?>
                                 </span>
                             </a>

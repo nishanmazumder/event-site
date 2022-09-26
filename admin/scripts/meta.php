@@ -5,7 +5,7 @@
 
 <!--Change Title and Meta tags-->
 <title>Nishan's Admin</title>
-<meta name="description" content="Nishan | responsive app landing page, This is a premium product available exclusively here : ">
+<meta name="description" content="Events listing | Multivendor">
 <meta name="robots" content="index, follow">
-<meta name="author" content="Nishan Back-end Template">
+<meta name="author" content="BDSOFTcr || Nishan M">
 

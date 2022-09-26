@@ -1,14 +1,13 @@
 <?php // session_start(); ?>
 
-<h1>ADMIN</h1>
 <!--Header section start-->
-<?php include("inc/header.php"); ?>
+<?php include __DIR__."/inc/header.php"; ?>
 <!--Header section end-->
 
 <div class="clearfix"></div>
 
 <!--Left navigation-->
-<?php include("inc/navigation.php"); ?>
+<?php include __DIR__."/inc/navigation.php"; ?>
 <!--Left navigation-->
 
 <!--Main section start-->
@@ -23,7 +22,7 @@
     <div class="nm_main_content_area">
         <div class="nm_main_content">
             <!--Content-->
-            <h1>Welcome <?php echo $_SESSION['user_name'];?></h1>
+            <h1>Welcome <?php echo $userName; //echo $_SESSION['user_name'];?></h1>
             <!--Content-->
         </div>
     </div>
@@ -37,4 +36,4 @@
 <div class="clearfix"></div>
 
 <!--Footer section strat-->
-<?php include("inc/footer.php"); ?>
+<?php include __DIR__."/inc/footer.php"; ?>
