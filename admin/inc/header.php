@@ -1,8 +1,33 @@
 <?php
-//session_start();
+/*
+|--------------------------------------------------------------------------
+| Load Auto Loader
+|--------------------------------------------------------------------------
+|
+| Composer
+|
+*/
+if (file_exists(__DIR__ . "/../../vendor/autoload.php")) {
+    require_once __DIR__ . "/../../vendor/autoload.php";
+} else {
+    echo "Autoloader not found! " . basename(__FILE__);
+}
 
-require '../vendor/autoload.php';
-require '../lib/login.php';
+/*
+|--------------------------------------------------------------------------
+| Load Models
+|--------------------------------------------------------------------------
+|
+| Load all essential classes...
+|
+*/
+use App\Model\Session;
+use App\Model\Database;
+use App\Model\Format;
+use App\Model\UserLogin;
+Session::init();
+$db = new Database();
+$fm = new Format();
 
 if (!isset($_SESSION['user_id'])) {
      //header('Location: index.php');
@@ -14,12 +39,10 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
     $login->user_logout();
 }
 
-$db = new Database();
-$fm = new Format();
-
-$userId = $_SESSION['user_id'];
-$userName = $_SESSION['user_name'];
-$userRole = $_SESSION['user_role'];
+// $userId = $_SESSION['user_id'];
+$userId = Session::get('user_id');
+$userName = Session::get('user_name');
+$userRole = Session::get('user_role');
 ?>
 
 
@@ -47,7 +70,7 @@ $userRole = $_SESSION['user_role'];
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item dropdown nm_display_none_mob">
                             <a class="nav-link dropdown-toggle nm_spc_border_both" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <?php echo "Hello" . " " .$userName; ?> 
+                                <?php echo "Hello" . " " .$userName; ?>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="#">Activity log</a>

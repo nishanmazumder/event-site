@@ -44,7 +44,6 @@ $fm = new Format();
                                 $userName = $value['nm_username'];
                             }
 
-
                             // New Password
                             $text = substr($email, 0, 3);
                             $rand = rand(10000, 99999);

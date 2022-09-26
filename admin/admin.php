@@ -1,5 +1,6 @@
-<?php session_start(); ?>
+<?php // session_start(); ?>
 
+<h1>ADMIN</h1>
 <!--Header section start-->
 <?php include("inc/header.php"); ?>
 <!--Header section end-->

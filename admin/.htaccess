@@ -1,0 +1,30 @@
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews
+    </IfModule>
+
+    RewriteEngine On
+
+    # Change INDEX location
+    DirectoryIndex public/index.php
+
+    # Follow symbolic links in this directory.
+    Options +FollowSymLinks
+
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # Redirect Trailing Slashes If Not A Folder...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_URI} (.+)/$
+    #RewriteRule ^ %1 [L,R=301]
+    RewriteRule ^ index.php [L]
+
+    # Redirect to 404
+    FallbackResource /404.php
+
+    #Deny access to one specific folder
+    Options -Indexes
+</IfModule>
