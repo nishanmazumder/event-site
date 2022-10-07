@@ -33,7 +33,7 @@
                 $div_eve = explode('.', $eve_img);
                 $file_ext_eve = strtolower(end($div_eve));
                 $unique_image_eve = substr(md5(time()), 0, 10) . '.' . $file_ext_eve;
-                
+
                 $auth_img = $_FILES['nm_eve_video']['name'];
                 $auth_size = $_FILES['nm_eve_video']['size'];
                 $auth_tmp = $_FILES['nm_eve_video']['tmp_name'];
@@ -160,7 +160,7 @@
                             $result_general = $db->select($query_general);
 
                             if ($result_general) {
-                                while ($data_g = $result_general->fetch_assoc()) {
+                                while ($data_g = $result_general->fetch(PDO::FETCH_ASSOC)) {
                                     ?>
 
                                     <form method="post" action="" enctype="multipart/form-data">
@@ -204,7 +204,7 @@
                             $result = $db->select($query);
 
                             if ($result) {
-                                while ($data = $result->fetch_assoc()) {
+                                while ($data = $result->fetch(PDO::FETCH_ASSOC)) {
                                     ?>
 
                                     <form method="post" action="" enctype="multipart/form-data">
@@ -237,7 +237,7 @@
                             $result_social = $db->select($query_social);
 
                             if ($result_social) {
-                                while ($data_social = $result_social->fetch_assoc()) {
+                                while ($data_social = $result_social->fetch(PDO::FETCH_ASSOC)) {
                                     ?>
 
                                     <form method="post" action="" enctype="multipart/form-data">
@@ -291,7 +291,7 @@
                             $result_contact = $db->select($query_contact);
 
                             if ($result_contact) {
-                                while ($data_con = $result_contact->fetch_assoc()) {
+                                while ($data_con = $result_contact->fetch(PDO::FETCH_ASSOC)) {
                                     ?>
                                     <form method="post" action="" enctype="">
 
@@ -336,7 +336,7 @@
                             $result_copy = $db->select($query_copy);
 
                             if ($result_copy) {
-                                while ($data_copy = mysqli_fetch_assoc($result_copy)) {
+                                while ($data_copy = $result_copy->fetch(PDO::FETCH_ASSOC)) {
                                     ?>
                                     <form method="post" action="" enctype="multipart/form-data">
 

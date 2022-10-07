@@ -65,7 +65,7 @@
                     $i = 1;
 
                     if ($result) {
-                        while ($data = $result->fetch_assoc()) {
+                        while ($data = $result->fetch(PDO::FETCH_ASSOC)) {
                             ?>
                             <tr class = "nm_deep">
                                 <th scope = "row"><?php echo $i++ ?></th>
@@ -74,7 +74,7 @@
                                 <td><img src="<?php echo $data['host_img']; ?>" alt=""></td>
                                 <td><img src="<?php echo $data['eve_img']; ?>" alt=""></td>
                                 <td>
-                                    <?php echo $fm->dateFormat($data['eve_time']); ?> <span><?php echo $fm->timeFormat($data['eve_time']); ?></span>  
+                                    <?php echo $fm->dateFormat($data['eve_time']); ?> <span><?php echo $fm->timeFormat($data['eve_time']); ?></span>
                                 </td>
                                 <td><?php echo $data['location']; ?></td>
                                 <td><a href="events-update.php?id=<?php echo $data['id']; ?>">Edit</a> || <a href="?id=<?php echo $data['id']; ?>" onclick="confirm('Are u sure want to delete?')">Delete</a></td>
@@ -95,7 +95,7 @@
     <?php
     $p_query = "SELECT * FROM nm_event_up WHERE status = '1' ORDER BY eve_time ASC";
     $q_result = $db->select($p_query);
-    $total_rows = mysqli_num_rows($q_result);
+    $total_rows = count($q_result->fetch(PDO::FETCH_ASSOC));
     $total_pages = ceil($total_rows / $per_page_post);
 
     if ($total_rows <= $per_page_post) {

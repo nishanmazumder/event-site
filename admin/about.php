@@ -1,11 +1,11 @@
 <!--Header section start-->
-<?php include("inc/header.php"); ?>
+<?php include __DIR__."/inc/header.php"; ?>
 <!--Header section end-->
 
 <div class="clearfix"></div>
 
 <!--Left navigation-->
-<?php include("inc/navigation.php"); ?>
+<?php include __DIR__."/inc/navigation.php"; ?>
 <!--Left navigation-->
 
 
@@ -81,7 +81,7 @@
             $result = $db->select($query);
 
             if ($result) {
-                while ($data = $result->fetch_assoc()) {
+                while ($data = $result->fetch(PDO::FETCH_ASSOC)) {
                     ?>
                     <form method="post" action="" enctype="multipart/form-data">
 
@@ -157,4 +157,4 @@
 <div class="clearfix"></div>
 
 <!--Footer section strat-->
-<?php include("inc/footer.php"); ?>
+<?php include __DIR__."/inc/footer.php"; ?>

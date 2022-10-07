@@ -25,24 +25,30 @@ use App\Model\Session;
 use App\Model\Database;
 use App\Model\Format;
 use App\Model\UserLogin;
-// Session::init();
+Session::init();
 $db = new Database();
 $fm = new Format();
 
-if (!isset($_SESSION['user_id'])) {
-     //header('Location: index.php');
-    echo "<script>window.location='index.php';</script>";
-}
+// $userId = $_SESSION['user_id'];
+$userId = Session::get('user_id');
+$userName = Session::get('user_name');
+$userRole = Session::get('user_role');
+
+// if ($userId != NULL) {
+//     //header('Location: index.php');
+//    echo "<script>window.location='".BASE_URL."admin';</script>";
+//   // header('Location:'.BASE_URL.'admin/admin.php');
+//    // header('Location:'.BASE_URL.'admin');
+//    // exit;
+// }else{
+//     echo "<script>window.location='".BASE_URL."admin/admin.php';</script>";
+// }
 
 if (isset($_GET['action']) && $_GET['action'] == 'logout') {
     $login = new UserLogin();
     $login->user_logout();
 }
 
-// $userId = $_SESSION['user_id'];
-$userId = Session::get('user_id');
-$userName = Session::get('user_name');
-$userRole = Session::get('user_role');
 ?>
 
 
