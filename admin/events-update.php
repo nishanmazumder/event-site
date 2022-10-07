@@ -96,7 +96,7 @@
                     // Get Token From Events
                     $select_token = "SELECT token FROM nm_event_up WHERE id = '$eveId'";
                     $token_result = $db->select($select_token);
-                    while ($match_token = $token_result->fetch_assoc()) {
+                    while ($match_token = $token_result->fetch(PDO::FETCH_ASSOC)) {
                         $getToken = $match_token['token'];
                     }
 
@@ -148,7 +148,7 @@
             $result = $db->select($query);
 
             if ($result) {
-                while ($data = $result->fetch_assoc()) {
+                while ($data = $result->fetch(PDO::FETCH_ASSOC)) {
                     ?>
 
                     <form method="post" action="" enctype="multipart/form-data">
@@ -206,7 +206,7 @@
                                     <?php
                                     $sql = "SELECT * FROM nm_eve_category";
                                     $query = $db->select($sql);
-                                    while ($category = $query->fetch_assoc()) {
+                                    while ($category = $query->fetch(PDO::FETCH_ASSOC)) {
                                         ?>
                                         <option <?php if ($data['eve_category'] == $category['cat_id']) { ?> selected="selected" <?php } ?>  value="<?php echo $category['cat_id'] ?>"><?php echo $category['category'] ?></option>
                                     <?php } ?>
@@ -251,9 +251,9 @@
                     <?php
                 }
             }
-            ?>    
+            ?>
 
-            <!--Content-->   
+            <!--Content-->
         </div>
     </div>
 </div><!-----end------>

@@ -31,12 +31,12 @@ $format = new Format();
                     $result = $post_show->select($mailCheck);
 
                     if ($result != FALSE) {
-                        while ($value = $result->fetch_assoc()) {
+                        while ($value = $result->fetch(PDO::FETCH_ASSOC)) {
                             $userId = $value['id'];
                             $userName = $value['username'];
                         }
 
-                        
+
                         // New Password
                         $text = substr($email, 0, 3);
                         $rand = rand(10000, 99999);
@@ -44,9 +44,9 @@ $format = new Format();
                         $password = md5($newpass);
 
                         $update_query = "UPDATE sb_user SET password = '$password' WHERE id = '$userId'";
-                        
+
                         $updatePass = $post_show->update($update_query);
-                        
+
                         // Mail send
                         $to = "$email";
                         $from = "arosh019@gmail.com";
@@ -55,17 +55,17 @@ $format = new Format();
                         $headers .= 'Content-type: text/html; charset=iso-8859-1';
                         $subject = "Password Recovery";
                         $message = "Your User Name: .$userName. and Your Password: .$newpass. Please Visit website for login";
-                        
+
                         $sendmail = mail($to, $subject, $message, $headers);
-                        
+
                         if($sendmail){
-                           echo '<p style="color: green;">Please check your mail</p>'; 
+                           echo '<p style="color: green;">Please check your mail</p>';
                         }else{
-                            echo '<p style="color: red;">Mail not sent !</p>'; 
+                            echo '<p style="color: red;">Mail not sent !</p>';
                         }
-                        
+
                     }else{
-                        echo '<p style="color: red;">Mail not exist</p>'; 
+                        echo '<p style="color: red;">Mail not exist</p>';
                     }
                 }
             }

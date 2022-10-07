@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $result = $db->select($query);
 
             if($result){
-            while ($data = $result->fetch_assoc()) {
+            while ($data = $result->fetch(PDO::FETCH_ASSOC)) {
                 ?>
                 <form method="post" action="" enctype="">
 

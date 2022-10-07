@@ -65,7 +65,7 @@
                     $i = 1;
 
                     if ($result) {
-                        while ($data = $result->fetch_assoc()) {
+                        while ($data = $result->fetch(PDO::FETCH_ASSOC)) {
                             ?>
                             <tr class="nm_deep">
                                 <th scope="row"><?php echo $i++; ?></th>

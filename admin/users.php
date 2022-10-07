@@ -72,7 +72,7 @@ if (isset($_GET['mailid'])) {
                     $i = 1;
 
                     if ($result) {
-                        while ($data = $result->fetch_assoc()) {
+                        while ($data = $result->fetch(PDO::FETCH_ASSOC)) {
                             ?>
                     <tr class="<?php if($data['role'] == 4){echo "nm_deep";}?>">
                                 <th scope="row"><?php echo $i++; ?></th>
@@ -89,7 +89,7 @@ if (isset($_GET['mailid'])) {
                     } else {
                         echo '<span class="text-danger">Data not found</span>';
                     }
-                    
+
                     ?>
                 </tbody>
             </table>
