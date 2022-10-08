@@ -128,7 +128,7 @@
                 $result = $db->select($query);
 
                 if ($result) {
-                    while ($data = $result->fetch_assoc()) {
+                    while ($data = $result->fetch(PDO::FETCH_ASSOC)) {
                         ?>
                         <div class="col-md-3">
                             <img src="<?php echo $data['eve_img_gal']; ?>" style="width: 100%;" alt=""></td>

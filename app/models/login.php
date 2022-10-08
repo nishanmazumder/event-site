@@ -60,7 +60,5 @@ class UserLogin extends Connection
         unset($_SESSION['user_name']);
         unset($_SESSION['user_mail']);
         unset($_SESSION['user_role']);
-
-        header('Location: index.php');
     }
 }

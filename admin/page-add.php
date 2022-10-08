@@ -75,7 +75,7 @@
                 $result = $db->select($query);
 
                 if ($result) {
-                    while ($data = $result->fetch_assoc()) {
+                    while ($data = $result->fetch(PDO::FETCH_ASSOC)) {
                         ?>
                         <form method="post" action="" enctype="">
 
@@ -179,7 +179,7 @@
                             <button name="nm_submit" type="submit" class="nm-btn nm-btn-admin float-right">Done</button>
                         </div>
                     </div>
-                </form> 
+                </form>
             <?php } ?>
 
 

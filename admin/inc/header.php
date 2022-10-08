@@ -29,24 +29,19 @@ Session::init();
 $db = new Database();
 $fm = new Format();
 
-// $userId = $_SESSION['user_id'];
 $userId = Session::get('user_id');
 $userName = Session::get('user_name');
 $userRole = Session::get('user_role');
 
-// if ($userId != NULL) {
-//     //header('Location: index.php');
-//    echo "<script>window.location='".BASE_URL."admin';</script>";
-//   // header('Location:'.BASE_URL.'admin/admin.php');
-//    // header('Location:'.BASE_URL.'admin');
-//    // exit;
-// }else{
-//     echo "<script>window.location='".BASE_URL."admin/admin.php';</script>";
-// }
+if(empty($_SESSION['user_id'])){
+    header('Location:'.BASE_URL.'admin');
+}
 
 if (isset($_GET['action']) && $_GET['action'] == 'logout') {
     $login = new UserLogin();
     $login->user_logout();
+
+    header('Location:'.BASE_URL.'admin/public');
 }
 
 ?>
@@ -96,7 +91,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                                 <i class="fa fa-bell fa-2x text-warning"></i>
                                 <span class="badge badge-warning align-top">
                                     <?php
-                                        if($result->fetch(PDO::FETCH_ASSOC)){
+                                        if($result){
                                             echo $result->rowCount();
                                         }else{
                                             echo "0";

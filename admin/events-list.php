@@ -95,7 +95,7 @@
     <?php
     $p_query = "SELECT * FROM nm_event_up WHERE status = '1' ORDER BY eve_time ASC";
     $q_result = $db->select($p_query);
-    $total_rows = count($q_result->fetch(PDO::FETCH_ASSOC));
+    $total_rows = $q_result->rowCount();
     $total_pages = ceil($total_rows / $per_page_post);
 
     if ($total_rows <= $per_page_post) {

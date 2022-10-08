@@ -61,7 +61,7 @@
                     $result = $db->select($query);
                     $i = 1;
                     if ($result) {
-                        while ($data = $result->fetch_assoc()) {
+                        while ($data = $result->fetch(PDO::FETCH_ASSOC)) {
                             ?>
                             <tr class="nm_deep">
                                 <th scope="row">1</th>
@@ -84,7 +84,7 @@
     <?php
     $p_query = "SELECT id FROM nm_brand";
     $q_result = $db->select($p_query);
-    $total_rows = mysqli_num_rows($q_result);
+    $total_rows = $q_result->rowCount();
     $total_pages = ceil($total_rows / $per_page_post);
 
     if ($total_rows <= $per_page_post) {

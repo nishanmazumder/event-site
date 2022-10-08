@@ -8,7 +8,7 @@
                     <div id="contentWrapper">
                         <div id="contentLeft">
                             <ul id="leftNavigation">
-                                <li class=""> <a href="#"><i class="fa fa-tachometer-alt leftNavIcon"></i>Dashboard</a>
+                                <li> <a href="#"><i class="fa fa-tachometer-alt leftNavIcon"></i>Dashboard</a>
                                     <ul>
                                         <li> <a href="general.php"><i class="fa fa-asterisk leftNavIcon"></i> General </a> </li>
                                     </ul>

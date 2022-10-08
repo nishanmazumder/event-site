@@ -54,8 +54,8 @@
                     move_uploaded_file($auth_tmp, $upload_header_video);
 
                     $query = "UPDATE nm_general SET "
-                            . "nm_logo = '$upload_site_logo', "
-                            . "nm_header_video = '$upload_header_video' WHERE id = 1";
+                        . "nm_logo = '$upload_site_logo', "
+                        . "nm_header_video = '$upload_header_video' WHERE id = 1";
                     $result = $db->update($query);
 
                     if ($result) {
@@ -66,7 +66,7 @@
                 }
             }
 
-            // Theme Color
+            // Theme Color / #D94249
             if (isset($_POST['nm_theme_color'])) {
                 $color = $_POST['nm_eve_theme_color'];
 
@@ -81,18 +81,14 @@
             }
 
             // Socail
-            if (isset($_POST['nm_sbt_map_loc'])) {
-                $face = mysqli_real_escape_string($db->link, $_POST['nm_face_link']);
-                $twt = mysqli_real_escape_string($db->link, $_POST['nm_twt_link']);
-                $gog = mysqli_real_escape_string($db->link, $_POST['nm_gog_link']);
-                $ytb = mysqli_real_escape_string($db->link, $_POST['nm_you_link']);
+            if (isset($_POST['nm_sbt_social'])) {
 
-                $query = "UPDATE nm_map SET "
-                        . "nm_fac = '$face',"
-                        . "nm_twt = '$twt',"
-                        . "nm_gog = '$gog',"
-                        . "nm_ytb = '$ytb' "
-                        . "WHERE id = 1";
+                $face = $_POST['nm_face_link'];
+                $twt = $_POST['nm_twt_link'];
+                $gog = $_POST['nm_gog_link'];
+                $ytb = $_POST['nm_you_link'];
+
+                $query = "UPDATE nm_social SET nm_face = '$face', nm_twt = '$twt', nm_gog = '$gog', nm_ytb = '$ytb' WHERE id = 1";
                 $result = $db->update($query);
 
                 if ($result) {
@@ -105,17 +101,17 @@
 
             // Contact
             if (isset($_POST['nm_sbt_map_loc'])) {
-                $conLocation = mysqli_real_escape_string($db->link, $_POST['nm_con_loc']);
-                $conPhone = mysqli_real_escape_string($db->link, $_POST['nm_con_phone']);
-                $conEmail = mysqli_real_escape_string($db->link, $_POST['nm_con_email']);
-                $conLocMap = mysqli_real_escape_string($db->link, $_POST['nm_con_map']);
+                $conLocation = $_POST['nm_con_loc'];
+                $conPhone = $_POST['nm_con_phone'];
+                $conEmail = $_POST['nm_con_email'];
+                $conLocMap = $_POST['nm_con_map'];
 
                 $query = "UPDATE nm_map SET "
-                        . "location = '$conLocation',"
-                        . "phone = '$conPhone',"
-                        . "email = '$conEmail',"
-                        . "map_loc = '$conLocMap' "
-                        . "WHERE id = 1";
+                    . "location = '$conLocation',"
+                    . "phone = '$conPhone',"
+                    . "email = '$conEmail',"
+                    . "map_loc = '$conLocMap' "
+                    . "WHERE id = 1";
                 $result = $db->update($query);
 
                 if ($result) {
@@ -161,7 +157,7 @@
 
                             if ($result_general) {
                                 while ($data_g = $result_general->fetch(PDO::FETCH_ASSOC)) {
-                                    ?>
+                            ?>
 
                                     <form method="post" action="" enctype="multipart/form-data">
                                         <div class="form-row">
@@ -189,10 +185,10 @@
                                         </div>
 
                                     </form>
-                                    <?php
+                            <?php
                                 }
                             } else {
-                                echo '<span class="text-danger">Opps Something wrong !</span>';
+                                echo '<span class="text-danger">No Data available !</span>';
                             }
                             ?>
                         </div>
@@ -205,7 +201,7 @@
 
                             if ($result) {
                                 while ($data = $result->fetch(PDO::FETCH_ASSOC)) {
-                                    ?>
+                            ?>
 
                                     <form method="post" action="" enctype="multipart/form-data">
                                         <div class="form-row">
@@ -222,7 +218,7 @@
                                         </div>
 
                                     </form>
-                                    <?php
+                            <?php
                                 }
                             } else {
                                 echo '<span class="text-danger">Opps Something wrong !</span>';
@@ -238,9 +234,9 @@
 
                             if ($result_social) {
                                 while ($data_social = $result_social->fetch(PDO::FETCH_ASSOC)) {
-                                    ?>
+                            ?>
 
-                                    <form method="post" action="" enctype="multipart/form-data">
+                                    <form method="post" action="">
 
                                         <div class="form-row">
                                             <div class="form-group col-md-12 no-gutters">
@@ -272,11 +268,11 @@
 
                                         <div class="form-group row">
                                             <div class="col-md-12">
-                                                <button name="nm_c" type="submit" class="btn nm-btn-admin float-right">Done</button>
+                                                <button name="nm_sbt_social" type="submit" class="btn nm-btn-admin float-right">Done</button>
                                             </div>
                                         </div>
                                     </form>
-                                    <?php
+                            <?php
                                 }
                             } else {
                                 echo '<span class="text-danger">Opps Something wrong !</span>';
@@ -292,7 +288,7 @@
 
                             if ($result_contact) {
                                 while ($data_con = $result_contact->fetch(PDO::FETCH_ASSOC)) {
-                                    ?>
+                            ?>
                                     <form method="post" action="" enctype="">
 
                                         <div class="form-group col-md-12">
@@ -321,7 +317,7 @@
                                             </div>
                                         </div>
                                     </form>
-                                    <?php
+                            <?php
                                 }
                             } else {
                                 echo '<span class="text-danger">Opps Something wrong !</span>';
@@ -337,7 +333,7 @@
 
                             if ($result_copy) {
                                 while ($data_copy = $result_copy->fetch(PDO::FETCH_ASSOC)) {
-                                    ?>
+                            ?>
                                     <form method="post" action="" enctype="multipart/form-data">
 
                                         <div class="form-row">
@@ -355,7 +351,7 @@
                                             </div>
                                         </div>
                                     </form>
-                                    <?php
+                            <?php
                                 }
                             } else {
                                 echo '<span class="text-danger">Opps Something wrong !</span>';
@@ -369,7 +365,8 @@
             <!--Content-->
         </div>
     </div>
-</div><!-----end------>
+</div>
+<!-----end------>
 
 </div>
 </div>

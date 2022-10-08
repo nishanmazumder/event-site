@@ -78,6 +78,9 @@ if (isset($_GET['mailid'])) {
                     } else {
                         $page = 1;
                     }
+
+                    print_r($_GET['page']);
+
                     $start_page = ($page - 1) * $per_page_post;
 
                     $query = "SELECT * FROM nm_contact WHERE status IN (0 , 1) ORDER BY datetime DESC LIMIT $start_page, $per_page_post";
@@ -114,7 +117,7 @@ if (isset($_GET['mailid'])) {
     <?php
     $p_query = "SELECT * FROM nm_contact WHERE status IN (0 , 1) ORDER BY datetime DESC";
     $q_result = $db->select($p_query);
-    $total_rows = mysqli_num_rows($q_result);
+    $total_rows = $q_result->rowCount();
     $total_pages = ceil($total_rows / $per_page_post);
 
     if ($total_rows <= $per_page_post) {

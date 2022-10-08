@@ -26,7 +26,7 @@
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                 $token = $fm->random_token(10);
-                
+
                 $eveTitle = mysqli_real_escape_string($db->link, $_POST['nm_eve_title']);
                 $eveSubTitle = mysqli_real_escape_string($db->link, $_POST['nm_eve_sub_title']);
                 $eveDes = mysqli_real_escape_string($db->link, $_POST['nm_eve_des']);
@@ -175,7 +175,7 @@
                             <?php
                             $sql = "SELECT * FROM nm_eve_category";
                             $query = $db->select($sql);
-                            while ($data = $query->fetch_assoc()) {
+                            while ($data = $query->fetch(PDO::FETCH_ASSOC)) {
                                 ?>
                                 <option value="<?php echo $data['cat_id'] ?>"><?php echo $data['category'] ?></option>
                             <?php } ?>

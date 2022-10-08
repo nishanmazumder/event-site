@@ -88,7 +88,7 @@ trait UPDATE
             $query = $this->connect->prepare($query);
             $query->execute();
 
-            //return $query->rowCount(). " Data Updated!";
+            return $query->rowCount(). " Data Updated!";
         } catch (\PDOException $err) {
             return "Error:" . $query . " " . $err->getMessage();
         }
