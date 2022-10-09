@@ -57,7 +57,7 @@ $fm = new Format();
                                 <li class="nm-text-pink"><?php echo $data['host_name']; ?></li>
                             </ul>
                             <div class="clearfix"></div>
-                            <a href="single.php?eventId=<?php echo $data['id']; ?>" class="nm-btn nm-btn-color-block">Join Now</a>
+                            <a href="<?php BASE_URL; ?>public/web/single.php?eventId=<?php echo $data['id']; ?>" class="nm-btn nm-btn-color-block">Join Now</a>
                         </div>
                     </div>
 

@@ -38,7 +38,7 @@
                 while ($data = mysqli_fetch_assoc($result)) {
                     ?>
 
-            
+
                     <div class="row no-gutters align-items-center nm-upcoming-eve">
                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 ">
                             <div class="nm-eve-img" style="background-image: url('admin/<?php echo $data['eve_img']; ?>');"></div>

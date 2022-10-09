@@ -8,7 +8,7 @@ $query = "SELECT * FROM nm_page WHERE id = '$pageId'";
 $result = $db->select($query);
 
 if ($result) {
-    while ($data = $result->fetch_assoc()) {
+    while ($data = $result->fetch(PDO::FETCH_ASSOC)) {
         ?>
         <div class="container nm-page">
             <div class="row no-gutters align-items-center">

@@ -1,4 +1,12 @@
-<?php include 'inc/header.php'; ?>
+<?php
+
+if (file_exists(DIR . "/public/web/inc/header.php")) {
+    include DIR . "/public/web/inc/header.php";
+} else {
+    echo "Header not found from Login page!";
+}
+
+?>
 <!-- Single Events Start -->
 <?php
 if (isset($_GET['eventId'])) {
@@ -16,7 +24,7 @@ if (isset($_GET['eventId'])) {
                         <div class="nm-hero-text wow fadeIn">
                             <h1 class=""><?php echo $data['title']; ?></h1>
                             <h3><?php echo $data['subtitle']; ?></h3>
-                        </div> 
+                        </div>
                     </div>
                 </div>
             </div>
@@ -31,7 +39,7 @@ if (isset($_GET['eventId'])) {
                             <div class="nm-single-block-ticket wow bounceIn">
                                 <div class="single-block">
                                     <h3 class="single-block-title">
-                                        Start 
+                                        Start
                                     </h3>
                                     <span class="single-block-data"><?php echo $fm->timeFormatDay($data['eve_time']); ?></span>
                                 </div>
@@ -113,7 +121,7 @@ if (isset($_GET['eventId'])) {
                                     <i class="fas fa-stream"></i>
                                     <a href="category.php?categoryId=<?php echo $data['cat_id']; ?>"><?php echo $data['category']; ?></a>
                                 </div>
-                            </div> 
+                            </div>
                         </div>
 
                         <div class="row no-gutters align-items-center wow slideInLeft">
@@ -156,7 +164,7 @@ if (isset($_GET['eventId'])) {
                                 <?php
                                 $iframe = str_replace(array('600', '450'), array('100%', '250'), $data['map_loc']);
                                 echo $iframe;
-                                ?> 
+                                ?>
                             </div>
                         </div>
 
@@ -179,5 +187,19 @@ if (isset($_GET['eventId'])) {
 
 <!-- Events End -->
 
-<?php include 'inc/faq.php'; ?>
-<?php include 'inc/footer.php'; ?>
+<?php
+
+if (file_exists(DIR . "/public/web/inc/faq.php")) {
+    include DIR . "/public/web/inc/faq.php";
+} else {
+    echo "Footer not found from Login page!";
+}
+
+if (file_exists(DIR . "/public/web/inc/footer.php")) {
+    include DIR . "/public/web/inc/footer.php";
+} else {
+    echo "Footer not found from Login page!";
+}
+
+
+?>

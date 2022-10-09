@@ -23,7 +23,6 @@
       "App\\Model\\": ["app/models/"],
       "App\\Trait\\": ["app/traits/"]
     },
-    "classmap": ["app/"],
-    "files" : ["app/init.php"]
+    "classmap": ["app/"]
   }
 }

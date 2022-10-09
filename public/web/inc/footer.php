@@ -1,19 +1,17 @@
 <?php
-if (file_exists(__DIR__ . "/../../../vendor/autoload.php")) {
-	require_once __DIR__ . "/../../../vendor/autoload.php";
-} else {
-	echo "Autoloader not found! - footer.php";
-}
-
-use App\Model\Database;
-$db = new Database();
-
+/*
+|--------------------------------------------------------------------------
+| Header
+|--------------------------------------------------------------------------
+|
+| @package event-site
+|
+*/
 ?>
-
-<!--  Footer Start -->
 <footer>
     <canvas id="canvas"></canvas>
     <div class="container-fluid nm-section">
+
         <!--  Brand block -->
         <div class="row no-gutters">
             <div class="col-12 wow slideInLeft">
@@ -21,15 +19,12 @@ $db = new Database();
                     <?php
                     $query = "SELECT * FROM nm_brand ORDER BY id DESC limit 9";
                     $result = $db->select($query);
-
-                   while ($data = $result->fetch(PDO::FETCH_ASSOC)) {
-                        ?>
-
-                    <li><img class="nm-m-block" src="<?php echo BASE_URL;?>admin/<?php echo $data['img']; ?>" alt="" /></li>
-
+                    while ($data = $result->fetch(PDO::FETCH_ASSOC)) { ?>
+                        <li><img class="nm-m-block" src="<?php echo BASE_URL; ?>admin/<?php echo $data['img']; ?>" alt="" /></li>
                     <?php } ?>
                 </ul>
             </div>
+
             <!--  Mailchim block -->
             <div id="nmJoin" class="col-12  wow slideInRight">
                 <div class="nm-mailchimp">
@@ -42,6 +37,7 @@ $db = new Database();
                     </form>
                 </div>
             </div>
+
             <!--  Footer Nav block -->
             <div class="col-12 wow slideInLeft">
                 <ul class="nav nm-nav-item">
@@ -51,11 +47,11 @@ $db = new Database();
 
                     if ($result_f_nav) {
                         while ($data_f_nav = $result_f_nav->fetch(PDO::FETCH_ASSOC)) {
-                            ?>
+                    ?>
                             <li class="nav-item">
                                 <a class="nav-link active" href="page.php?id=<?php echo $data_f_nav['id']; ?>"><?php echo $data_f_nav['page_title']; ?></a>
                             </li>
-                            <?php
+                    <?php
                         }
                     } else {
                         echo 'No nav item yet';
@@ -63,6 +59,7 @@ $db = new Database();
                     ?>
                 </ul>
             </div>
+
             <!--  Copyright block -->
             <div class="col-12 text-center wow slideInRight">
                 <?php
@@ -71,18 +68,19 @@ $db = new Database();
 
                 if ($result_copy) {
                     while ($data_copy = $result_copy->fetch(PDO::FETCH_ASSOC)) {
-                        ?>
+                ?>
 
                         <p class="nm-copy-text"><?php echo $data_copy['nm_copy']; ?></p>
                         <!-- <p class="nm-copy-text">All right reserver ©copyright by BDSOFTcr</p> -->
 
-                        <?php
+                <?php
                     }
                 } else {
                     echo '<span class="text-danger">Opps Something wrong !</span>';
                 }
                 ?>
             </div>
+
             <!--  Icon block -->
             <div class="col-12 text-center wow pulse">
                 <ul class="nm-header-icon">
@@ -93,12 +91,12 @@ $db = new Database();
 
                     if ($result_social) {
                         while ($data_social = $result_social->fetch(PDO::FETCH_ASSOC)) {
-                            ?>
+                    ?>
                             <li><a href="<?php echo $data_social['nm_face']; ?>" class="nm-transparent"><i class="fab fa-facebook-f nm-icon"></i></a></li>
                             <li><a href="<?php echo $data_social['nm_twt']; ?>" class="nm-transparent"><i class="fab fa-twitter nm-icon"></i></a></li>
                             <li><a href="<?php echo $data_social['nm_gog']; ?>" class="nm-transparent"><i class="fab fa-google-plus-g nm-icon"></i></a></li>
                             <li><a href="<?php echo $data_social['nm_ytb']; ?>" class="nm-transparent"><i class="fab fa-youtube nm-icon"></i></a></li>
-                            <?php
+                    <?php
                         }
                     } else {
                         echo '<span class="text-danger">Opps Something wrong !</span>';
@@ -107,6 +105,7 @@ $db = new Database();
 
                 </ul>
             </div>
+
             <!--  B2T block -->
             <div class="col-12 wow fadeInUp">
                 <button class="text-center nm-btn nm-btn-color-block nm-back-2-top" onclick="topFunction()" id="NmBak2Top" title="Go to top"><i class="fas fa-arrow-up"></i></button>
@@ -116,7 +115,8 @@ $db = new Database();
 </footer>
 <!--  Footer End -->
 
-<?php include DIR. '/resources/scripts/js.php'; ?>
+<?php include DIR . '/resources/scripts/js.php'; ?>
 
 </body>
+
 </html>
