@@ -1,3 +1,14 @@
+<?php
+/*
+|--------------------------------------------------------------------------
+| Sidebar Section
+|--------------------------------------------------------------------------
+|
+| @package event-site
+|
+*/
+?>
+
 <!-- Sidebar Start -->
 <div class="col-lg-3 col-md3 col-sm-12 col-xs-12 nm-sidebar">
 
@@ -29,7 +40,6 @@
                 <div class="nm-mostsell-event" style="background-image: url('./admin/<?php echo $data['eve_img']; ?>');"></div>
             </a>
         </div>
-
                 <?php
             }
         } else {
@@ -94,7 +104,5 @@
             </div>
         </div>
     </div>
-
-
 </div>
 <!-- Sidebar End -->

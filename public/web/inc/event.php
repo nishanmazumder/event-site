@@ -1,16 +1,13 @@
 <?php
-if (file_exists(__DIR__ . "/../../../vendor/autoload.php")) {
-	require_once __DIR__ . "/../../../vendor/autoload.php";
-} else {
-	echo "Autoloader not found!";
-}
-use App\Model\Database;
-use App\Model\Format;
-$db = new Database();
-$fm = new Format();
-
+/*
+|--------------------------------------------------------------------------
+| Events Section
+|--------------------------------------------------------------------------
+|
+| @package event-site
+|
+*/
 ?>
-
 
 <!-- Events Start -->
 <div id="nmEvents" class="container-fluid nm-section nm-events">

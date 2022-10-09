@@ -1,30 +1,21 @@
 <?php
-if (file_exists(__DIR__ . "/../../../vendor/autoload.php")) {
-	require_once __DIR__ . "/../../../vendor/autoload.php";
-} else {
-	echo "Autoloader not found! - contact.php";
-}
-use App\Model\Database;
-use App\Model\Format;
-$db = new Database();
-$fm = new Format();
-
-
+/*
+|--------------------------------------------------------------------------
+| Contact Section
+|--------------------------------------------------------------------------
+|
+| @package event-site
+|
+*/
 ?>
 
-
 <!-- Contact Start -->
-
 <?php
 if (isset($_POST['nmMailSend'])) {
 
     $userName = $fm->validation($_POST['nmUserName']);
     $userEmail = $fm->validation($_POST['nmUserMail']);
     $userMsg = $fm->validation($_POST['nmUserMsg']);
-
-    // $userName = mysqli_real_escape_string($db->link, $userName);
-    // $userEmail = mysqli_real_escape_string($db->link, $userEmail);
-    // $userMsg = mysqli_real_escape_string($db->link, $userMsg);
 
     if (empty($userName)) {
         $error = "Name not be empty !";
