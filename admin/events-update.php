@@ -30,20 +30,20 @@
             ?>
 
             <?php
-            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            if (isset($_POST['nm_submit'])) {
                 $token = $_POST['eve_token'];
-                $eveTitle = mysqli_real_escape_string($db->link, $_POST['nm_eve_title']);
-                $eveSubTitle = mysqli_real_escape_string($db->link, $_POST['nm_eve_sub_title']);
-                $eveDes = mysqli_real_escape_string($db->link, $_POST['nm_eve_des']);
-                $eveAuth = mysqli_real_escape_string($db->link, $_POST['nm_eve_auth']);
-                //$eve_date = mysqli_real_escape_string($db->link, $_POST['nm_eve_date']);
-                $eve_price = mysqli_real_escape_string($db->link, $_POST['nm_eve_price']);
-                $eve_time = mysqli_real_escape_string($db->link, $_POST['nm_eve_time']);
-                $eve_duration = mysqli_real_escape_string($db->link, $_POST['nm_eve_duration']);
-                //$eve_day_time = mysqli_real_escape_string($db->link, $_POST['nm_eve_day_time']);
-                $eveLoc = mysqli_real_escape_string($db->link, $_POST['nm_eve_loc']);
-                $eveLocMap = mysqli_real_escape_string($db->link, $_POST['nm_eve_map']);
-                $eveCategory = mysqli_real_escape_string($db->link, $_POST['nm_eve_category']);
+                $eveTitle = $_POST['nm_eve_title'];
+                $eveSubTitle = $_POST['nm_eve_sub_title'];
+                $eveDes = $_POST['nm_eve_des'];
+                $eveAuth = $_POST['nm_eve_auth'];
+                //$eve_date = $_POST['nm_eve_date']);
+                $eve_price = $_POST['nm_eve_price'];
+                $eve_time = $_POST['nm_eve_time'];
+                $eve_duration = $_POST['nm_eve_duration'];
+                //$eve_day_time = $_POST['nm_eve_day_time'];
+                $eveLoc = $_POST['nm_eve_loc'];
+                $eveLocMap = $_POST['nm_eve_map'];
+                $eveCategory = $_POST['nm_eve_category'];
 
                 $permited = array('jpg', 'jpeg', 'png', 'gif');
 
@@ -77,19 +77,19 @@
                     move_uploaded_file($eve_tmp, $upload_eve_img);
 
                     $query = "UPDATE nm_event_up SET "
-                            . "eve_img = '$upload_eve_img',"
-                            . "eve_price = '$eve_price',"
-                            . "eve_time = '$eve_time',"
-                            . "eve_dur = '$eve_duration',"
-                            . "title = '$eveTitle',"
-                            . "subtitle = '$eveSubTitle',"
-                            . "eve_des = '$eveDes',"
-                            . "location = '$eveLoc',"
-                            . "map_loc = '$eveLocMap',"
-                            . "eve_category = '$eveCategory',"
-                            . "host_img = '$upload_auth_img',"
-                            . "host_name ='$eveAuth',"
-                            . "token = '$token' WHERE id = '$eveId'";
+                        . "eve_img = '$upload_eve_img',"
+                        . "eve_price = '$eve_price',"
+                        . "eve_time = '$eve_time',"
+                        . "eve_dur = '$eve_duration',"
+                        . "title = '$eveTitle',"
+                        . "subtitle = '$eveSubTitle',"
+                        . "eve_des = '$eveDes',"
+                        . "location = '$eveLoc',"
+                        . "map_loc = '$eveLocMap',"
+                        . "eve_category = '$eveCategory',"
+                        . "host_img = '$upload_auth_img',"
+                        . "host_name ='$eveAuth',"
+                        . "token = '$token' WHERE id = '$eveId'";
 
                     $post = $db->update($query);
 
@@ -124,7 +124,7 @@
                           </span>";
                         } elseif (in_array($img_ext, $ext) === false) {
                             echo "<span class='text-danger'>You can upload only:-"
-                            . implode(', ', $ext) . "</span>";
+                                . implode(', ', $ext) . "</span>";
                         } else {
                             move_uploaded_file($img_tmp, $file_gal);
 
@@ -134,10 +134,12 @@
                         }
                     }
 
+                    // print_r($post);
+
                     if ($post) {
                         echo '<span class="text-success">Post Updated Successfully !</span>';
                     } else {
-                        echo "Problem";
+                        echo $post;
                     }
                 }
             }
@@ -149,7 +151,7 @@
 
             if ($result) {
                 while ($data = $result->fetch(PDO::FETCH_ASSOC)) {
-                    ?>
+            ?>
 
                     <form method="post" action="" enctype="multipart/form-data">
                         <input name="eve_token" type="hidden" value="<?php echo $fm->random_token(10); ?>" />
@@ -207,8 +209,8 @@
                                     $sql = "SELECT * FROM nm_eve_category";
                                     $query = $db->select($sql);
                                     while ($category = $query->fetch(PDO::FETCH_ASSOC)) {
-                                        ?>
-                                        <option <?php if ($data['eve_category'] == $category['cat_id']) { ?> selected="selected" <?php } ?>  value="<?php echo $category['cat_id'] ?>"><?php echo $category['category'] ?></option>
+                                    ?>
+                                        <option <?php if ($data['eve_category'] == $category['cat_id']) { ?> selected="selected" <?php } ?> value="<?php echo $category['cat_id'] ?>"><?php echo $category['category'] ?></option>
                                     <?php } ?>
                                 </select>
                             </div>
@@ -248,7 +250,7 @@
                         </div>
                     </form>
 
-                    <?php
+            <?php
                 }
             }
             ?>
@@ -256,7 +258,8 @@
             <!--Content-->
         </div>
     </div>
-</div><!-----end------>
+</div>
+<!-----end------>
 
 </div>
 </div>

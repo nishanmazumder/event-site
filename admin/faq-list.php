@@ -60,7 +60,7 @@
                     }
                     $start_page = ($page - 1) * $per_page_post;
 
-                    $query = "SELECT * FROM nm_faq  LIMIT $start_page, $per_page_post";
+                    $query = "SELECT * FROM nm_faq LIMIT $start_page, $per_page_post";
                     $result = $db->select($query);
                     $i = 1;
 
@@ -89,7 +89,7 @@
     <?php
     $p_query = "SELECT id FROM nm_faq";
     $q_result = $db->select($p_query);
-    $total_rows = mysqli_num_rows($q_result);
+    $total_rows = $q_result->rowCount();
     $total_pages = ceil($total_rows / $per_page_post);
 
     if ($total_rows <= $per_page_post) {

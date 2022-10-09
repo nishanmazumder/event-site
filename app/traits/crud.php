@@ -53,7 +53,7 @@ trait CREATE
             $query = $this->connect->prepare($query);
             $query->execute();
 
-            //  return $this->connect->lastInsertId() . " Data Inserted!";
+            return $this->connect->lastInsertId() . " Data Inserted!";
         } catch (\PDOException $err) {
             return "Error:" . $query . " " . $err->getMessage();
         }
@@ -88,7 +88,7 @@ trait UPDATE
             $query = $this->connect->prepare($query);
             $query->execute();
 
-            return $query->rowCount(). " Data Updated!";
+            return $query->rowCount() . " Data Updated!";
         } catch (\PDOException $err) {
             return "Error:" . $query . " " . $err->getMessage();
         }
@@ -129,7 +129,7 @@ trait DELETE
             $query = $this->connect->prepare($query);
             $query->execute();
 
-            // return $query->rowCount()." Data Deleted!";
+             return $query->rowCount()." Data Deleted!";
         } catch (\PDOException $err) {
             return "Error:" . $query . " " . $err->getMessage();
         }
