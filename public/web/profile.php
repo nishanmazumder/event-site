@@ -1,30 +1,20 @@
 <?php
+/*
+|--------------------------------------------------------------------------
+| Profile
+|--------------------------------------------------------------------------
+|
+| @package event-site
+|
+*/
 
-if (file_exists(__DIR__ . "/../../vendor/autoload.php")) {
-    require_once __DIR__ . "/../../vendor/autoload.php";
+// Header
+
+if (file_exists(__DIR__ . "/inc/header.php")) {
+    include __DIR__ . "/inc/header.php";
 } else {
-    echo "Autoloader not found! - profile.php";
+    echo "Header not found " . basename(__FILE__);
 }
-
-if (file_exists(DIR . "/public/web/inc/header.php")) {
-    include DIR . "/public/web/inc/header.php";
-} else {
-    echo "Header not found from Login page!";
-}
-
-use App\Model\Database;
-use App\Model\Format;
-use App\Model\Session;
-
-$db = new Database();
-$fm = new Format();
-
-if (isset($_POST['nm_customer_logout'])) {
-    Session::destroy();
-    header('Location: login.php?login=login');
-    exit;
-}
-
 ?>
 
 <div class="container nm-section nm-profile">
@@ -198,11 +188,11 @@ if (isset($_POST['nm_customer_logout'])) {
 </div>
 
 <?php
-if (file_exists(DIR . "/public/web/inc/footer.php")) {
-    include DIR . "/public/web/inc/footer.php";
+// Footer
+
+if (file_exists(__DIR__ . "/inc/footer.php")) {
+    include __DIR__ . "/inc/footer.php";
 } else {
-    echo "Footer not found from Login page!";
+    echo "Footer not found " . basename(__FILE__);
 }
-
-
 ?>

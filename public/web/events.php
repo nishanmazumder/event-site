@@ -1,4 +1,21 @@
-<?php include 'inc/header.php'; ?>
+<?php
+/*
+|--------------------------------------------------------------------------
+| Events
+|--------------------------------------------------------------------------
+|
+| @package event-site
+|
+*/
+
+// Header
+
+if (file_exists(__DIR__ . "/inc/header.php")) {
+    include __DIR__ . "/inc/header.php";
+} else {
+    echo "Header not found " . basename(__FILE__);
+}
+?>
 
 <div id="nmCategory" class="container-fluid nm-section-category nm-category">
     <div class="row no-gutters">
@@ -134,4 +151,12 @@
     </div>
 </div>
 
-<?php include 'inc/footer.php'; ?>
+<?php
+// Footer
+
+if (file_exists(__DIR__ . "/inc/footer.php")) {
+    include __DIR__ . "/inc/footer.php";
+} else {
+    echo "Footer not found " . basename(__FILE__);
+}
+?>

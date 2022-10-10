@@ -80,9 +80,15 @@ use App\Model\Session;
 $db = new Database();
 $fm = new Format();
 
-Session::init();
+// Session::init();
 $userName = Session::get('user');
 $userId = Session::get('userId');
 $userRole = Session::get('userRole');
+
+if (isset($_POST['nm_customer_logout'])) {
+    Session::destroy();
+    header('Location: login.php?login=login');
+    exit;
+}
 
 ob_start();

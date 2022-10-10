@@ -1,4 +1,21 @@
-<?php include 'inc/header.php'; ?>
+<?php
+/*
+|--------------------------------------------------------------------------
+| Checkout
+|--------------------------------------------------------------------------
+|
+| @package event-site
+|
+*/
+
+// Header
+
+if (file_exists(__DIR__ . "/inc/header.php")) {
+    include __DIR__ . "/inc/header.php";
+} else {
+    echo "Header not found " . basename(__FILE__);
+}
+?>
 
 <div class="container nm-section-single nm-checkout">
     <div class="row no-gutters align-items-center">
@@ -11,12 +28,12 @@
             <?php
             if (isset($_GET['eveId'])) {
                 $eveId = $_GET['eveId'];
-                
+
                 $query = "SELECT title, eve_price FROM nm_event_up WHERE id = '$eveId'";
                 $result = $db->select($query);
             } elseif (isset($_GET['planId'])) {
                 $planId = $_GET['planId'];
-                
+
                 $query = "SELECT plan_title, plan_price FROM nm_eve_plan WHERE id = '$planId'";
                 $result = $db->select($query);
             }
@@ -88,7 +105,7 @@
         <?php
     }
 } else {
-    echo "Data Not Found";
+    echo "Data Not Found ".basename(__FILE__);
 }
 ?>
 
@@ -96,4 +113,12 @@
     </div>
 </div>
 
-<?php include 'inc/footer.php'; ?>
+<?php
+// Footer
+
+if (file_exists(__DIR__ . "/inc/footer.php")) {
+    include __DIR__ . "/inc/footer.php";
+} else {
+    echo "Footer not found " . basename(__FILE__);
+}
+?>

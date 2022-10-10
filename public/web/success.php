@@ -10,7 +10,24 @@ if (!empty($_GET['tid'] && !empty($_GET['product']) && !empty($_GET['cname']))) 
 }
 ?>
 
-<?php include 'inc/header.php'; ?>
+<?php
+/*
+|--------------------------------------------------------------------------
+| Success
+|--------------------------------------------------------------------------
+|
+| @package event-site
+|
+*/
+
+// Header
+
+if (file_exists(__DIR__ . "/inc/header.php")) {
+    include __DIR__ . "/inc/header.php";
+} else {
+    echo "Header not found " . basename(__FILE__);
+}
+?>
 
 <div class="container">
     <div class="row justify-content-center nm-checkout">
@@ -25,4 +42,12 @@ if (!empty($_GET['tid'] && !empty($_GET['product']) && !empty($_GET['cname']))) 
     </div>
 </div>
 
-<?php include 'inc/footer.php'; ?>
+<?php
+// Footer
+
+if (file_exists(__DIR__ . "/inc/footer.php")) {
+    include __DIR__ . "/inc/footer.php";
+} else {
+    echo "Footer not found " . basename(__FILE__);
+}
+?>

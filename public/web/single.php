@@ -1,11 +1,20 @@
 <?php
+/*
+|--------------------------------------------------------------------------
+| Single
+|--------------------------------------------------------------------------
+|
+| @package event-site
+|
+*/
 
-if (file_exists(DIR . "/public/web/inc/header.php")) {
-    include DIR . "/public/web/inc/header.php";
+// Header
+
+if (file_exists(__DIR__ . "/inc/header.php")) {
+    include __DIR__ . "/inc/header.php";
 } else {
-    echo "Header not found from Login page!";
+    echo "Header not found " . basename(__FILE__);
 }
-
 ?>
 <!-- Single Events Start -->
 <?php
@@ -189,17 +198,17 @@ if (isset($_GET['eventId'])) {
 
 <?php
 
-if (file_exists(DIR . "/public/web/inc/faq.php")) {
-    include DIR . "/public/web/inc/faq.php";
+if (file_exists(__DIR__ . "/inc/faq.php")) {
+    include __DIR__ . "/inc/faq.php";
 } else {
-    echo "Footer not found from Login page!";
+    echo "FAQ not found". basename(__FILE__);
 }
 
-if (file_exists(DIR . "/public/web/inc/footer.php")) {
-    include DIR . "/public/web/inc/footer.php";
+// Footer
+
+if (file_exists(__DIR__ . "/inc/footer.php")) {
+    include __DIR__ . "/inc/footer.php";
 } else {
-    echo "Footer not found from Login page!";
+    echo "Footer not found " . basename(__FILE__);
 }
-
-
 ?>

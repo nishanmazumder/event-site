@@ -1,5 +1,22 @@
-<?php include 'inc/header.php'; ?>
+<?php
+/*
+|--------------------------------------------------------------------------
+| Catrgory
+|--------------------------------------------------------------------------
+|
+| @package event-site
+|
+*/
 
+// Header
+if (file_exists(__DIR__ . "/inc/header.php")) {
+    include __DIR__ . "/inc/header.php";
+} else {
+    echo "Header not found " . basename(__FILE__);
+}
+?>
+
+<!-- Catrgory Start -->
 <div id="nmCategory" class="container-fluid nm-section-category nm-category">
     <div class="row no-gutters">
         <!---Content Area--->
@@ -21,9 +38,7 @@
             if (isset($_GET['categoryId'])) {
                 $category = $_GET['categoryId'];
             }
-            ?>
 
-            <?php
             $per_page_post = 6;
             if (isset($_GET['page'])) {
                 $page = $_GET['page'];
@@ -37,7 +52,7 @@
 
             if ($result) {
                 while ($data = mysqli_fetch_assoc($result)) {
-                    ?>
+            ?>
                     <div class="row no-gutters align-items-center nm-upcoming-eve">
                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 ">
                             <div class="nm-eve-img" style="background-image: url('admin/<?php echo $data['eve_img']; ?>');"></div>
@@ -68,7 +83,7 @@
                         </div>
 
                     </div>
-                    <?php
+            <?php
                 }
             } else {
                 echo "<p class='text-center'>No Events Found</p>";
@@ -83,11 +98,11 @@
             $total_pages = ceil($total_rows / $per_page_post);
 
             if ($total_rows <= $per_page_post) {
-                ?>
+            ?>
                 <nav aria-label="Page navigation example">
                     <ul class="pagination justify-content-center">
                         <li class="page-item">
-                            <a class="page-link" href="<?php echo $base_url;?>" aria-label="">
+                            <a class="page-link" href="<?php echo $base_url; ?>" aria-label="">
                                 <span aria-hidden="true">No more events. Back to Home</span>
                             </a>
                         </li>
@@ -104,9 +119,9 @@
                         </li>
                         <?php
                         for ($i = 1; $i < $total_pages; $i++) {
-                            ?>
+                        ?>
                             <li class="page-item"><a class="page-link" href="category.php?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
-                            <?php
+                        <?php
                         }
                         ?>
                         <li class="page-item">
@@ -129,4 +144,11 @@
     </div>
 </div>
 
-<?php include 'inc/footer.php'; ?>
+<?php
+// Footer
+if (file_exists(__DIR__ . "/inc/footer.php")) {
+    include __DIR__ . "/inc/footer.php";
+} else {
+    echo "Footer not found " . basename(__FILE__);
+}
+?>

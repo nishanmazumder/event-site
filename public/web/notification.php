@@ -1,16 +1,21 @@
 <?php
+/*
+|--------------------------------------------------------------------------
+| Notification
+|--------------------------------------------------------------------------
+|
+| @package event-site
+|
+*/
 
-if (file_exists(__DIR__ . "/../../vendor/autoload.php")) {
-	require_once __DIR__ . "/../../vendor/autoload.php";
+// Header
+
+if (file_exists(__DIR__ . "/inc/header.php")) {
+    include __DIR__ . "/inc/header.php";
 } else {
-	echo "Autoloader not found! - notification.php";
+    echo "Header not found " . basename(__FILE__);
 }
-
-
-
 ?>
-
-<?php include DIR.'/public/web/inc/header.php'; ?>
 
 <div class="container nm-section">
     <div class="row">
@@ -27,4 +32,12 @@ if (file_exists(__DIR__ . "/../../vendor/autoload.php")) {
     </div>
 </div>
 
-<?php include DIR.'/public/web/inc/footer.php'; ?>
+<?php
+// Footer
+
+if (file_exists(__DIR__ . "/inc/footer.php")) {
+    include __DIR__ . "/inc/footer.php";
+} else {
+    echo "Footer not found " . basename(__FILE__);
+}
+?>

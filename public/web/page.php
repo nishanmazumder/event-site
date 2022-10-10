@@ -1,4 +1,21 @@
-<?php include 'inc/header.php'; ?>
+<?php
+/*
+|--------------------------------------------------------------------------
+| Page
+|--------------------------------------------------------------------------
+|
+| @package event-site
+|
+*/
+
+// Header
+
+if (file_exists(__DIR__ . "/inc/header.php")) {
+    include __DIR__ . "/inc/header.php";
+} else {
+    echo "Header not found " . basename(__FILE__);
+}
+?>
 <?php
 if (isset($_GET['id'])) {
     $pageId = $_GET['id'];
@@ -29,4 +46,12 @@ if ($result) {
 
 <div class="nm-clerfix"></div>
 
-<?php include 'inc/footer.php'; ?>
+<?php
+// Footer
+
+if (file_exists(__DIR__ . "/inc/footer.php")) {
+    include __DIR__ . "/inc/footer.php";
+} else {
+    echo "Footer not found " . basename(__FILE__);
+}
+?>

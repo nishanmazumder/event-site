@@ -1,24 +1,20 @@
 <?php
+/*
+|--------------------------------------------------------------------------
+| User Login & Register
+|--------------------------------------------------------------------------
+|
+| @package event-site
+|
+*/
 
-if (file_exists(__DIR__ . "/../../vendor/autoload.php")) {
-    require_once __DIR__ . "/../../vendor/autoload.php";
+// Header
+
+if (file_exists(__DIR__ . "/inc/header.php")) {
+    include __DIR__ . "/inc/header.php";
 } else {
-    echo "Autoloader not found! - login.php";
+    echo "Header not found " . basename(__FILE__);
 }
-
-if (file_exists(DIR . "/public/web/inc/header.php")) {
-    include DIR . "/public/web/inc/header.php";
-} else {
-    echo "Header not found from Login page!";
-}
-
-use App\Model\Session;
-use App\Model\Database;
-use App\Model\Format;
-
-Session::init();
-$db = new Database();
-$fm = new Format();
 ?>
 
 <div class="container nm-section-single nm-checkout">
@@ -26,7 +22,6 @@ $fm = new Format();
         <div class="col-md-6 nm-check-form-section">
 
             <div class="nm-check-form">
-
                 <?php
                 if (isset($_POST['nm_forget_pass'])) {
                     $email = $fm->validation($_POST['nm_email']);
@@ -89,8 +84,6 @@ $fm = new Format();
                     if ($result != FALSE) {
                         $value = $result->fetch(PDO::FETCH_ASSOC);
 
-                        //echo $value['nm_username'];
-
                         Session::set('login', TRUE);
                         Session::set("user", $value['nm_username']);
                         Session::set("userId", $value['id']);
@@ -112,12 +105,6 @@ $fm = new Format();
                     $phone = $fm->validation($_POST['nm_phone']);
                     $address = $fm->validation($_POST['nm_address']);
 
-                    // $username = mysqli_real_escape_string($db->link, $username);
-                    // $pass = mysqli_real_escape_string($db->link, $pass);
-                    // $email = mysqli_real_escape_string($db->link, $email);
-                    // $phone = mysqli_real_escape_string($db->link, $phone);
-                    // $address = mysqli_real_escape_string($db->link, $address);
-
                     $query = "INSERT INTO eve_user (nm_username, nm_password, nm_email, nm_phone, nm_address, role)"
                         . "VALUES ('$username', '$pass', '$email', '$phone', '$address', 4)";
 
@@ -131,10 +118,8 @@ $fm = new Format();
                         $_SESSION["Msg"] = "Opps, Something wrong!";
                     }
                 }
-                ?>
 
-
-                <?php if (!isset($_GET['login'])) { ?>
+                if (!isset($_GET['login'])) { ?>
                     <h3 class="text-center mb-3">Sing Up</h3>
 
                     <form action="" method="post" id="">
@@ -172,19 +157,18 @@ $fm = new Format();
                     <p class="text-center"><a href="login.php?login=forget">Forget Password?</a></p>
                 <?php }
                 ?>
-
             </div>
-
 
         </div>
     </div>
 </div>
 
-
 <?php
+// Footer
 
-if (file_exists(DIR . "/public/web/inc/footer.php")) {
-    include DIR . "/public/web/inc/footer.php";
+if (file_exists(__DIR__ . "/inc/footer.php")) {
+    include __DIR__ . "/inc/footer.php";
 } else {
-    echo "Footer not found from Login page!";
+    echo "Footer not found " . basename(__FILE__);
 }
+?>
