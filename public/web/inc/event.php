@@ -71,7 +71,7 @@
         <!-- Recent Events -->
         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 wow slideInRight">
             <div class="nm-title-left">
-                <h1>Recent Events</h1>
+                <h1>Galleries</h1>
                 <div class="nm-line"></div>
             </div>
             <ul id="nmRecentEvents" class="">
@@ -85,7 +85,7 @@
 
                     <li data-thumb="admin/<?php echo $data_gal['eve_img_gal']; ?>" data-src="admin/<?php echo $data_gal['eve_img_gal']; ?>">
                         <img src="admin/<?php echo $data_gal['eve_img_gal']; ?>" />
-                        <a class="nm-eve-slider-title" href="single.php?eventId=<?php echo $data_gal['id']; ?>"><?php echo $data_gal['title']; ?></a>
+                        <a class="nm-eve-slider-title" href="<?php BASE_URL; ?>public/web/single.php?eventId=<?php echo $data_gal['id']; ?>"><?php echo $data_gal['title']; ?></a>
                     </li>
 
                 <?php } ?>

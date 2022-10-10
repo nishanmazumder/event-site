@@ -22,10 +22,10 @@ if (isset($_GET['eventId'])) {
     $eventId = $_GET['eventId'];
 
     $sql = "SELECT nm_event_up.*, nm_eve_category.cat_id, nm_eve_category.category FROM nm_event_up INNER JOIN nm_eve_category ON nm_event_up.eve_category = nm_eve_category.cat_id AND nm_event_up.id = '$eventId'";
-    $result = $db->insert($sql);
+    $result = $db->select($sql);
 
     if ($result) {
-        foreach ($result as $data) {
+        while ($data = $result->fetch(PDO::FETCH_ASSOC)) {
             ?>
             <div class="container-fluid">
                 <div class="row">
@@ -109,7 +109,7 @@ if (isset($_GET['eventId'])) {
                                         $en_result = $db->select($enroll_query);
 
                                         $ticket = 0;
-                                        while ($allTicket = mysqli_fetch_assoc($en_result)) {
+                                        while ($allTicket = $en_result->fetch(PDO::FETCH_ASSOC)) {
                                             $value = $allTicket['all_ticket'];
                                             $ticket += $value;
                                         }
@@ -153,7 +153,7 @@ if (isset($_GET['eventId'])) {
                                     $query_gal = "SELECT nm_event_up.id, nm_event_up.title, nm_event_up.token, nm_event_rec.token, nm_event_rec.eve_img_gal FROM nm_event_up, nm_event_rec WHERE nm_event_up.token = nm_event_rec.token AND nm_event_up.id = '$eventId'";
                                     $result_gal = $db->select($query_gal);
 
-                                    while ($data_gal = mysqli_fetch_assoc($result_gal)) {
+                                    while ($data_gal = $result_gal->fetch(PDO::FETCH_ASSOC)) {
                                         ?>
                                         <li data-thumb="admin/<?php echo $data_gal['eve_img_gal']; ?>" data-src="admin/<?php echo $data_gal['eve_img_gal']; ?>">
                                             <img class="nm-single-main-img" src="admin/<?php echo $data_gal['eve_img_gal']; ?>" />
