@@ -15,7 +15,7 @@
     <div class="row no-gutters nm-sidebar-block wow slideInRight">
         <div class="col-md-12">
             <div class="nm-advert">
-                <img src="admin/uploads/ad1.png" style="width: 100%;" alt="" />
+                <img src="<?php __DIR__; ?>/../../../admin/uploads/ad1.png" style="width: 100%;" alt="" />
             </div>
         </div>
     </div>
@@ -37,7 +37,7 @@
                 ?>
         <div class="col-md-6 col-sm-4 col-xs-6 nm-m-block">
             <a href="single.php?eventId=<?php echo $data['id']; ?>">
-                <div class="nm-mostsell-event" style="background-image: url('./admin/<?php echo $data['eve_img']; ?>');"></div>
+                <div class="nm-mostsell-event" style="background-image: url('<?php __DIR__; ?>/../../../admin/<?php echo $data['eve_img']; ?>');"></div>
             </a>
         </div>
                 <?php

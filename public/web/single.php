@@ -26,10 +26,10 @@ if (isset($_GET['eventId'])) {
 
     if ($result) {
         while ($data = $result->fetch(PDO::FETCH_ASSOC)) {
-            ?>
+?>
             <div class="container-fluid">
                 <div class="row">
-                    <div class="nm-hero-img" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./admin/<?php echo $data['eve_img']; ?>');">
+                    <div class="nm-hero-img" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('<?php DIR; ?>/admin/<?php echo $data['eve_img']; ?>');">
                         <div class="nm-hero-text wow fadeIn">
                             <h1 class=""><?php echo $data['title']; ?></h1>
                             <h3><?php echo $data['subtitle']; ?></h3>
@@ -76,9 +76,9 @@ if (isset($_GET['eventId'])) {
                                 <div class="single-block nm-border-top">
                                     <h3 class="single-block-title">
                                         $<?php
-                                        $eveprice = $data['eve_price'] / 100;
-                                        echo $eveprice;
-                                        ?>/<span class="nm-single-ticket-txt">ticket</span>
+                                            $eveprice = $data['eve_price'] / 100;
+                                            echo $eveprice;
+                                            ?>/<span class="nm-single-ticket-txt">ticket</span>
                                     </h3>
                                     <div class="single-block-btn">
                                         <a href="checkout.php?eveId=<?php echo $data['id']; ?>" class="nm-btn">Buy Now</a>
@@ -90,7 +90,7 @@ if (isset($_GET['eventId'])) {
                         <div class="row no-gutters align-items-center nm-single-info wow slideInLeft">
                             <div class="col-md-3 col-sm-3 col-xs-3">
                                 <div class="nm-eve-hoster">
-                                    <img src="admin/<?php echo $data['host_img']; ?>" alt="Event Organizer Image" />
+                                    <img src="<?php DIR; ?>/admin/<?php echo $data['host_img']; ?>" alt="Event Organizer Image" />
                                     <ul>
                                         <li>Organized by:</li>
                                         <li><?php echo $data['host_name']; ?></li>
@@ -154,9 +154,9 @@ if (isset($_GET['eventId'])) {
                                     $result_gal = $db->select($query_gal);
 
                                     while ($data_gal = $result_gal->fetch(PDO::FETCH_ASSOC)) {
-                                        ?>
-                                        <li data-thumb="admin/<?php echo $data_gal['eve_img_gal']; ?>" data-src="admin/<?php echo $data_gal['eve_img_gal']; ?>">
-                                            <img class="nm-single-main-img" src="admin/<?php echo $data_gal['eve_img_gal']; ?>" />
+                                    ?>
+                                        <li data-thumb="<?php DIR; ?>/admin/<?php echo $data_gal['eve_img_gal']; ?>" data-src="<?php DIR; ?>/admin/<?php echo $data_gal['eve_img_gal']; ?>">
+                                            <img class="nm-single-main-img" src="<?php DIR; ?>/admin/<?php echo $data_gal['eve_img_gal']; ?>" />
                                         </li>
 
                                     <?php } ?>
@@ -180,35 +180,41 @@ if (isset($_GET['eventId'])) {
 
                     </div>
 
-                    <?php
-                }
-            }
+        <?php
         }
+    }
+}
         ?>
         <!---Content Area--->
 
         <!-- Sidebar Start -->
-        <?php include 'inc/sidebar.php'; ?>
+        <?php
+        if (file_exists(__DIR__ . "/inc/sidebar.php")) {
+            include __DIR__ . "/inc/sidebar.php";
+        } else {
+            echo "Sidebar not found" . basename(__FILE__);
+        }
+        ?>
         <!-- Sidebar End -->
 
-    </div>
-</div>
+                </div>
+            </div>
 
-<!-- Events End -->
+            <!-- Events End -->
 
-<?php
+            <?php
 
-if (file_exists(__DIR__ . "/inc/faq.php")) {
-    include __DIR__ . "/inc/faq.php";
-} else {
-    echo "FAQ not found". basename(__FILE__);
-}
+            if (file_exists(__DIR__ . "/inc/faq.php")) {
+                include __DIR__ . "/inc/faq.php";
+            } else {
+                echo "FAQ not found" . basename(__FILE__);
+            }
 
-// Footer
+            // Footer
 
-if (file_exists(__DIR__ . "/inc/footer.php")) {
-    include __DIR__ . "/inc/footer.php";
-} else {
-    echo "Footer not found " . basename(__FILE__);
-}
-?>
+            if (file_exists(__DIR__ . "/inc/footer.php")) {
+                include __DIR__ . "/inc/footer.php";
+            } else {
+                echo "Footer not found " . basename(__FILE__);
+            }
+            ?>

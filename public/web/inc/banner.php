@@ -34,7 +34,7 @@
                     while ($data_v = $result_video->fetch(PDO::FETCH_ASSOC)) { ?>
                         <div class="overlay"></div>
                         <video playsinline="playsinline" muted="muted" loop="loop" autoplay>
-                            <source src="admin/<?php echo $data_v['nm_header_video']; ?>" type="video/mp4">
+                            <source src="<?php BASE_URL;?>/admin/<?php echo $data_v['nm_header_video']; ?>" type="video/mp4">
                         </video>
                 <?php
                     }
@@ -46,7 +46,7 @@
                             <h1 class="display-3"><?php echo $fm->textLimit($data['title'], 50); ?></h1>
                             <p><?php echo $fm->textLimit($data['subtitle'], 50); ?></p>
                             <div class="flipper" data-reverse="true" data-datetime="<?php echo $data['eve_time']; ?>" data-template="ddd|HH|ii|ss" data-labels="Days|Hours|Minutes|Seconds" id="myFlipper"></div>
-                            <a href="single.php?eventId=<?php echo $data['id']; ?>" class="nm-btn nm-btn-default">Buy Now</a>
+                            <a href="<?php BASE_URL; ?>public/web/single.php?eventId=<?php echo $data['id']; ?>" class="nm-btn nm-btn-default">Buy Now</a>
                         </div>
                     </div>
                 </div>

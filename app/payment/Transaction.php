@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Payment;
 
   class Transaction {
     private $db;

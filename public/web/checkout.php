@@ -22,7 +22,7 @@ if (file_exists(__DIR__ . "/inc/header.php")) {
         <div class="col-md-6 text-center">
             <h1>Thanks for contribution.</h1>
             <h3>You may check other payment method</h3>
-            <img src="admin/uploads/pay3.png" style="width: 75%;" alt="" />
+            <img src="<?php DIR;?>/admin/uploads/pay3.png" style="width: 75%;" alt="" />
         </div>
         <div class="col-md-6 nm-check-form-section">
             <?php
@@ -76,7 +76,7 @@ if (file_exists(__DIR__ . "/inc/header.php")) {
                             </tbody>
                         </table>
 
-                        <form action="payment/charge.php" method="post" id="payment-form">
+                        <form action="<?php BASE_URL;?>/app/payment/charge.php" method="post" id="payment-form">
                             <input type="hidden" id="" name="eve_price" value="<?php echo $eveprice * 100; ?>">
                             <input type="hidden" id="" name="eve_title" value="<?php echo $title; ?>">
                             <div class="form-row no-gutters">

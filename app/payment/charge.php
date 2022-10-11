@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Payment;
+
 require_once('../vendor/autoload.php');
 require_once('../config/config.php');
 require_once('../lib/pdo_db.php');

@@ -21,7 +21,8 @@
     "psr-4": {
       "Config\\": ["app/config/"],
       "App\\Model\\": ["app/models/"],
-      "App\\Trait\\": ["app/traits/"]
+      "App\\Trait\\": ["app/traits/"],
+      "App\\Payment\\": ["app/traits/"]
     },
     "classmap": ["app/"]
   }
