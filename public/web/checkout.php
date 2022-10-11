@@ -15,6 +15,7 @@ if (file_exists(__DIR__ . "/inc/header.php")) {
 } else {
     echo "Header not found " . basename(__FILE__);
 }
+
 ?>
 
 <div class="container nm-section-single nm-checkout">
@@ -22,7 +23,7 @@ if (file_exists(__DIR__ . "/inc/header.php")) {
         <div class="col-md-6 text-center">
             <h1>Thanks for contribution.</h1>
             <h3>You may check other payment method</h3>
-            <img src="<?php DIR;?>/admin/uploads/pay3.png" style="width: 75%;" alt="" />
+            <img src="<?php DIR; ?>/admin/uploads/pay3.png" style="width: 75%;" alt="" />
         </div>
         <div class="col-md-6 nm-check-form-section">
             <?php
@@ -43,7 +44,7 @@ if (file_exists(__DIR__ . "/inc/header.php")) {
 
             if ($result) {
                 foreach ($result as $data) {
-                    ?>
+            ?>
 
                     <div class="nm-check-form">
                         <h3 class="text-center mb-3">Pay Safe</h3>
@@ -65,18 +66,18 @@ if (file_exists(__DIR__ . "/inc/header.php")) {
                                     <th scope="row">Payment</th>
                                     <td>=></td>
                                     <td>$<?php
-                                        if (isset($_GET['eveId'])) {
-                                            $eveprice = $data['eve_price'] / 100;
-                                        } elseif (isset($_GET['planId'])) {
-                                            $eveprice = $data['plan_price'] / 100;
-                                        }
-                                        echo $eveprice;
-                                        ?></td>
+                                            if (isset($_GET['eveId'])) {
+                                                $eveprice = $data['eve_price'] / 100;
+                                            } elseif (isset($_GET['planId'])) {
+                                                $eveprice = $data['plan_price'] / 100;
+                                            }
+                                            echo $eveprice;
+                                            ?></td>
                                 </tr>
                             </tbody>
                         </table>
 
-                        <form action="<?php BASE_URL;?>/app/payment/charge.php" method="post" id="payment-form">
+                        <form action="<?php echo BASE_URL ."app/payment/Charge.php"; ?>" method="post" id="payment-form">
                             <input type="hidden" id="" name="eve_price" value="<?php echo $eveprice * 100; ?>">
                             <input type="hidden" id="" name="eve_title" value="<?php echo $title; ?>">
                             <div class="form-row no-gutters">
@@ -98,16 +99,15 @@ if (file_exists(__DIR__ . "/inc/header.php")) {
                                 <div id="card-errors" role="alert"></div>
                             </div>
 
-                            <button class="nm-btn nm-btn-default-bg">Submit Payment</button>
+                            <button name="nm_make_payment" class="nm-btn nm-btn-default-bg">Submit Payment</button>
                         </form>
                     </div>
-
-        <?php
-    }
-} else {
-    echo "Data Not Found ".basename(__FILE__);
-}
-?>
+            <?php
+                }
+            } else {
+                echo "Data Not Found " . basename(__FILE__);
+            }
+            ?>
 
         </div>
     </div>

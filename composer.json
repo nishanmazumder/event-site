@@ -22,7 +22,7 @@
       "Config\\": ["app/config/"],
       "App\\Model\\": ["app/models/"],
       "App\\Trait\\": ["app/traits/"],
-      "App\\Payment\\": ["app/traits/"]
+      "App\\Payment\\": ["app/payment/"]
     },
     "classmap": ["app/"]
   }
