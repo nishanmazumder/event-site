@@ -2,41 +2,100 @@
 
 namespace App\Payment;
 
+if (file_exists(__DIR__ . "/../../vendor/autoload.php")) {
+    require_once __DIR__ . "/../../vendor/autoload.php";
+} else {
+    echo "Autoloader not found! " . basename(__FILE__);
+}
+
 use APP\Payment\PaymentDatabase;
 use Config\Connection;
 use App\Payment\Customer;
 use App\Payment\Transaction;
 
-if (isset($_POST['nm_make_payment'])) {
-    $price = htmlspecialchars($_POST['eve_price']);
-    $events = htmlspecialchars($_POST['eve_title']);
-    $first_name = htmlspecialchars($_POST['first_name']);
-    $last_name = htmlspecialchars($_POST['last_name']);
-    $email = htmlspecialchars($_POST['email']);
-    $phone = htmlspecialchars($_POST['phone']);
-    $address = htmlspecialchars($_POST['address']);
-    $ticket = htmlspecialchars($_POST['ticket']);
-    $token = htmlspecialchars($_POST['stripeToken']);
+// print_r($_POST);
+// if (isset($_POST['nm_make_payment'])) {
+// $price = htmlspecialchars($_POST['eve_price']);
+// $events = htmlspecialchars($_POST['eve_title']);
+// $first_name = htmlspecialchars($_POST['first_name']);
+// $last_name = htmlspecialchars($_POST['last_name']);
+// $email = htmlspecialchars($_POST['email']);
+// $phone = htmlspecialchars($_POST['phone']);
+// $address = htmlspecialchars($_POST['address']);
+// $ticket = htmlspecialchars($_POST['ticket']);
+// $token = htmlspecialchars($_POST['stripeToken']);
 
-    $make_payment = new \App\Payment\Charge;
-    $make_payment->set_user_info($price,$events,$first_name,$last_name,$email,$phone,$address,$ticket,$token);
 
-    echo $make_payment->get_user_info();
+// $userDatas = [$price, $events];
 
-    exit;
+// // echo $token;
+// // echo "test";
 
-}
+// $post = array_map('htmlspecialchars', $_POST);
+// $make_payment = new Charge($_POST);
 
-class Charge{
+
+array_walk_recursive($_POST, function(&$val){
+    $valu = htmlspecialchars($val);
+
+    echo $valu;
+});
+
+// $f_name = htmlspecialchars($_POST['first_name']);
+
+// echo '<pre>';
+// print_r($post);
+
+// print_r($f_name);
+
+// $make_payment->set_user_info($price,$events,$first_name,$last_name,$email,$phone,$address,$ticket,$token);
+
+// echo $make_payment->get_user_info();
+
+// echo "test";
+
+//exit;
+
+// }
+
+class Charge
+{
 
     protected $price, $events, $first_name, $last_name, $email, $phone, $address, $ticket, $token;
 
-    public function __construct()
+    // protected $userData = [$key=>$val];
+
+
+    public function __construct($userData)
     {
         \Stripe\Stripe::setApiKey('sk_test_rbi32VScQ70jE2s8oQoRMUQD');
+
+        // array_walk_recursive($userData, function(&$val){
+        //     htmlspecialchars($val);
+        // });
+
+        //$userData = array_map('htmlspecialchars', $userDatas);
+
+        // foreach ($userDatas as $key => $val) {
+        //     $userDatas[$key] = $this->userData[$key];
+        //     $userDatas[$val] = $this->userData[$val];
+        // }
+
+        // $this->price = $userData['eve_price'];
+        // $this->events = $userData['eve_title'];
+        $this->first_name = $userData['first_name'];
+        // $this->last_name = $userData['last_name'];
+        // $this->email = $userData['email'];
+        // $this->phone = $userData['phone'];
+        // $this->address = $userData['address'];
+        // $this->ticket = $userData['ticket'];
+        // $this->token = $userData['stripeToken'];
+
+        return $this->first_name;
     }
 
-    public function set_user_info($price,$events,$first_name,$last_name,$email,$phone,$address,$ticket,$token){
+    public function set_user_info($price, $events, $first_name, $last_name, $email, $phone, $address, $ticket, $token)
+    {
         $this->price = $price;
         $this->events = $events;
         $this->first_name = $first_name;
@@ -48,11 +107,10 @@ class Charge{
         $this->token = $token;
     }
 
-    public function get_user_info(){
-        return $this->name;
+    public function get_user_info()
+    {
+        return $this->first_name;
     }
-
-
 }
 
 // require_once('../vendor/autoload.php');

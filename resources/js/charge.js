@@ -57,6 +57,8 @@ form.addEventListener('submit', function(event) {
       stripeTokenHandler(result.token);
     }
   });
+
+  console.log("tesat");
 });
 
 function stripeTokenHandler(token) {
@@ -68,6 +70,9 @@ function stripeTokenHandler(token) {
   hiddenInput.setAttribute('value', token.id);
   form.appendChild(hiddenInput);
 
+
+
   // Submit the form
   form.submit();
+
 }
