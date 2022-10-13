@@ -2,40 +2,43 @@
 
 namespace App\Payment;
 
+/*
+|--------------------------------------------------------------------------
+| Load Auto Loader
+|--------------------------------------------------------------------------
+|
+| Composer
+|
+*/
+
 if (file_exists(__DIR__ . "/../../vendor/autoload.php")) {
     require_once __DIR__ . "/../../vendor/autoload.php";
 } else {
     echo "Autoloader not found! " . basename(__FILE__);
 }
 
-// use APP\Payment\PaymentDatabase;
-// use Config\Connection;
+
+/*
+|--------------------------------------------------------------------------
+| Load Models
+|--------------------------------------------------------------------------
+|
+| Load all essential classes
+|
+*/
+
 use App\Payment\Customer;
 use App\Payment\Transaction;
 
-
-// require_once('../vendor/autoload.php');
-// require_once('../config/config.php');
-// require_once('../lib/pdo_db.php');
-// require_once('../models/Customer.php');
-// require_once('../models/Transaction.php');
-
-
+/*
+|--------------------------------------------------------------------------
+| Initiate
+|--------------------------------------------------------------------------
+|
+| trigger class with data
+|
+*/
 $make_payment = new Charge($_POST);
-
-// echo '<pre>';
-
-// print_r($make_payment);
-
-// $make_payment->set_user_info($price,$events,$first_name,$last_name,$email,$phone,$address,$ticket,$token);
-
-// echo $make_payment->get_user_info();
-
-// echo "test";
-
-//exit;
-
-// }
 
 class Charge
 {
@@ -57,7 +60,7 @@ class Charge
         $this->init();
 
         // Redirect to success
-        header('Location:'.BASE_URL.'/public/web/success.php?tid=' . $this->charge->id . '&product=' . $this->charge->description . '&cname=' . $this->first_name . ' ' . $this->last_name);
+        header('Location:'.BASE_URL.'public/web/success.php?tid=' . $this->charge->id . '&product=' . $this->charge->description . '&cname=' . $this->first_name . ' ' . $this->last_name);
     }
 
     public function init()
@@ -161,9 +164,4 @@ class Charge
         // Add Transaction To DB
         $transaction->addTransaction($this->transactionData);
     }
-
-    // public function get_user_info()
-    // {
-    //     return $this->userData['first_name'];
-    // }
 }

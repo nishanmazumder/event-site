@@ -24,6 +24,7 @@
       "App\\Trait\\": ["app/traits/"],
       "App\\Payment\\": ["app/payment/"]
     },
-    "classmap": ["app/"]
+    "classmap": ["app/"],
+    "files" : ["app/env.php"]
   }
 }
