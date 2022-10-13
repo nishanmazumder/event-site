@@ -8,45 +8,24 @@ if (file_exists(__DIR__ . "/../../vendor/autoload.php")) {
     echo "Autoloader not found! " . basename(__FILE__);
 }
 
-use APP\Payment\PaymentDatabase;
-use Config\Connection;
+// use APP\Payment\PaymentDatabase;
+// use Config\Connection;
 use App\Payment\Customer;
 use App\Payment\Transaction;
 
-// print_r($_POST);
-// if (isset($_POST['nm_make_payment'])) {
-// $price = htmlspecialchars($_POST['eve_price']);
-// $events = htmlspecialchars($_POST['eve_title']);
-// $first_name = htmlspecialchars($_POST['first_name']);
-// $last_name = htmlspecialchars($_POST['last_name']);
-// $email = htmlspecialchars($_POST['email']);
-// $phone = htmlspecialchars($_POST['phone']);
-// $address = htmlspecialchars($_POST['address']);
-// $ticket = htmlspecialchars($_POST['ticket']);
-// $token = htmlspecialchars($_POST['stripeToken']);
+
+// require_once('../vendor/autoload.php');
+// require_once('../config/config.php');
+// require_once('../lib/pdo_db.php');
+// require_once('../models/Customer.php');
+// require_once('../models/Transaction.php');
 
 
-// $userDatas = [$price, $events];
-
-// // echo $token;
-// // echo "test";
-
-// $post = array_map('htmlspecialchars', $_POST);
-// $make_payment = new Charge($_POST);
-
-
-array_walk_recursive($_POST, function(&$val){
-    $valu = htmlspecialchars($val);
-
-    echo $valu;
-});
-
-// $f_name = htmlspecialchars($_POST['first_name']);
+$make_payment = new Charge($_POST);
 
 // echo '<pre>';
-// print_r($post);
 
-// print_r($f_name);
+// print_r($make_payment);
 
 // $make_payment->set_user_info($price,$events,$first_name,$last_name,$email,$phone,$address,$ticket,$token);
 
@@ -60,119 +39,131 @@ array_walk_recursive($_POST, function(&$val){
 
 class Charge
 {
-
     protected $price, $events, $first_name, $last_name, $email, $phone, $address, $ticket, $token;
+    protected $userData = [];
+    protected $customer;
+    protected $charge;
+    protected $customerData;
+    protected $transactionData;
 
-    // protected $userData = [$key=>$val];
-
-
-    public function __construct($userData)
+    public function __construct(&$userData)
     {
         \Stripe\Stripe::setApiKey('sk_test_rbi32VScQ70jE2s8oQoRMUQD');
 
-        // array_walk_recursive($userData, function(&$val){
-        //     htmlspecialchars($val);
-        // });
+        // Get User data
+        $this->userData = $userData;
 
-        //$userData = array_map('htmlspecialchars', $userDatas);
+        // Init Charge
+        $this->init();
 
-        // foreach ($userDatas as $key => $val) {
-        //     $userDatas[$key] = $this->userData[$key];
-        //     $userDatas[$val] = $this->userData[$val];
-        // }
-
-        // $this->price = $userData['eve_price'];
-        // $this->events = $userData['eve_title'];
-        $this->first_name = $userData['first_name'];
-        // $this->last_name = $userData['last_name'];
-        // $this->email = $userData['email'];
-        // $this->phone = $userData['phone'];
-        // $this->address = $userData['address'];
-        // $this->ticket = $userData['ticket'];
-        // $this->token = $userData['stripeToken'];
-
-        return $this->first_name;
+        // Redirect to success
+        header('Location:'.BASE_URL.'/public/web/success.php?tid=' . $this->charge->id . '&product=' . $this->charge->description . '&cname=' . $this->first_name . ' ' . $this->last_name);
     }
 
-    public function set_user_info($price, $events, $first_name, $last_name, $email, $phone, $address, $ticket, $token)
+    public function init()
     {
-        $this->price = $price;
-        $this->events = $events;
-        $this->first_name = $first_name;
-        $this->last_name = $last_name;
-        $this->email = $email;
-        $this->address = $address;
-        $this->phone = $phone;
-        $this->ticket = $ticket;
-        $this->token = $token;
+        //Sanitize POST Data
+        $this->user_data_sanitize($this->userData);
+
+        //Define user datas
+        $this->userData();
+
+        // Create Customer In Stripe
+        $this->customerCreate();
+
+        // Charge Customer
+        $this->customerCharge();
+
+        // Create Customer Data
+        $this->CreateCustomerData();
+
+        // Transaction Data
+        $this->customerTransection();
     }
 
-    public function get_user_info()
+    //Sanitize POST Data
+    public function user_data_sanitize($userData)
     {
-        return $this->first_name;
+        array_walk_recursive($userData, function (&$val) {
+            return htmlspecialchars($val);
+        });
     }
+
+    //Define user data
+    public function userData()
+    {
+        $this->price = $this->userData['eve_price'];
+        $this->events = $this->userData['eve_title'];
+        $this->first_name = $this->userData['first_name'];
+        $this->last_name = $this->userData['last_name'];
+        $this->email = $this->userData['email'];
+        $this->phone = $this->userData['phone'];
+        $this->address = $this->userData['address'];
+        $this->ticket = $this->userData['ticket'];
+        $this->token = $this->userData['stripeToken'];
+    }
+
+    // Create Customer In Stripe
+    public function customerCreate()
+    {
+        $this->customer = \Stripe\Customer::create(array(
+            "email" => $this->email,
+            "source" => $this->token
+        ));
+    }
+
+    // Charge Customer
+    public function customerCharge()
+    {
+        $this->charge = \Stripe\Charge::create(array(
+            "amount" => $this->price * $this->ticket,
+            "currency" => "usd",
+            "description" => "$this->events",
+            "customer" => $this->customer->id
+        ));
+    }
+
+    // Create Customer Data
+    public function CreateCustomerData()
+    {
+        $this->customerData = [
+            'id' => $this->charge->customer,
+            'first_name' => $this->first_name,
+            'last_name' => $this->last_name,
+            'email' => $this->email,
+            'phone' => $this->phone,
+            'address' => $this->address
+        ];
+
+        // Instantiate Customer
+        $customer = new Customer();
+
+        // Add Customer To DB
+        $customer->addCustomer($this->customerData);
+    }
+
+    // Transaction Data
+    public function customerTransection()
+    {
+        $this->transactionData = [
+            'id' => $this->charge->id,
+            'customer_id' => $this->charge->customer,
+            'product' => $this->charge->description,
+            'amount' => $this->charge->amount,
+            'currency' => $this->charge->currency,
+            'ticket' => $this->ticket,
+            'status' => $this->charge->status
+        ];
+
+        // Instantiate Transaction
+        $transaction = new Transaction();
+
+        // Add Transaction To DB
+        $transaction->addTransaction($this->transactionData);
+    }
+
+    // public function get_user_info()
+    // {
+    //     return $this->userData['first_name'];
+    // }
 }
-
-// require_once('../vendor/autoload.php');
-// require_once('../config/config.php');
-// require_once('../lib/pdo_db.php');
-// require_once('../models/Customer.php');
-// require_once('../models/Transaction.php');
-
-
-
-// Sanitize POST Array
-// $POST = filter_var_array($_POST, FILTER_SANITIZE_STRING);
-
-
-
-// Create Customer In Stripe
-// $customer = \Stripe\Customer::create(array(
-//             "email" => $email,
-//             "source" => $token
-//         ));
-
-// // Charge Customer
-// $charge = \Stripe\Charge::create(array(
-//             "amount" => $price * $ticket,
-//             "currency" => "usd",
-//             "description" => "$events",
-//             "customer" => $customer->id
-//         ));
-
-// // Customer Data
-// $customerData = [
-//     'id' => $charge->customer,
-//     'first_name' => $first_name,
-//     'last_name' => $last_name,
-//     'email' => $email,
-//     'phone' => $phone,
-//     'address' => $address
-// ];
-
-// // Instantiate Customer
-// $customer = new Customer();
-
-// // Add Customer To DB
-// $customer->addCustomer($customerData);
-
-
-// // Transaction Data
-// $transactionData = [
-//     'id' => $charge->id,
-//     'customer_id' => $charge->customer,
-//     'product' => $charge->description,
-//     'amount' => $charge->amount,
-//     'currency' => $charge->currency,
-//     'ticket' => $ticket,
-//     'status' => $charge->status
-// ];
-
-// // Instantiate Transaction
-// $transaction = new Transaction();
-
-// // Add Transaction To DB
-// $transaction->addTransaction($transactionData);
-
-// // Redirect to success
-// header('Location: ../success.php?tid=' . $charge->id . '&product=' . $charge->description . '&cname=' . $first_name . ' ' . $last_name);
