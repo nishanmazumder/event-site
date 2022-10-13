@@ -40,11 +40,11 @@
                 </div>
         </div>
 </footer>--->
-<footer class="">
-    <div class="container-fluid nm_dark">
+<footer>
+    <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <p class="nm-txt-white text-center nm_mar_bott_null">All right reserved & copyright by Nishan</p>
+                <p class="nm-txt-white text-center nm_mar_bott_null">All right reserved & copyright by <a href="http://bdsoftcreation.com">BDSOFTcr</a></p>
             </div>
         </div>
     </div>

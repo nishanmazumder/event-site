@@ -59,10 +59,10 @@
                             </div>
                             <div class="form-group col-md-12">
                                 <label for="" class="col-form-label">Message</label>
-                                <textarea name="nmUserMsg" readonly><?php echo $data['msg']; ?>"</textarea>
+                                <textarea class="nm-input form-control" name="nmUserMsg" readonly><?php echo $data['msg']; ?>"</textarea>
                             </div>
                             <div class="form-group col-md-3">
-                                <a href="mail-replay.php?mailid=<?php echo $data['id']; ?>" name="nmMailReplay" class="btn btn-primary">Replay</a>
+                                <a href="mail-replay.php?mailid=<?php echo $data['id']; ?>" name="nmMailReplay" class="btn nm-btn-admin">Replay</a>
                             </div>
                         </div>
 

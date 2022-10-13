@@ -10,7 +10,7 @@
 */
 
 if (file_exists(__DIR__ . "/../../../app/init.php")) {
-    require_once __DIR__ . "/../../../app/init.php";
+    include __DIR__ . "/../../../app/init.php";
 } else {
     echo "Initialization not found " . basename(__FILE__);
 }

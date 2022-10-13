@@ -15,6 +15,10 @@ if (file_exists(__DIR__ . "/inc/header.php")) {
 } else {
     echo "Header not found " . basename(__FILE__);
 }
+
+if(empty($_SESSION['userId'])){
+    header('Location:'.BASE_URL.'/public/web/login.php?login=login');
+}
 ?>
 
 <div class="container nm-section nm-profile">

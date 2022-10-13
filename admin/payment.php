@@ -95,7 +95,7 @@ include("inc/header.php");
             . "WHERE customers.id = transactions.customer_id "
             . "ORDER BY transactions.created_at DESC";
     $q_result = $db->select($p_query);
-    $total_rows = mysqli_num_rows($q_result);
+    $total_rows = $q_result->rowCount();
     $total_pages = ceil($total_rows / $per_page_post);
 
     if ($total_rows <= $per_page_post) {

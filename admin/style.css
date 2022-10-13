@@ -1,9 +1,11 @@
-/* 
-Template Name: Rech
-Template URI: www.Rech.com
-Author: Nishan Mazumder
-Author URI: www.mazumderdeveloper.com
-Version: 1.0
+/*
+Theme Name : Events
+Description: This is a Events website
+Author Name: Md Rashidul Azam
+Mobile     : +8801910035835
+Author URI : https://www.bdsoftcreation.com/
+Tags       : Events, Listing, B2B, OOP
+Version    : 1.0.1
 */
 
 /* ==========================================================================
@@ -167,7 +169,7 @@ img{}
 }
 .custom-select {
     padding: 2px 10px !important;
-    
+
 }
 
 /*********************
@@ -197,10 +199,13 @@ nav{
     vertical-align: middle;
 }
 
-.nm_left_sidemenu{
-    /* height: calc(650px - 10px); */
-
+.nm_admin_left{
+    background-color: #242431;
 }
+
+/* .nm_left_sidemenu{
+    height: calc(650px - 10px);
+} */
 
 .nm_left_sidemenu a{
     padding: 18px;
@@ -246,7 +251,6 @@ nav{
     height: 100%;
     top: 0;
     left: 0;
-    background-color: #242431;
 }
 
 #contentRight {
@@ -689,7 +693,7 @@ nav{
 .fixed-table .table-content{
   display: block;
   position: relative;
-  height: calc(650px - 100px);  
+  height: calc(650px - 100px);
   overflow-y: auto;
 }
 .fixed-table .table-copy, .fixed-table .header-copy{
@@ -698,7 +702,7 @@ nav{
   left: 0;
   z-index: 1020;
   background-color:#9E9EAD;
-} 
+}
 */
 
 /*tooltip for chat & more option*/
@@ -858,8 +862,8 @@ nav{
 }
 
 footer{
-    background: #fff;
-    /***padding: 20px 0px 0px 0px;****/
+    background: #242431;
+    padding: 10px;
 }
 
 footer nav {
@@ -1099,7 +1103,7 @@ footer .page-link:hover{
             width: 480px;
             margin-bottom: 0px;
     }
-    
+
     .nm_left_sidemenu ul li a{
             padding: 18px;
             display: flex;

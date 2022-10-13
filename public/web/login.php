@@ -8,6 +8,14 @@
 |
 */
 
+// use App\Model\Session;
+
+// if (file_exists(__DIR__ . "/../../app/init.php")) {
+//     require_once __DIR__ . "/../../app/init.php";
+// } else {
+//     echo "Initialization not found " . basename(__FILE__);
+// }
+
 // Header
 
 if (file_exists(__DIR__ . "/inc/header.php")) {
@@ -83,14 +91,11 @@ if (file_exists(__DIR__ . "/inc/header.php")) {
 
                     if ($result != FALSE) {
                         $value = $result->fetch(PDO::FETCH_ASSOC);
-
-                        Session::set('login', TRUE);
-                        Session::set("user", $value['nm_username']);
-                        Session::set("userId", $value['id']);
-                        Session::set("userRole", $value['role']);
-
-                        header('Location: profile.php');
-                        exit;
+                        if (function_exists('send_session_data')) {
+                            send_session_data($value['nm_username'], $value['id'], $value['role']);
+                            header('Location: profile.php');
+                            exit;
+                        }
                     } else {
                         echo '<p style="color: red;">User or Password dose not match</p>';
                     }

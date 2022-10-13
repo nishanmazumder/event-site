@@ -20,8 +20,6 @@ if (file_exists(__DIR__ . "/../../vendor/autoload.php")) {
 use Config\Connection;
 use App\Model\Session;
 
-// require_once '../config/config.php';
-
 class UserLogin extends Connection
 {
 
@@ -51,6 +49,7 @@ class UserLogin extends Connection
             //$_SESSION['return_url'] = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
         } else {
             header('Location: ' . BASE_URL . 'admin/public/index.php?login_error');
+            exit;
         }
     }
 

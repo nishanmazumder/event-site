@@ -1,51 +1,24 @@
 <?php
+
 /*
 |--------------------------------------------------------------------------
-| Load Auto Loader
+| Initialization
 |--------------------------------------------------------------------------
 |
-| Composer
+| Load all configuration, global var, class, models
 |
 */
-if (file_exists(__DIR__ . "/../../vendor/autoload.php")) {
-    require_once __DIR__ . "/../../vendor/autoload.php";
+
+if (file_exists(__DIR__ . "/../../app/init.php")) {
+    require_once __DIR__ . "/../../app/init.php";
 } else {
-    echo "Autoloader not found! " . basename(__FILE__);
+    echo "Initialization not found " . basename(__FILE__);
 }
-
-/*
-|--------------------------------------------------------------------------
-| Load Models
-|--------------------------------------------------------------------------
-|
-| Load all essential classes...
-|
-*/
-use App\Model\Session;
-use App\Model\Database;
-use App\Model\Format;
-use App\Model\UserLogin;
-Session::init();
-$db = new Database();
-$fm = new Format();
-
-$userId = Session::get('user_id');
-$userName = Session::get('user_name');
-$userRole = Session::get('user_role');
 
 if(empty($_SESSION['user_id'])){
     header('Location:'.BASE_URL.'admin');
 }
-
-if (isset($_GET['action']) && $_GET['action'] == 'logout') {
-    $login = new UserLogin();
-    $login->user_logout();
-
-    header('Location:'.BASE_URL.'admin/public');
-}
-
 ?>
-
 
 <!doctype html>
 <html lang="en">
@@ -101,16 +74,16 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                             </a>
 
                         </li>
-                        <li class="nav-item nm_display_hide">
+                        <li class="nav-item">
                             <a class="nav-link" href="#"><img src="img/menuicon1.png" alt="" /><span class="nm_menu_item">Dashboard</span></a>
                         </li>
-                        <li class="nav-item nm_display_hide">
+                        <li class="nav-item">
                             <a class="nav-link" href="#"><img src="img/menuicon2.png" alt="" /><span class="nm_menu_item nm_mar_left_68">New Lead</span></a>
                         </li>
-                        <li class="nav-item nm_display_hide">
+                        <li class="nav-item">
                             <a class="nav-link" href="#"><img src="img/menuicon3.png" alt="" /><span class="nm_menu_item">Lead</span></a>
                         </li>
-                        <li class="nav-item nm_display_hide">
+                        <li class="nav-item">
                             <a class="nav-link" href="#"><img src="img/menuicon4.png" alt="" /><span class="nm_menu_item">Settings</span></a>
                         </li>
                         <li class="nav-item">

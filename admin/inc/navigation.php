@@ -2,7 +2,7 @@
     <div class="container-fluid nm_no_pad">
         <div class="row no-gutters">
 
-            <div class="col-lg-2 col-md-2 col-sm-2">
+            <div class="col-lg-2 col-md-2 col-sm-2 nm_admin_left">
                 <!--Left navigation-->
                 <div class="nm_left_sidemenu">
                     <div id="contentWrapper">
