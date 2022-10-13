@@ -23,10 +23,10 @@
             <!--Content-->
             <?php
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                $title = mysqli_real_escape_string($db->link, $_POST['nm_about_title']);
-                $subtitle = mysqli_real_escape_string($db->link, $_POST['nm_about_sub']);
-                $buttonlink = mysqli_real_escape_string($db->link, $_POST['nm_btn_link']);
-                $description = mysqli_real_escape_string($db->link, $_POST['nm_des']);
+                $title =$_POST['nm_about_title'];
+                $subtitle = $_POST['nm_about_sub'];
+                $buttonlink = $_POST['nm_btn_link'];
+                $description = $_POST['nm_des'];
 
                 $permited = array('jpg', 'jpeg', 'png', 'gif');
 

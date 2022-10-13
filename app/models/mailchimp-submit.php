@@ -1,6 +1,6 @@
 <?php
 
-include('../lib/MailChimp.php');
+include('MailChimp.php');
 
 use \DrewM\MailChimp\MailChimp;
 
